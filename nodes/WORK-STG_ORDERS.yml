@@ -156,7 +156,7 @@ operation:
         join:
           joinCondition: |-
             FROM {{ ref('SRC', 'ORDERS') }} "ORDERS"
-            WHERE O_ORDERSTATUS = '{{ parameters.O_Status }}'
+            WHERE O_ORDERSTATUS = '{{ parameters.O_ORDERSTATUS }}'
         name: STG_ORDERS
         noLinkRefs: []
   name: STG_ORDERS
