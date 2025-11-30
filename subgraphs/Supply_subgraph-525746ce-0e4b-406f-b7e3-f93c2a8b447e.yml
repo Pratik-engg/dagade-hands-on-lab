@@ -1,0 +1,9 @@
+fileVersion: 1
+id: 525746ce-0e4b-406f-b7e3-f93c2a8b447e
+name: Supply_subgraph
+steps:
+  - 19626e04-0fa9-4093-a99b-acd9269bb744
+  - cae6c7c8-304e-4721-a540-0e24acbee88e
+  - cf709dcf-f402-4ca8-9d12-f33567f52da8
+  - fbeef231-52e6-4040-a4c6-5c8c5920cc9e
+type: Subgraph
