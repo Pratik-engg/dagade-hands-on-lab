@@ -1,0 +1,6 @@
+excludeSelector: ""
+fileVersion: 1
+id: "7"
+includeSelector: "{ location: TARGET name: STG_NODE }"
+name: Practice_ticket24
+type: Job
