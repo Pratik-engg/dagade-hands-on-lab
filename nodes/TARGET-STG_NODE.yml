@@ -29,7 +29,7 @@ operation:
         defaultValue: ""
         description: ""
         keyColumnType: None
-        name: TEST_FLAG
+        name: TEST_FLAG_
         nullable: true
         sourceColumnReferences:
           - columnReferences:
