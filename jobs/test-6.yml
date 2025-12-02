@@ -1,6 +1,0 @@
-excludeSelector: "{ location: WORK name: DIM_CUSTOMER } OR { location: WORK name: DIM_PART } OR { location: WORK name: DIM_SUPPLIER }"
-fileVersion: 1
-id: "6"
-includeSelector: "+{ subgraph: \"Supply_1ststage\" } OR +{ subgraph: \"Supply_subgraph\" }"
-name: test
-type: Job
