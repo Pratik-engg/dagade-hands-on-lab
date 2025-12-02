@@ -1,0 +1,8 @@
+fileVersion: 1
+id: 95beda1e-1ef2-4da5-8925-5b8be9faf26b
+name: Supply_1ststage
+steps:
+  - 59296e40-b3db-46d7-9405-16da495c6564
+  - 6f53145b-b1a3-4597-8508-f9a231521906
+  - a5c005eb-3b5e-4ae8-afb0-ed7945589384
+type: Subgraph
