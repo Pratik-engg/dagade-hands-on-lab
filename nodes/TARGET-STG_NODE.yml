@@ -25,7 +25,7 @@ operation:
           columnCounter: 9e3385a4-ca89-4610-8221-9b5d0b107501
           stepCounter: 7806b8eb-26f8-4da5-87ad-694453a6aef2
         config: {}
-        dataType: BOOLEAN
+        dataType: INTEGER
         defaultValue: ""
         description: ""
         keyColumnType: None
@@ -45,7 +45,7 @@ operation:
           columnCounter: 60305bdf-7377-4d0c-b56e-d3e469a5adf6
           stepCounter: 7806b8eb-26f8-4da5-87ad-694453a6aef2
         config: {}
-        dataType: NUMBER(10,5)
+        dataType: NUMBER(10,7)
         defaultValue: ""
         description: ""
         keyColumnType: None
