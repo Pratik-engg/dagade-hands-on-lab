@@ -57,6 +57,26 @@ operation:
                 stepCounter: "0"
             transform: ""
         systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 35fac5dc-ae72-43fc-ac25-c9d92ba79b98
+          stepCounter: 7806b8eb-26f8-4da5-87ad-694453a6aef2
+        config: {}
+        dataType: VARCHAR(5)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: Test_Branch
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+        systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
