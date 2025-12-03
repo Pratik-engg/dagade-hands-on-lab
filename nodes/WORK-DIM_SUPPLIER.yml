@@ -3,8 +3,32 @@ id: ba10f1fa-bd92-488a-befe-cb5fa29f3cd8
 name: DIM_SUPPLIER
 operation:
   config:
-    postSQL: ""
-    preSQL: ""
+    postSQL: |-
+      UPDATE {{ ref_no_link('WORK', 'STG_SUPPLIER') }}
+      SET "S_ADDRESS" = SUBSTRING("S_ADDRESS", 1, 10) || '***'
+      WHERE "S_ACCTBAL" < 5000;
+
+      {{stage('INSERT VALUES INTO THE LOG PROCESS TABLE')}}
+
+      --INSERT VALUES INTO THE LOG PROCESS TABLE
+      INSERT INTO DAGADE.WORKDEV.PROCESS_LOG_NINE (PROCESS_NAME, START_TIME, END_TIME, STATUS, RECORD_COUNT)
+      VALUES (
+          'Supplier Load Process',
+          CURRENT_TIMESTAMP,    -- start time
+          CURRENT_TIMESTAMP,    -- end time (update with actual end time if available)
+          'SUCCESS',
+          (SELECT COUNT(*) FROM {{ ref_no_link('WORK', 'STG_SUPPLIER') }})
+      );
+    preSQL: |-
+      CREATE TABLE DAGADE.WORKDEV.PROCESS_LOG_NINE ( 
+          -- DATABASE.SCHEMA.TABLE
+          LOG_ID NUMBER IDENTITY(1,1),
+          PROCESS_NAME VARCHAR(100),
+          START_TIME TIMESTAMP,
+          END_TIME TIMESTAMP,
+          STATUS VARCHAR(20),
+          RECORD_COUNT NUMBER
+      );
     testsEnabled: true
   database: ""
   deployEnabled: true

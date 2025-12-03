@@ -7,7 +7,7 @@ operation:
     postSQL: ""
     preSQL: ""
     testsEnabled: true
-    truncateBefore: true
+    truncateBefore: false
   database: ""
   deployEnabled: true
   description: Nation data as defined by TPC-H
@@ -15,7 +15,14 @@ operation:
   locationName: WORK
   materializationType: table
   metadata:
-    appliedNodeTests: []
+    appliedNodeTests:
+      - continueOnFailure: false
+        description: ""
+        name: Test
+        runOrder: Before
+        templateString: |-
+          select * from {{ref_no_link('SRC','NATION')}}
+          where N_NATIONKEY = 24
     columns:
       - appliedColumnTests: {}
         columnReference:
