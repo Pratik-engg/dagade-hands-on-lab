@@ -33,34 +33,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 60f81736-7d6e-40f5-af16-ec003c05f3a5
-          stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
-        config: {}
-        dataType: NUMBER
-        description: ""
-        name: DIM_PART_KEY
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 95159ec4-fe86-484c-82f9-461742b668a5
-                stepCounter: 3bda308b-567a-4e44-9614-aea980b88420
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 11456dfc-2202-48ee-9f16-252e5bbe31df
-          stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
-        config: {}
-        dataType: NUMBER
-        description: ""
-        name: DIM_SUPPLIER_KEY
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: be5ef912-d795-43ed-9ceb-a58268773655
-                stepCounter: ba10f1fa-bd92-488a-befe-cb5fa29f3cd8
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: 36e63e0f-e0be-4b18-9201-aa208bc04a2e
           stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
         config: {}
@@ -437,64 +409,21 @@ operation:
               - columnCounter: 012d4e64-2e0d-4dfe-b96e-4a21c9505a33
                 stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
             transform: ""
-      - acceptedValues:
-          strictMatch: false
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: c694c6ce-08e2-450c-9f33-d62267723269
-          stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
-        config: {}
-        dataType: NUMBER(38,0)
-        description: ""
-        name: PS_AVAILQTY
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: ab8f2afd-c08f-4e41-bb15-47fac4e7f5b8
-                stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
-            transform: ""
-      - acceptedValues:
-          strictMatch: false
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: e4a56c29-dec2-4fa7-b51f-c62aa6dd8742
-          stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
-        config: {}
-        dataType: NUMBER(12,2)
-        description: ""
-        name: PS_SUPPLYCOST
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 257b121f-2fce-453e-bd6e-e899c11fd1af
-                stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
-            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
           DIM_CUSTOMER: 0a502e95-88db-45da-9756-e03cade2d37c
-          DIM_PART: 3bda308b-567a-4e44-9614-aea980b88420
-          DIM_SUPPLIER: ba10f1fa-bd92-488a-befe-cb5fa29f3cd8
           STG_LINEITEM_ORDERS: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
-          STG_PARTSUPP: cf709dcf-f402-4ca8-9d12-f33567f52da8
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: WORK
             nodeName: DIM_CUSTOMER
           - locationName: WORK
-            nodeName: DIM_PART
-          - locationName: WORK
-            nodeName: DIM_SUPPLIER
-          - locationName: WORK
             nodeName: STG_LINEITEM_ORDERS
-          - locationName: WORK
-            nodeName: STG_PARTSUPP
         join:
-          joinCondition: |-
+          joinCondition: |+
             FROM {{ ref('WORK', 'STG_LINEITEM_ORDERS') }} "STG_LINEITEM_ORDERS"
 
             LEFT JOIN {{ ref('WORK', 'DIM_CUSTOMER') }} "DIM_CUSTOMER"
@@ -503,21 +432,7 @@ operation:
 
             AND "STG_LINEITEM_ORDERS"."O_ORDERDATE" BETWEEN "DIM_CUSTOMER"."SYSTEM_START_DATE" AND "DIM_CUSTOMER"."SYSTEM_END_DATE"
 
-            /* The dimension lookup will not yield any matches due to a lack of historical data in the customer dimension. */
 
-            LEFT JOIN {{ ref('WORK', 'DIM_PART') }} "DIM_PART"
-
-            ON "STG_LINEITEM_ORDERS"."L_PARTKEY" = "DIM_PART"."P_PARTKEY"
-
-            LEFT JOIN {{ ref('WORK', 'DIM_SUPPLIER') }} "DIM_SUPPLIER"
-
-            ON "STG_LINEITEM_ORDERS"."L_SUPPKEY" = "DIM_SUPPLIER"."S_SUPPKEY"
-
-            LEFT JOIN {{ ref('WORK', 'STG_PARTSUPP') }} "STG_PARTSUPP"
-
-            ON "STG_LINEITEM_ORDERS"."L_PARTKEY" = "STG_PARTSUPP"."PS_PARTKEY" AND
-
-            "STG_LINEITEM_ORDERS"."L_SUPPKEY" = "STG_PARTSUPP"."PS_SUPPKEY"
         name: STG_LINEITEM_ORDERS_DIM_LOOKUP
         noLinkRefs: []
   name: STG_LINEITEM_ORDERS_DIM_LOOKUP

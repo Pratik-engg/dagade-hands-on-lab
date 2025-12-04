@@ -31,34 +31,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: beb10c5b-f165-423c-9df2-5b85138402a1
-          stepCounter: cae6c7c8-304e-4721-a540-0e24acbee88e
-        config: {}
-        dataType: NUMBER
-        description: ""
-        name: DIM_PART_KEY
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 60f81736-7d6e-40f5-af16-ec003c05f3a5
-                stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 199c4af9-c66a-4628-ab22-9043b6acfd66
-          stepCounter: cae6c7c8-304e-4721-a540-0e24acbee88e
-        config: {}
-        dataType: NUMBER
-        description: ""
-        name: DIM_SUPPLIER_KEY
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 11456dfc-2202-48ee-9f16-252e5bbe31df
-                stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: 71480f2f-2d94-4c11-a141-e9467c164943
           stepCounter: cae6c7c8-304e-4721-a540-0e24acbee88e
         config: {}
@@ -469,52 +441,24 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: false
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: 1ce0e2f2-c2da-47af-9bb2-f12e204f6c19
-          stepCounter: cae6c7c8-304e-4721-a540-0e24acbee88e
-        config: {}
-        dataType: NUMBER(38,0)
-        description: ""
-        name: PS_AVAILQTY
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: c694c6ce-08e2-450c-9f33-d62267723269
-                stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
-            transform: ""
-      - acceptedValues:
-          strictMatch: false
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: f3dd3ca9-cbc7-412a-9267-4b03511c596a
-          stepCounter: cae6c7c8-304e-4721-a540-0e24acbee88e
-        config: {}
-        dataType: NUMBER(12,2)
-        description: ""
-        name: PS_SUPPLYCOST
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: e4a56c29-dec2-4fa7-b51f-c62aa6dd8742
-                stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
-            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
+          DIM_CUSTOMER: 0a502e95-88db-45da-9756-e03cade2d37c
           STG_LINEITEM_ORDERS_DIM_LOOKUP: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: WORK
+            nodeName: DIM_CUSTOMER
+          - locationName: WORK
             nodeName: STG_LINEITEM_ORDERS_DIM_LOOKUP
         join:
-          joinCondition: FROM {{ ref('WORK', 'STG_LINEITEM_ORDERS_DIM_LOOKUP') }} "STG_LINEITEM_ORDERS_DIM_LOOKUP"
+          joinCondition: |-
+            FROM {{ ref('WORK', 'STG_LINEITEM_ORDERS_DIM_LOOKUP') }} "STG_LINEITEM_ORDERS_DIM_LOOKUP"
+            LEFT JOIN {{ ref('WORK', 'DIM_CUSTOMER') }} "DIM_CUSTOMER"
+            ON "STG_LINEITEM_ORDERS_DIM_LOOKUP"."O_CUSTKEY" = "DIM_CUSTOMER"."C_CUSTKEY"
         name: FCT_LINEITEM_ORDERS_DIM_LOOKUP
         noLinkRefs: []
   name: FCT_LINEITEM_ORDERS_DIM_LOOKUP
