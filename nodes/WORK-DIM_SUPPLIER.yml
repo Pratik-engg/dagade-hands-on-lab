@@ -6,7 +6,7 @@ operation:
     postSQL: |-
       UPDATE {{ ref_no_link('WORK', 'STG_SUPPLIER') }}
       SET "S_ADDRESS" = SUBSTRING("S_ADDRESS", 1, 10) || '***'
-      WHERE "S_ACCTBAL" < 5000;
+      WHERE "S_ACCTBAL" > 5000;
 
       {{stage('INSERT VALUES INTO THE LOG PROCESS TABLE')}}
 
