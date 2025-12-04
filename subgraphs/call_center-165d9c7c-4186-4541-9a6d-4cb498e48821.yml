@@ -1,0 +1,7 @@
+fileVersion: 1
+id: 165d9c7c-4186-4541-9a6d-4cb498e48821
+name: call_center
+steps:
+  - 248a4a29-9c29-4088-b789-7df5f307e62f
+  - 7a17aa79-82de-494e-8e4e-f6199f8de499
+type: Subgraph

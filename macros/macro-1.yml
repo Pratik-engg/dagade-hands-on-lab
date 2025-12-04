@@ -1,0 +1,8 @@
+fileVersion: 1
+id: "1"
+macroString: |
+  {% macro clean_phone_number(column_name) %}
+      REPLACE({{ column_name }}, '-', '') 
+  {% endmacro %}
+name: macro
+type: Macro
