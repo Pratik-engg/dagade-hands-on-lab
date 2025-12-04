@@ -6,6 +6,6 @@ mappingDefinitions:
     schema: TPCH_SF1
   TARGET:
     database: PRATIK
-    schema: WORKDEV
+    schema: WORKTEST
 name: Testing
 type: Environment
