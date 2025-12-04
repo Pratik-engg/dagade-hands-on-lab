@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: Supplier data as defined by TPC-H
   isMultisource: false
-  locationName: WORK
+  locationName: CHANGE_NAME
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -28,8 +28,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 4a681690-2e10-42a8-88db-ce1ecdb33e35
-                stepCounter: a5ed9edc-b196-4d47-a144-f6808de1e026
+              - columnCounter: 8104f032-b47e-4dbc-8a48-3e6943e5b75f
+                stepCounter: c956bd0e-42e6-47cf-aa54-9487d06fe2bb
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -42,9 +42,9 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 1f121ffc-2086-4212-9733-b513fb328174
-                stepCounter: a5ed9edc-b196-4d47-a144-f6808de1e026
-            transform: ""
+              - columnCounter: 7b041347-91a5-4773-a9ec-6297f689759a
+                stepCounter: c956bd0e-42e6-47cf-aa54-9487d06fe2bb
+            transform: CONCAT("SUPPLIER"."S_NAME",'don')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: fc5e69e9-a3af-447e-9bb8-a563ef363e61
@@ -56,8 +56,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 8eeb0c06-7bab-4bff-a060-15d9e5fbf2a0
-                stepCounter: a5ed9edc-b196-4d47-a144-f6808de1e026
+              - columnCounter: 0ac4193a-c4f6-42a6-83a1-bad12e3de6b6
+                stepCounter: c956bd0e-42e6-47cf-aa54-9487d06fe2bb
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -70,8 +70,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 837114a7-fd60-4762-91e5-fffcc63429f5
-                stepCounter: a5ed9edc-b196-4d47-a144-f6808de1e026
+              - columnCounter: 4b2f34af-9d56-4a18-b5f6-fd8b21b4fa07
+                stepCounter: c956bd0e-42e6-47cf-aa54-9487d06fe2bb
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -84,8 +84,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 498aed6d-9bd6-47cd-8303-4fa17dc608dd
-                stepCounter: a5ed9edc-b196-4d47-a144-f6808de1e026
+              - columnCounter: 0aebea23-b611-438b-a0b4-c56577c1b20d
+                stepCounter: c956bd0e-42e6-47cf-aa54-9487d06fe2bb
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -98,8 +98,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 6a2be51d-87bf-4062-904f-7df9e799d221
-                stepCounter: a5ed9edc-b196-4d47-a144-f6808de1e026
+              - columnCounter: 2ce220ac-7dac-4577-b761-f0c5104fe0ca
+                stepCounter: c956bd0e-42e6-47cf-aa54-9487d06fe2bb
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -112,21 +112,23 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 4e1959c9-923e-4c25-bb31-6a3b854108da
-                stepCounter: a5ed9edc-b196-4d47-a144-f6808de1e026
+              - columnCounter: aab5a2c7-2b33-4f9c-bf65-cdae66029b87
+                stepCounter: c956bd0e-42e6-47cf-aa54-9487d06fe2bb
             transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          SUPPLIER: a5ed9edc-b196-4d47-a144-f6808de1e026
+          SUPPLIER: c956bd0e-42e6-47cf-aa54-9487d06fe2bb
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: SRC
             nodeName: SUPPLIER
         join:
-          joinCondition: FROM {{ ref('SRC', 'SUPPLIER') }} "SUPPLIER"
+          joinCondition: |-
+            FROM {{ ref('SRC', 'SUPPLIER') }} "SUPPLIER"
+            where "SUPPLIER"."S_SUPPKEY"='7'
         name: STG_SUPPLIER
         noLinkRefs: []
   name: STG_SUPPLIER

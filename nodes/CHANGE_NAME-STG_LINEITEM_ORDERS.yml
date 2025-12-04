@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: WORK
+  locationName: CHANGE_NAME
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -86,20 +86,6 @@ operation:
           - columnReferences:
               - columnCounter: a4f17270-9c20-4df9-8c5e-27387644c887
                 stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 8818eed6-77f9-456f-83dd-13625a9044ac
-          stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
-        config: {}
-        dataType: NUMBER(12,2)
-        description: ""
-        name: O_TOTALPRICE
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: d1e59ae5-71f0-4510-a0fc-391fd943a892
-                stepCounter: a2220834-bf7f-4a79-932b-e8949fbac991
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -429,6 +415,23 @@ operation:
                 stepCounter: "0"
             transform: DATEDIFF('DAY',"STG_ORDERS"."O_ORDERDATE","STG_LINEITEM"."L_SHIPDATE")
         systemColumnType: None
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: c4813ff4-2636-47e7-b730-98b1d70c1943
+          stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: O_TOTALPRICE_RUPEES
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 08f91401-9b1b-4393-abd8-65df320be702
+                stepCounter: a2220834-bf7f-4a79-932b-e8949fbac991
+            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
@@ -439,21 +442,21 @@ operation:
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: WORK
+          - locationName: CHANGE_NAME
             nodeName: STG_LINEITEM
-          - locationName: WORK
+          - locationName: CHANGE_NAME
             nodeName: STG_ORDERS
-          - locationName: WORK
+          - locationName: CHANGE_NAME
             nodeName: STG_PARTSUPP
         join:
           joinCondition: |-
-            FROM {{ ref('WORK', 'STG_ORDERS') }} "STG_ORDERS"
+            FROM {{ ref('CHANGE_NAME', 'STG_ORDERS') }} "STG_ORDERS"
 
-            INNER JOIN {{ ref('WORK', 'STG_LINEITEM') }} "STG_LINEITEM"
+            INNER JOIN {{ ref('CHANGE_NAME', 'STG_LINEITEM') }} "STG_LINEITEM"
 
             ON "STG_ORDERS"."O_ORDERKEY" = "STG_LINEITEM"."L_ORDERKEY"
 
-            INNER JOIN {{ ref('WORK', 'STG_PARTSUPP') }} "STG_PARTSUPP"
+            INNER JOIN {{ ref('CHANGE_NAME', 'STG_PARTSUPP') }} "STG_PARTSUPP"
 
             ON "STG_LINEITEM"."L_PARTKEY" = "STG_PARTSUPP"."PS_PARTKEY" AND "STG_LINEITEM"."L_SUPPKEY" = "STG_PARTSUPP"."PS_SUPPKEY"
         name: STG_LINEITEM_ORDERS

@@ -10,7 +10,7 @@ operation:
   deployEnabled: true
   description: Part data as defined by TPC-H
   isMultisource: false
-  locationName: WORK
+  locationName: CHANGE_NAME
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -269,10 +269,10 @@ operation:
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: WORK
+          - locationName: CHANGE_NAME
             nodeName: STG_PART
         join:
-          joinCondition: FROM {{ ref('WORK', 'STG_PART') }} "STG_PART"
+          joinCondition: FROM {{ ref('CHANGE_NAME', 'STG_PART') }} "STG_PART"
         name: DIM_PART
         noLinkRefs: []
   name: DIM_PART

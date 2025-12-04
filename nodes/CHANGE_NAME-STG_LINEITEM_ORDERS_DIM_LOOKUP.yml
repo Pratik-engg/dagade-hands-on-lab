@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: WORK
+  locationName: CHANGE_NAME
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -28,8 +28,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: c24866f7-bc2b-4bde-94c2-8d4fe135ec39
-                stepCounter: 0a502e95-88db-45da-9756-e03cade2d37c
+              - columnCounter: 7995811d-2fed-41f6-9bb2-cd98107f6f13
+                stepCounter: a091f08b-3b3d-4003-989f-14bdea28c957
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -56,8 +56,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: be5ef912-d795-43ed-9ceb-a58268773655
-                stepCounter: ba10f1fa-bd92-488a-befe-cb5fa29f3cd8
+              - columnCounter: 0d6a9a25-1a0a-4fea-bf4a-77f070ccbe2c
+                stepCounter: 07c13073-b802-4501-9811-e662c7aeb727
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -99,20 +99,6 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 13a664b7-d87a-4dea-9d79-a94a52c167c0
-                stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: c9e59194-3090-4863-a0a3-c725b45a0fdf
-          stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
-        config: {}
-        dataType: NUMBER(12,2)
-        description: ""
-        name: O_TOTALPRICE
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 8818eed6-77f9-456f-83dd-13625a9044ac
                 stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
             transform: ""
       - appliedColumnTests: {}
@@ -471,33 +457,50 @@ operation:
               - columnCounter: 257b121f-2fce-453e-bd6e-e899c11fd1af
                 stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
             transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3b6c5f07-bd5b-49b7-9dc0-6de6c6a595ec
+          stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: O_TOTALPRICE_RUPEES
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c4813ff4-2636-47e7-b730-98b1d70c1943
+                stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
+            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          DIM_CUSTOMER: 0a502e95-88db-45da-9756-e03cade2d37c
+          DIM_CUSTOMER: a091f08b-3b3d-4003-989f-14bdea28c957
           DIM_PART: 3bda308b-567a-4e44-9614-aea980b88420
-          DIM_SUPPLIER: ba10f1fa-bd92-488a-befe-cb5fa29f3cd8
+          DIM_SUPPLIER: 07c13073-b802-4501-9811-e662c7aeb727
           STG_LINEITEM_ORDERS: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
           STG_PARTSUPP: cf709dcf-f402-4ca8-9d12-f33567f52da8
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: WORK
+          - locationName: CHANGE_NAME
             nodeName: DIM_CUSTOMER
-          - locationName: WORK
+          - locationName: CHANGE_NAME
             nodeName: DIM_PART
-          - locationName: WORK
+          - locationName: CHANGE_NAME
             nodeName: DIM_SUPPLIER
-          - locationName: WORK
+          - locationName: CHANGE_NAME
             nodeName: STG_LINEITEM_ORDERS
-          - locationName: WORK
+          - locationName: CHANGE_NAME
             nodeName: STG_PARTSUPP
         join:
           joinCondition: |-
-            FROM {{ ref('WORK', 'STG_LINEITEM_ORDERS') }} "STG_LINEITEM_ORDERS"
+            FROM {{ ref('CHANGE_NAME', 'STG_LINEITEM_ORDERS') }} "STG_LINEITEM_ORDERS"
 
-            LEFT JOIN {{ ref('WORK', 'DIM_CUSTOMER') }} "DIM_CUSTOMER"
+            LEFT JOIN {{ ref('CHANGE_NAME', 'DIM_CUSTOMER') }} "DIM_CUSTOMER"
 
             ON "STG_LINEITEM_ORDERS"."O_CUSTKEY" = "DIM_CUSTOMER"."C_CUSTKEY"
 
@@ -505,15 +508,15 @@ operation:
 
             /* The dimension lookup will not yield any matches due to a lack of historical data in the customer dimension. */
 
-            LEFT JOIN {{ ref('WORK', 'DIM_PART') }} "DIM_PART"
+            LEFT JOIN {{ ref('CHANGE_NAME', 'DIM_PART') }} "DIM_PART"
 
             ON "STG_LINEITEM_ORDERS"."L_PARTKEY" = "DIM_PART"."P_PARTKEY"
 
-            LEFT JOIN {{ ref('WORK', 'DIM_SUPPLIER') }} "DIM_SUPPLIER"
+            LEFT JOIN {{ ref('CHANGE_NAME', 'DIM_SUPPLIER') }} "DIM_SUPPLIER"
 
             ON "STG_LINEITEM_ORDERS"."L_SUPPKEY" = "DIM_SUPPLIER"."S_SUPPKEY"
 
-            LEFT JOIN {{ ref('WORK', 'STG_PARTSUPP') }} "STG_PARTSUPP"
+            LEFT JOIN {{ ref('CHANGE_NAME', 'STG_PARTSUPP') }} "STG_PARTSUPP"
 
             ON "STG_LINEITEM_ORDERS"."L_PARTKEY" = "STG_PARTSUPP"."PS_PARTKEY" AND
 

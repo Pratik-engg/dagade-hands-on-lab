@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: Partsupp data as defined by TPC-H
   isMultisource: false
-  locationName: WORK
+  locationName: CHANGE_NAME
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -28,8 +28,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 542ecb7a-83a7-43c1-aae7-b01891b4ad59
-                stepCounter: 19626e04-0fa9-4093-a99b-acd9269bb744
+              - columnCounter: 3231da81-6da7-4289-885e-6c5b7caa7292
+                stepCounter: 3f6f7baf-470f-4ddd-bf74-e1930b76d1c7
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -42,8 +42,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 8f0ce9aa-2d93-4192-9be8-7932e3b97794
-                stepCounter: 19626e04-0fa9-4093-a99b-acd9269bb744
+              - columnCounter: 949768e2-c589-43e9-8581-0f4ac8387d29
+                stepCounter: 3f6f7baf-470f-4ddd-bf74-e1930b76d1c7
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -56,8 +56,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 4d6e5104-da61-4f5f-81ce-d82d8c8a392d
-                stepCounter: 19626e04-0fa9-4093-a99b-acd9269bb744
+              - columnCounter: ccc422bc-5093-436f-9e5a-fc6719b72623
+                stepCounter: 3f6f7baf-470f-4ddd-bf74-e1930b76d1c7
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -70,8 +70,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 361808c3-0787-4894-b037-7c98dc56907d
-                stepCounter: 19626e04-0fa9-4093-a99b-acd9269bb744
+              - columnCounter: aee09864-8580-4d3b-a2ff-f5c15d52f9ff
+                stepCounter: 3f6f7baf-470f-4ddd-bf74-e1930b76d1c7
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -84,8 +84,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 3c860330-1894-4401-97ff-f40746a02d83
-                stepCounter: 19626e04-0fa9-4093-a99b-acd9269bb744
+              - columnCounter: 95bc5cca-61d2-4778-86aa-8a4fa00da1e0
+                stepCounter: 3f6f7baf-470f-4ddd-bf74-e1930b76d1c7
             transform: ""
     cteString: ""
     enabledColumnTestIDs: []

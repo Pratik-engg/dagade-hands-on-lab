@@ -12,7 +12,7 @@ operation:
   deployEnabled: true
   description: Region data as defined by TPC-H
   isMultisource: false
-  locationName: WORK
+  locationName: CHANGE_NAME
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -28,8 +28,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: b26b24dc-db13-4d22-925b-13570334c156
-                stepCounter: ff1ce864-d355-431c-944c-cc7b602bc001
+              - columnCounter: f1d6c50e-de3e-4776-b57a-5e9291d00d42
+                stepCounter: 9c6ea62c-9c89-4729-a8c3-df52bee16672
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -42,8 +42,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 1327617b-c208-426e-9903-48af4f31f29d
-                stepCounter: ff1ce864-d355-431c-944c-cc7b602bc001
+              - columnCounter: 0d1be040-6278-43a7-8540-27d572acf7e1
+                stepCounter: 9c6ea62c-9c89-4729-a8c3-df52bee16672
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -56,14 +56,14 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 5b30c312-8c6b-4204-90bb-f68d8d82f24f
-                stepCounter: ff1ce864-d355-431c-944c-cc7b602bc001
+              - columnCounter: 05530557-6858-4848-a685-41e4f832b818
+                stepCounter: 9c6ea62c-9c89-4729-a8c3-df52bee16672
             transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          REGION: ff1ce864-d355-431c-944c-cc7b602bc001
+          REGION: 9c6ea62c-9c89-4729-a8c3-df52bee16672
         customSQL:
           customSQL: ""
         dependencies:

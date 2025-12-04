@@ -10,7 +10,7 @@ operation:
   deployEnabled: true
   description: ""
   isMultisource: false
-  locationName: WORK
+  locationName: CHANGE_NAME
   materializationType: table
   metadata:
     appliedNodeTests: []
@@ -97,20 +97,6 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: bc640589-2fc6-4f42-b8f0-8549fbf9c562
-                stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 82a684b0-9b99-4315-981e-787af6ba65d2
-          stepCounter: cae6c7c8-304e-4721-a540-0e24acbee88e
-        config: {}
-        dataType: NUMBER(12,2)
-        description: ""
-        name: ORDER_TOTALPRICE
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: c9e59194-3090-4863-a0a3-c725b45a0fdf
                 stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
             transform: ""
       - appliedColumnTests: {}
@@ -503,6 +489,23 @@ operation:
               - columnCounter: e4a56c29-dec2-4fa7-b51f-c62aa6dd8742
                 stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
             transform: ""
+      - acceptedValues:
+          strictMatch: false
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6cd14e98-270b-46d8-94d4-ef71908b8226
+          stepCounter: cae6c7c8-304e-4721-a540-0e24acbee88e
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: O_TOTALPRICE_RUPEES
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b6c5f07-bd5b-49b7-9dc0-6de6c6a595ec
+                stepCounter: fbeef231-52e6-4040-a4c6-5c8c5920cc9e
+            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
@@ -511,10 +514,10 @@ operation:
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: WORK
+          - locationName: CHANGE_NAME
             nodeName: STG_LINEITEM_ORDERS_DIM_LOOKUP
         join:
-          joinCondition: FROM {{ ref('WORK', 'STG_LINEITEM_ORDERS_DIM_LOOKUP') }} "STG_LINEITEM_ORDERS_DIM_LOOKUP"
+          joinCondition: FROM {{ ref('CHANGE_NAME', 'STG_LINEITEM_ORDERS_DIM_LOOKUP') }} "STG_LINEITEM_ORDERS_DIM_LOOKUP"
         name: FCT_LINEITEM_ORDERS_DIM_LOOKUP
         noLinkRefs: []
   name: FCT_LINEITEM_ORDERS_DIM_LOOKUP
