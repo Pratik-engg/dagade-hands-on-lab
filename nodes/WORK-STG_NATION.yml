@@ -4,9 +4,27 @@ name: STG_NATION
 operation:
   config:
     insertStrategy: INSERT
-    postSQL: ""
-    preSQL: ""
-    testsEnabled: true
+    postSQL: |-
+      UPDATE DAGADE.WORKDEV.AUDIT_JOB_RUN
+      SET
+          END_TIME = CURRENT_TIMESTAMP,
+          STATUS   = 'SUCCESS'
+      WHERE RUN_ID   = '{{ RUN_ID }}'
+        AND JOB_NAME = '{{ JOB_NAME }}';
+    preSQL: |
+      INSERT INTO DAGADE.WORKDEV.AUDIT_JOB_RUN (
+          RUN_ID,
+          JOB_NAME,
+          START_TIME,
+          STATUS
+      )
+      VALUES (
+          '{{ RUN_ID }}',
+          '{{ JOB_NAME }}',
+          CURRENT_TIMESTAMP,
+          'STARTED'
+      );
+    testsEnabled: false
     truncateBefore: false
   database: ""
   deployEnabled: true
@@ -16,7 +34,7 @@ operation:
   materializationType: table
   metadata:
     appliedNodeTests:
-      - continueOnFailure: false
+      - continueOnFailure: true
         description: ""
         name: Test
         runOrder: Before
@@ -80,6 +98,26 @@ operation:
               - columnCounter: 1c9098f2-d98b-4f92-83f8-ef375e4348c8
                 stepCounter: 07c03cbc-3123-44cd-8240-05cad15f2849
             transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 07af9cd8-2523-4f2d-9fdd-4119e2dbb82a
+          stepCounter: 2f332bfa-a269-4ad8-9605-42b79da79012
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: RUN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'{{ parameters.RUN_ID }}'"
+        systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
