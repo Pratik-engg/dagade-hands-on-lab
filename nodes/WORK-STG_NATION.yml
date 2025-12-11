@@ -9,8 +9,8 @@ operation:
       SET
           END_TIME = CURRENT_TIMESTAMP,
           STATUS   = 'SUCCESS'
-      WHERE RUN_ID   = '{{ RUN_ID }}'
-        AND JOB_NAME = '{{ JOB_NAME }}';
+      WHERE RUN_ID   = '{{  parameters.RUN_ID }}'
+        AND JOB_NAME = '{{  parameters.JOB_NAME }}';
     preSQL: |
       INSERT INTO DAGADE.WORKDEV.AUDIT_JOB_RUN (
           RUN_ID,
@@ -19,8 +19,8 @@ operation:
           STATUS
       )
       VALUES (
-          '{{ RUN_ID }}',
-          '{{ JOB_NAME }}',
+          '{{  parameters.RUN_ID }}',
+          '{{  parameters.JOB_NAME }}',
           CURRENT_TIMESTAMP,
           'STARTED'
       );
