@@ -72,7 +72,7 @@ operation:
           - columnReferences:
               - columnCounter: 8b7064b9-6b85-4150-9a09-5a80aa63e74e
                 stepCounter: 3ac85ea5-d7b3-4713-82ca-6c8857fbf113
-            transform: ""
+            transform: UPPER("NATION"."N_COMMENT")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 261e1af7-f52b-48dd-a7cf-4f59ce6983ec
