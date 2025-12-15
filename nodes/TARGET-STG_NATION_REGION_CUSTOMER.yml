@@ -100,7 +100,7 @@ operation:
           - columnReferences:
               - columnCounter: 5930776c-ed30-40c5-9d29-68f8cc25b56f
                 stepCounter: 32ce79f6-e82a-45be-b259-11b790667e8f
-            transform: ""
+            transform: UPPER("REGION"."R_NAME")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 770bbc18-a53e-4b28-9015-01540fb154da
