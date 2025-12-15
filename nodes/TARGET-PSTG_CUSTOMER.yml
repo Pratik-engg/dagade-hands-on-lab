@@ -158,107 +158,6 @@ operation:
               - columnCounter: 6728414c-9c81-4595-b350-c4f69532663c
                 stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
             transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: d71dcc19-72be-4dad-8aef-f44794eb0b83
-          stepCounter: 04107f16-787d-40ba-bb37-6ddec37df46e
-        config: {}
-        dataType: NUMBER
-        description: ""
-        name: SYSTEM_VERSION
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 704ff742-c5f3-45ed-a64c-8867917500e3
-                stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: fbc2e189-963a-4cec-9986-66e37389b41a
-          stepCounter: 04107f16-787d-40ba-bb37-6ddec37df46e
-        config: {}
-        dataType: VARCHAR
-        description: ""
-        name: SYSTEM_CURRENT_FLAG
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: d1fda0f3-143e-4532-ad92-f2c4ee665aec
-                stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: ba5d0b70-99af-4538-b936-b1bff4d8d67f
-          stepCounter: 04107f16-787d-40ba-bb37-6ddec37df46e
-        config: {}
-        dataType: TIMESTAMP
-        description: ""
-        name: SYSTEM_START_DATE
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: ad0e1cf6-9175-4ff1-a46a-01da701b57d3
-                stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: c3f951ed-c6bf-48d5-8b51-409f460cac6d
-          stepCounter: 04107f16-787d-40ba-bb37-6ddec37df46e
-        config: {}
-        dataType: TIMESTAMP
-        description: ""
-        name: SYSTEM_END_DATE
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: fb142e2c-19d0-47cf-9ae5-2d044e6a943a
-                stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 8240e41b-e359-4fbf-925f-2d43ebd4a657
-          stepCounter: 04107f16-787d-40ba-bb37-6ddec37df46e
-        config: {}
-        dataType: TIMESTAMP
-        description: ""
-        name: SYSTEM_CREATE_DATE
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 29521fab-9294-4547-b45b-44f635a84e83
-                stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: adffaa83-cb63-4380-afaa-653bc9967a0f
-          stepCounter: 04107f16-787d-40ba-bb37-6ddec37df46e
-        config: {}
-        dataType: TIMESTAMP
-        description: ""
-        name: SYSTEM_UPDATE_DATE
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 1b6579a4-30f1-4c4c-92a6-7f4076d8f887
-                stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
-            transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: fbbd1974-cf6c-4f82-a171-a9473818f462
-          stepCounter: 04107f16-787d-40ba-bb37-6ddec37df46e
-        config: {}
-        dataType: NUMBER
-        defaultValue: ""
-        description: ""
-        isSystemVersion: true
-        name: SYSTEM_VERSION
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
       - acceptedValues:
           strictMatch: true
           values: []
@@ -276,6 +175,26 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 942fb578-92cd-4309-af38-e5378730d55b
+          stepCounter: 04107f16-787d-40ba-bb37-6ddec37df46e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+        systemColumnType: None
       - acceptedValues:
           strictMatch: true
           values: []
