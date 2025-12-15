@@ -14,7 +14,7 @@ operation:
     cpygrants: false
     downstreamOption: false
     groupByAll: false
-    initialize: ON_CREATE
+    initialize: ON_SCHEDULE
     insertStrategy: UNION ALL
     lagSpecification:
       items:
@@ -22,7 +22,7 @@ operation:
           lagValue: "1"
     refresh_mode: AUTO
     selectDistinct: false
-    warehouseName: COMPUTE
+    warehouseName: COMPUTE_WH
   database: ""
   deployEnabled: true
   description: ""
