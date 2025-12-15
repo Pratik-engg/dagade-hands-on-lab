@@ -114,7 +114,7 @@ operation:
           - columnReferences:
               - columnCounter: db827651-f97b-491d-8d97-2162cd1beee8
                 stepCounter: 32ce79f6-e82a-45be-b259-11b790667e8f
-            transform: ""
+            transform: UPPER("REGION"."R_COMMENT")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: b5567c14-fed4-498c-acc3-d61178f85d7c
