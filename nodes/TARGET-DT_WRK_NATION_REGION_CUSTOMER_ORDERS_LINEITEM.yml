@@ -14,7 +14,7 @@ operation:
     cpygrants: false
     downstreamOption: false
     groupByAll: true
-    initialize: ON_SCHEDULE
+    initialize: ON_CREATE
     insertStrategy: UNION ALL
     lagSpecification:
       items:
