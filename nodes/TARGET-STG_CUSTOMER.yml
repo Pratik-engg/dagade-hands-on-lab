@@ -58,7 +58,7 @@ operation:
           - columnReferences:
               - columnCounter: 6db74f71-23d9-4efd-95ab-2a26be7fee97
                 stepCounter: d2d10957-dcd6-49cb-a119-a4d85070a04a
-            transform: ""
+            transform: CONCAT("CUSTOMER"."C_ADDRESS",'fgdg')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 716dcdf3-b6dc-4bc6-8e54-ece7ee737cb9
@@ -140,7 +140,9 @@ operation:
           - locationName: SRC
             nodeName: CUSTOMER
         join:
-          joinCondition: FROM {{ ref('SRC', 'CUSTOMER') }} "CUSTOMER"
+          joinCondition: |-
+            FROM {{ ref('SRC', 'CUSTOMER') }} "CUSTOMER"
+            where "CUSTOMER"."C_CUSTKEY"='60001'
         name: STG_CUSTOMER
         noLinkRefs: []
   name: STG_CUSTOMER
