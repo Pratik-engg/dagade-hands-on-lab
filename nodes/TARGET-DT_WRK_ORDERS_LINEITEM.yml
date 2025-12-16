@@ -20,7 +20,7 @@ operation:
       items:
         - lagPeriod: Minutes
           lagValue: "60"
-    refresh_mode: INCREMENTAL
+    refresh_mode: AUTO
     selectDistinct: false
     warehouseName: COMPUTE_WH
   database: ""
