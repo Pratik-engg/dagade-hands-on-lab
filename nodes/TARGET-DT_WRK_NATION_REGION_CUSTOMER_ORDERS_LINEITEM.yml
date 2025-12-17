@@ -19,7 +19,7 @@ operation:
     lagSpecification:
       items:
         - lagPeriod: Minutes
-          lagValue: "60"
+          lagValue: "15"
     refresh_mode: AUTO
     selectDistinct: false
     warehouseName: compute_wh

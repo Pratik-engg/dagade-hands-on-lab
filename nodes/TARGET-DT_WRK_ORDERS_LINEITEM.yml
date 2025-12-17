@@ -12,14 +12,14 @@ operation:
         - {}
     clusterKeyExpressions: false
     cpygrants: false
-    downstreamOption: true
+    downstreamOption: false
     groupByAll: false
     initialize: ON_CREATE
     insertStrategy: UNION ALL
     lagSpecification:
       items:
         - lagPeriod: Minutes
-          lagValue: "60"
+          lagValue: "1"
     refresh_mode: AUTO
     selectDistinct: false
     warehouseName: compute_wh
