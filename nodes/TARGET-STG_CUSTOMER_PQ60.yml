@@ -7,7 +7,7 @@ operation:
     postSQL: ""
     preSQL: ""
     testsEnabled: true
-    truncateBefore: true
+    truncateBefore: false
   database: ""
   deployEnabled: true
   description: ""
@@ -142,7 +142,7 @@ operation:
           - columnReferences:
               - columnCounter: d2d63d65-b14c-44e6-90fe-6be99249e8d4
                 stepCounter: 7633c759-7a90-4ff8-8eef-0b958dab8451
-            transform: CONCAT("CUSTOMER"."C_FIRST_NAME",'Swami')
+            transform: CONCAT("CUSTOMER"."C_FIRST_NAME",'phuri')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: c3d05626-272b-4202-9d87-67d8b4023c88
@@ -282,7 +282,7 @@ operation:
         join:
           joinCondition: |-
             FROM {{ ref('SRC2', 'CUSTOMER') }} "CUSTOMER"
-            where "C_CUSTOMER_SK"='7014865'
+            where "C_CUSTOMER_SK"='7014856'
         name: STG_CUSTOMER_PQ60
         noLinkRefs: []
   name: STG_CUSTOMER_PQ60
