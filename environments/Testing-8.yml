@@ -10,5 +10,8 @@ mappingDefinitions:
   TARGET:
     database: PRATIK
     schema: WORKTEST
+  TEST:
+    database: PRATIK
+    schema: WORKDEV
 name: Testing
 type: Environment

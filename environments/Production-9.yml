@@ -10,5 +10,8 @@ mappingDefinitions:
   TARGET:
     database: PRATIK
     schema: WORKPROD
+  TEST:
+    database: PRATIK
+    schema: WORKDEV
 name: Production
 type: Environment
