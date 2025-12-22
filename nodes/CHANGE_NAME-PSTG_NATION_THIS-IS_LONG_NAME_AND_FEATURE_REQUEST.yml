@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 17209f59-e741-40f5-b48b-ce2b9b49992c
-name: PSTG_NATION
+name: PSTG_NATION_THIS-IS_LONG_NAME_AND_FEATURE_REQUEST
 operation:
   config:
     postSQL: ""
@@ -206,11 +206,11 @@ operation:
           joinCondition: |+
             FROM {{ ref('CHANGE_NAME', 'STG_NATION') }} "STG_NATION"
             /*inner JOIN {{ ref('CHANGE_NAME', 'STG_REGION') }} "STG_REGION"
-            where "STG_NATION"."N_NATIONKEY"="STG_REGION".R_REGIONKEY*/
+            where "STG_NATION"."N_NATIONKEY"="STG_REGION".R_REGIONKEY */
 
-        name: PSTG_NATION
+        name: PSTG_NATION_THIS-IS_LONG_NAME_AND_FEATURE_REQUEST
         noLinkRefs: []
-  name: PSTG_NATION
+  name: PSTG_NATION_THIS-IS_LONG_NAME_AND_FEATURE_REQUEST
   overrideSQL: false
   schema: ""
   sqlType: persistentStage
