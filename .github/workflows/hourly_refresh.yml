@@ -12,7 +12,7 @@ env:
 COA_VERSION: latest # Versions released on NPM here: https://www.npmjs.com/package/@coalescesoftware/coa
 
 jobs:
-build:
+ build:
     runs-on: ubuntu-latest
     
     steps:
