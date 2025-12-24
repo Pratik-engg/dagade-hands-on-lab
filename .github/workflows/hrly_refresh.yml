@@ -11,7 +11,7 @@ env:
 COA_VERSION: 7.19.4 # Versions released on NPM here: https://www.npmjs.com/package/@coalescesoftware/coa
 
 jobs:
-build:
+Supply:
     runs-on: ubuntu-latest
     
     steps:
