@@ -18,7 +18,7 @@ build:
     - uses: actions/checkout@v3
     - uses: actions/setup-node@v3
     with:
-        node-version: 20
+        node-version: 18
     
     # Fetch coa config secret from GitHub Actions secret repository, then write coa config to a temporary file
     - run: echo '${{ secrets.COA_CONFIG }}' >> COA_CONFIG
