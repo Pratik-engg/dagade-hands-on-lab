@@ -1,20 +1,30 @@
-name: Coalesce Refresh
+name: Coalesce Scheduled Refresh
 on:
-  push:
-    branches: [ main ]
+  schedule:
+    # Runs at 05:00 UTC every day
+    - cron: '0 5 * * *'
+  workflow_dispatch: # Allows you to trigger the job manually from GitHub UI
 
 jobs:
-  coalesce-refresh:
+  refresh-data:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Install Coalesce CLI
-        run: npm install -g @coalesce/coa
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
 
-      - name: Refresh Environment
+      - name: Install Coalesce CLI
+        run: npm install -g @coalescesoftware/coa
+
+      - name: Trigger Coalesce Job
         env:
+          # Assumes you have COA_CONFIG stored in GitHub Secrets
           COA_CONFIG: ${{ secrets.COA_CONFIG }}
-        # Triggers a specific job or environment refresh in Coalesce
-        run: coa refresh --environmentID 8 --jobID 4
+        # "coa refresh" triggers a pipeline run in your Coalesce environment
+        run: |
+          echo "$COA_CONFIG" > coa_config.json
+          coa refresh --config coa_config.json --environmentID 8 --jobID 4
