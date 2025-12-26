@@ -1,0 +1,77 @@
+fileVersion: 1
+id: 48c8bf5a-68c5-497c-85a4-2eb543e9c3db
+name: SQL_NODE
+operation:
+  config:
+    SQL1: |+
+      CREATE OR REPLACE PROCEDURE {{ node_name() }}("MESSAGE" STRING)
+      RETURNS STRING
+      LANGUAGE SQL
+      EXECUTE AS OWNER
+      AS '
+      begin
+        return message;
+      end;
+      ';
+
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5db593f8-38b5-4130-bae7-0073649837b4
+          stepCounter: 48c8bf5a-68c5-497c-85a4-2eb543e9c3db
+        config: {}
+        dataType: NUMBER IDENTITY
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: SQL_SEQ
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 418fd530-5c01-42ad-9412-caea86826a7b
+          stepCounter: 48c8bf5a-68c5-497c-85a4-2eb543e9c3db
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: SQL_NODE
+        noLinkRefs: []
+  name: SQL_NODE
+  overrideSQL: false
+  schema: ""
+  sqlType: "26"
+  type: sql
+  version: 1
+type: Node
