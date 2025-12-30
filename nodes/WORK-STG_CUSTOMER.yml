@@ -5,7 +5,9 @@ operation:
   config:
     insertStrategy: INSERT
     postSQL: ""
-    preSQL: call {{ref('WORK', 'SQL_NODE')}} ('hi')
+    preSQL: |-
+      USE WAREHOUSE {{ parameters.warehouse_name }};
+      call {{ref('WORK', 'SQL_NODE')}}('hi') 
     testsEnabled: true
     truncateBefore: true
   database: ""

@@ -1,10 +1,10 @@
 fileVersion: 1
-id: "26"
+id: "28"
 isDisabled: false
 metadata:
   defaultStorageLocation: null
   error: null
-  nodeMetadataSpec: |-
+  nodeMetadataSpec: |
     capitalized: CREATE SQL
     short: SQL
     plural: SQLs
@@ -21,11 +21,6 @@ metadata:
         syntax: sql 
         isRequired: true
 
-    parameters:
-      warehouse_name:
-        type: text
-        default: WH_DEFAULT
-
     systemColumns:
 
     - displayName: SQL_SEQ
@@ -39,5 +34,12 @@ metadata:
       dataType: TIMESTAMP
       placement: end
       attributeName: isSystemStartDate
-name: SQL_NODE
+
+    -parameters:
+      warehouse_name:
+        label: "Warehouse Override"
+        type: text
+        default: "WH_SMALL"
+        description: "Warehouse used for this node"
+name: warehouse_override_node
 type: NodeType
