@@ -20,6 +20,11 @@ metadata:
         attributeName: SQL1
         syntax: sql 
         isRequired: true
+    -parameters:
+      warehouse_name:
+      - type: text
+        default: WH_XSMALL
+
 
     systemColumns:
 

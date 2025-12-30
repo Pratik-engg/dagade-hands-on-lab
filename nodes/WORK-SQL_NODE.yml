@@ -6,6 +6,7 @@ operation:
     SQL1: |-
       {{ stage('Set Warehouse') }}
       USE WAREHOUSE {{ parameters.warehouse_name }};
+
       {{ stage('Create Procedure') }}
       CREATE OR REPLACE PROCEDURE {{this}} ("MESSAGE" STRING)
       RETURNS STRING
