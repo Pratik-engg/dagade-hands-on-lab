@@ -6,6 +6,7 @@ operation:
     insertStrategy: INSERT
     postSQL: ""
     preSQL: |-
+      {{ stage('Set Warehouse') }}
       USE WAREHOUSE {{ parameters.warehouse_name }};
       call {{ref('WORK', 'SQL_NODE')}}('hi') 
     testsEnabled: true
