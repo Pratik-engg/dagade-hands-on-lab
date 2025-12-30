@@ -4,6 +4,8 @@ name: SQL_NODE
 operation:
   config:
     SQL1: |-
+      {{ stage('Set Warehouse') }}
+      USE WAREHOUSE {{ parameters.warehouse_name }};
       CREATE OR REPLACE PROCEDURE {{this}} ("MESSAGE" STRING)
       RETURNS STRING
       LANGUAGE SQL

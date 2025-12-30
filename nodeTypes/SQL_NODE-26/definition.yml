@@ -21,11 +21,6 @@ metadata:
         syntax: sql 
         isRequired: true
 
-    parameters:
-      warehouse_name:
-        type: text
-        default: WH_DEFAULT
-
     systemColumns:
 
     - displayName: SQL_SEQ
