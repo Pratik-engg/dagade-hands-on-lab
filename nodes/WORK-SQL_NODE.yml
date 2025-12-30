@@ -4,7 +4,6 @@ name: SQL_NODE
 operation:
   config:
     SQL1: |-
-      USE WAREHOUSE {{ parameters.warehouse_name }};
       CREATE OR REPLACE PROCEDURE {{this}} ("MESSAGE" STRING)
       RETURNS STRING
       LANGUAGE SQL
