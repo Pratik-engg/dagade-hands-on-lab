@@ -8,9 +8,9 @@ operation:
       RETURNS STRING
       LANGUAGE SQL
       EXECUTE AS OWNER
-      WAREHOUSE = {{ parameters.warehouse_name }}
       AS '
       begin
+        EXECUTE IMMEDIATE 'USE WAREHOUSE WH_LARGE';
         return message;
       end;
       ';
