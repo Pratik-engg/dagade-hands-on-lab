@@ -10,7 +10,9 @@ operation:
       EXECUTE AS OWNER
       AS '
       begin
+        ALTER SESSION SET WAREHOUSE = WH_LARGE;
         return message;
+        ALTER SESSION SET WAREHOUSE = WH_DEFAULT;
       end;
       ';
   database: ""
