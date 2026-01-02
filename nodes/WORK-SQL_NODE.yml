@@ -8,6 +8,7 @@ operation:
       RETURNS STRING
       LANGUAGE SQL
       EXECUTE AS OWNER
+      WAREHOUSE = {{ parameters.warehouse_name }}
       AS '
       begin
         return message;
