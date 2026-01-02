@@ -20,6 +20,13 @@ metadata:
         attributeName: SQL1
         syntax: sql 
         isRequired: true
+      
+    parameters:
+      warehouse_name:
+        label: "Warehouse Override"
+        type: text
+        default: "COMPUTE_WH"
+        description: "Warehouse used for this node."
 
     -systemColumns:
 
