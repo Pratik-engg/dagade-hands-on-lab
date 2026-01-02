@@ -10,7 +10,6 @@ operation:
       EXECUTE AS OWNER
       AS '
       begin
-        EXECUTE IMMEDIATE 'USE WAREHOUSE WH_LARGE';
         return message;
       end;
       ';
