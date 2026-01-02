@@ -129,7 +129,8 @@ operation:
           - locationName: SRC
             nodeName: NATION
         join:
-          joinCondition: FROM {{ ref('SRC', 'NATION') }} "NATION"
+          joinCondition: |
+            FROM {{ ref('SRC', 'NATION') }} "NATION"
         name: STG_NATION
         noLinkRefs: []
   name: STG_NATION
