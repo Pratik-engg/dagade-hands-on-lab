@@ -1,0 +1,6 @@
+{{ stage('Set Warehouse') }}
+USE WAREHOUSE WH_LARGE;
+
+{{ stage('Main') }}
+call {{ref('WORK', 'SQL_NODE')}} ('Hello World')
+
