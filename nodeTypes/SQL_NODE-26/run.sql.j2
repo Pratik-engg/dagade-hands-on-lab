@@ -1,4 +1,2 @@
 {{ stage('Set Warehouse') }}
 USE WAREHOUSE {{ parameters.warehouse_name }};
-{{ stage('Main') }}
-call {{ref('WORK', 'SQL_NODE')}} ('Hello World')

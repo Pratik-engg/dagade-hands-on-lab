@@ -5,7 +5,7 @@ operation:
   config:
     insertStrategy: INSERT
     postSQL: ""
-    preSQL: ""
+    preSQL: CALL my_procedure('Hello');
     testsEnabled: true
     truncateBefore: true
   database: ""

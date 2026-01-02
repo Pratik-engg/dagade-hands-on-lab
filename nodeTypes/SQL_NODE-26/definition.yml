@@ -21,13 +21,6 @@ metadata:
         syntax: sql 
         isRequired: true
       
-    parameters:
-      warehouse_name:
-        label: "Warehouse Override"
-        type: text
-        default: "WH_LARGE"
-        description: "Warehouse used for this node."
-
     -systemColumns:
 
     - displayName: SQL_SEQ

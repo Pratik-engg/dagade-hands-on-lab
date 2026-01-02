@@ -4,7 +4,7 @@ name: SQL_NODE
 operation:
   config:
     SQL1: |-
-      CREATE OR REPLACE PROCEDURE {{this}} ("MESSAGE" STRING)
+      CREATE OR REPLACE PROCEDURE my_procedure("MESSAGE" STRING)
       RETURNS STRING
       LANGUAGE SQL
       EXECUTE AS OWNER
