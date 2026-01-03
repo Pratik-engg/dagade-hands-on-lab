@@ -20,6 +20,9 @@ metadata:
         attributeName: SQL1
         syntax: sql 
         isRequired: true
+    parameters:
+     warehouse_name:WH_LARGE
+          
       
     -systemColumns:
 
