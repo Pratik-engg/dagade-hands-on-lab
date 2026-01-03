@@ -13,6 +13,7 @@ operation:
         return message;
       end;
       ';
+    warehouseName: ""
   database: ""
   deployEnabled: true
   description: ""

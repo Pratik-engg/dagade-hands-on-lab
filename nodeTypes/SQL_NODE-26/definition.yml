@@ -21,6 +21,25 @@ metadata:
         syntax: sql 
         isRequired: true
 
+    - groupName: Custom Node For Warehouse Change
+      items:     
+         
+        - type: label
+          attributeName: note2
+          displayName: 
+                       "NOTE:
+                       \n
+                       Ensure the parameter warehouseName is added in Workspace and 
+                       deployment environment  for successful creation of dynamic table.  
+                       Refer documentation for more info"
+          enableIf: "{%- if parameters == {} or parameters.warehouseName == '' -%} true {%- else -%} false {%- endif -%}"
+
+        - displayName: Warehouse on which to execute Stored Procedure Table
+          attributeName: warehouseName
+          type: textBox
+          default: dev_wh_xs
+          isRequired: true
+
     -systemColumns:
 
     - displayName: SQL_SEQ
