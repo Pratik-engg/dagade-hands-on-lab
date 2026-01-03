@@ -13,7 +13,7 @@ operation:
         return message;
       end;
       ';
-    warehouseName: ""
+    warehouseName: WH_LARGE
   database: ""
   deployEnabled: true
   description: ""
