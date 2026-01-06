@@ -5,9 +5,9 @@ operation:
   config:
     insertStrategy: INSERT
     postSQL: ""
-    preSQL: call {{ref('WORK', 'SQL_NODE')}} ('HELLO WORLD')
+    preSQL: "call {{ref('WORK', 'SQL_NODE')}} ('HELLO WORLD') "
     testsEnabled: true
-    truncateBefore: true
+    truncateBefore: false
   database: ""
   deployEnabled: true
   description: Customer data as defined by TPC-H
@@ -44,7 +44,7 @@ operation:
           - columnReferences:
               - columnCounter: 65a9f3c9-99ae-4d69-8072-b0bc9ba235fe
                 stepCounter: 7b878b91-0a78-4405-8520-b6c8e2e9723a
-            transform: ""
+            transform: CONCAT("CUSTOMER"."C_NAME",'14')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 31369b9e-c55f-4ef5-ae5d-470acdce2994
@@ -114,7 +114,7 @@ operation:
           - columnReferences:
               - columnCounter: 9aa10afc-1a0d-4587-8c7d-98b8bfb8ad63
                 stepCounter: 7b878b91-0a78-4405-8520-b6c8e2e9723a
-            transform: ""
+            transform: LOWER("CUSTOMER"."C_MKTSEGMENT")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 481c2a92-b31f-42fb-968c-5060519525bf
@@ -140,7 +140,9 @@ operation:
           - locationName: SRC
             nodeName: CUSTOMER
         join:
-          joinCondition: FROM {{ ref('SRC', 'CUSTOMER') }} "CUSTOMER"
+          joinCondition: |-
+            FROM {{ ref('SRC', 'CUSTOMER') }} "CUSTOMER"
+            where "C_CUSTKEY"='60001'
         name: STG_CUSTOMER
         noLinkRefs: []
   name: STG_CUSTOMER

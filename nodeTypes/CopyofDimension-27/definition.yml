@@ -20,6 +20,14 @@ metadata:
         - table
         - view
 
+    - groupName: 'Delta Retation Days'
+      items:
+      - type: textBox
+        displayName: DAYS
+        attributeName: deltaretention
+        isRequired: false
+        default: "7"
+
       - type: multisourceToggle
         enableIf: "{% if node.materializationType == 'table' %} true {% else %} false {% endif %}"
 

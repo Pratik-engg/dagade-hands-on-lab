@@ -3,6 +3,7 @@ id: 452d53b1-433d-4b7d-b225-4c38b864cd32
 name: DIM_CUSTOMER1
 operation:
   config:
+    deltaretention: ""
     postSQL: ""
     preSQL: ""
     testsEnabled: true
@@ -13,7 +14,12 @@ operation:
   locationName: WORK
   materializationType: table
   metadata:
-    appliedNodeTests: []
+    appliedNodeTests:
+      - continueOnFailure: true
+        description: ""
+        name: Test
+        runOrder: After
+        templateString: "Select C_CUSTKEY,COUNT(*) AS Duplicate_Count FROM {{ref('WORK', 'DIM_CUSTOMER1')}} Group By C_CUSTKEY Having Count(*)>1 "
     columns:
       - acceptedValues:
           strictMatch: true
@@ -54,6 +60,7 @@ operation:
         config: {}
         dataType: VARCHAR(25)
         description: ""
+        isChangeTracking: true
         name: C_NAME
         nullable: false
         sourceColumnReferences:
@@ -124,6 +131,7 @@ operation:
         config: {}
         dataType: VARCHAR(10)
         description: ""
+        isChangeTracking: true
         name: C_MKTSEGMENT
         nullable: true
         sourceColumnReferences:
@@ -258,7 +266,8 @@ operation:
           - locationName: WORK
             nodeName: STG_CUSTOMER
         join:
-          joinCondition: FROM {{ ref('WORK', 'STG_CUSTOMER') }} "STG_CUSTOMER"
+          joinCondition: |
+            FROM {{ ref('WORK', 'STG_CUSTOMER') }} "STG_CUSTOMER"
         name: DIM_CUSTOMER1
         noLinkRefs: []
   name: DIM_CUSTOMER1

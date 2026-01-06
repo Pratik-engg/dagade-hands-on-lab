@@ -1,4 +1,3 @@
-
 {% set is_type_2 = columns | selectattr("isChangeTracking") | list | length > 0 %}
 
     {% for test in node.tests if config.testsEnabled %}
@@ -7,6 +6,14 @@
             {{ test.templateString }}
         {% endif %}
     {% endfor %}
+    
+{{ stage('Remove Older Data') }}
+{% set days = parameters.deltaretention | default(0) | int %}
+{% if days > 0 %}
+DELETE FROM {{ ref_no_link(node.location.name, node.name) }} WHERE SYSTEM_UPDATE_DATE < DATEADD (DAY,-{{ days }},CURRENT_TIMESTAMP)
+{% else %}
+SELECT 1;
+{% endif %}
 
 {% if node.materializationType == 'table' %}
 
