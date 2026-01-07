@@ -114,7 +114,7 @@ operation:
           - columnReferences:
               - columnCounter: 7152e4b7-754a-4559-ada7-a000b96c9b95
                 stepCounter: 34afec38-2b9c-4e41-9267-f08278b8f336
-            transform: LOWER("CUSTOMER"."C_MKTSEGMENT")
+            transform: REPLACE("CUSTOMER"."C_MKTSEGMENT",'HOUSHOLDI','householdi')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 53d80552-8942-4a5a-948b-188faedcffde
@@ -128,7 +128,7 @@ operation:
           - columnReferences:
               - columnCounter: db1445a1-f214-4754-9b32-6ff7186f4479
                 stepCounter: 34afec38-2b9c-4e41-9267-f08278b8f336
-            transform: "REPLACE(\"CUSTOMER\".\"C_COMMENT\",'l theodolites boost slyly at the platelets: permanently ironic packages wake slyly pend','l theodolites BOOST slyly AT the platelets: permanently ironic packages wake slyly PEND')"
+            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
