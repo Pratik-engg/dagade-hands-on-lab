@@ -121,9 +121,11 @@ operation:
       - aliases: {}
         customSQL:
           customSQL: ""
-        dependencies: []
+        dependencies:
+          - locationName: SRC
+            nodeName: SUPPLIER
         join:
-          joinCondition: ""
+          joinCondition: FROM {{ ref('SRC', 'SUPPLIER') }} "SUPPLIER"
         name: STG_SUPPLIER
         noLinkRefs: []
   name: STG_SUPPLIER
