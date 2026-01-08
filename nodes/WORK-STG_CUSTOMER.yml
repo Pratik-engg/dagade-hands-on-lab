@@ -44,7 +44,7 @@ operation:
           - columnReferences:
               - columnCounter: 65a9f3c9-99ae-4d69-8072-b0bc9ba235fe
                 stepCounter: 7b878b91-0a78-4405-8520-b6c8e2e9723a
-            transform: CONCAT("CUSTOMER"."C_NAME",'14')
+            transform: CONCAT("CUSTOMER"."C_NAME",'15')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 31369b9e-c55f-4ef5-ae5d-470acdce2994

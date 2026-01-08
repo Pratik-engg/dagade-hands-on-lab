@@ -3,7 +3,7 @@ id: 452d53b1-433d-4b7d-b225-4c38b864cd32
 name: DIM_CUSTOMER1
 operation:
   config:
-    deltaretention: ""
+    deltaretention: "0"
     postSQL: ""
     preSQL: ""
     testsEnabled: true
