@@ -118,15 +118,12 @@ operation:
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
-      - aliases:
-          SUPPLIER: a5ed9edc-b196-4d47-a144-f6808de1e026
+      - aliases: {}
         customSQL:
           customSQL: ""
-        dependencies:
-          - locationName: SRC
-            nodeName: SUPPLIER
+        dependencies: []
         join:
-          joinCondition: FROM {{ ref('SRC', 'SUPPLIER') }} "SUPPLIER"
+          joinCondition: ""
         name: STG_SUPPLIER
         noLinkRefs: []
   name: STG_SUPPLIER
