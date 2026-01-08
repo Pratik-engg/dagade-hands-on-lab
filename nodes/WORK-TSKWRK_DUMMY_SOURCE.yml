@@ -1,6 +1,6 @@
 fileVersion: 1
-id: 58203156-81cf-47f6-91b3-988782ef4352
-name: TIM_DUMMY_SOURCE
+id: 6bcf2830-fd8d-49b3-a7fd-3a2ec28b927c
+name: TSKWRK_DUMMY_SOURCE
 operation:
   config:
     clusterKey: false
@@ -15,19 +15,11 @@ operation:
     flagSrcStream: true
     groupByAll: false
     insertStrategy: UNION
-    loadType: Insert
-    mergeOrderBy:
-      items:
-        - colName: null
-          sortOrd: desc
     multiStreamBehavior: AND
     orderby: false
     orderbycolumn:
       items:
         - {}
-    partitionBy:
-      items:
-        - partColName: null
     predTask: DATA_TRANSFORMATION_ROOT_TASK
     rootTask: DATA_TRANSFORMATION_ROOT_TASK
     scheduleCRON: 5 0-23 * * * America/Los_Angeles
@@ -43,14 +35,14 @@ operation:
   description: ""
   isMultisource: false
   locationName: WORK
-  materializationType: table
+  materializationType: task
   metadata:
     appliedNodeTests: []
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: a7b2b2e7-5fea-4bbc-925f-0280f61b4008
-          stepCounter: 58203156-81cf-47f6-91b3-988782ef4352
+          columnCounter: 9fb7bab0-aab0-4275-a8fe-99059f1403a7
+          stepCounter: 6bcf2830-fd8d-49b3-a7fd-3a2ec28b927c
         config: {}
         dataType: NUMBER(38,0)
         description: ""
@@ -63,8 +55,8 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: fb1a37e9-9418-447d-b67f-b64286016cef
-          stepCounter: 58203156-81cf-47f6-91b3-988782ef4352
+          columnCounter: 1d4b548a-fd71-4fd2-81be-2ef05482b7d4
+          stepCounter: 6bcf2830-fd8d-49b3-a7fd-3a2ec28b927c
         config: {}
         dataType: VARCHAR(16777216)
         description: ""
@@ -75,40 +67,6 @@ operation:
               - columnCounter: 245be9ba-6488-439f-a0c8-b219d9e71cf0
                 stepCounter: 1b98eafe-be4a-410e-9635-a417ed06483e
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: e1143801-07cb-4d88-ab57-f5915757dcdf
-          stepCounter: 58203156-81cf-47f6-91b3-988782ef4352
-        config: {}
-        dataType: TIMESTAMP
-        defaultValue: ""
-        description: ""
-        isSystemCreateDate: true
-        name: SYSTEM_CREATE_DATE
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: f4a32394-4c20-4938-bf7a-c71383e634bc
-          stepCounter: 58203156-81cf-47f6-91b3-988782ef4352
-        config: {}
-        dataType: TIMESTAMP
-        defaultValue: ""
-        description: ""
-        isSystemUpdateDate: true
-        name: SYSTEM_UPDATE_DATE
-        nullable: true
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
@@ -121,12 +79,12 @@ operation:
             nodeName: DUMMY_SOURCE
         join:
           joinCondition: FROM {{ ref('WORK', 'DUMMY_SOURCE') }} "DUMMY_SOURCE"
-        name: TIM_DUMMY_SOURCE
+        name: TSKWRK_DUMMY_SOURCE
         noLinkRefs: []
-  name: TIM_DUMMY_SOURCE
+  name: TSKWRK_DUMMY_SOURCE
   overrideSQL: false
   schema: ""
-  sqlType: task:::567
+  sqlType: task:::151
   type: sql
   version: 1
 type: Node
