@@ -1,0 +1,68 @@
+fileVersion: 1
+id: 898e09ab-5f5d-4ae9-9f94-9e1ce2ba8f86
+name: TEST_Node
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f5cfae0b-5efd-445c-ad82-e7461aff6cfc
+          stepCounter: 898e09ab-5f5d-4ae9-9f94-9e1ce2ba8f86
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f0af4d99-1fc5-46e8-8437-456091ed7d40
+                stepCounter: 1b98eafe-be4a-410e-9635-a417ed06483e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f00840eb-1a09-42bf-8414-759594b8812c
+          stepCounter: 898e09ab-5f5d-4ae9-9f94-9e1ce2ba8f86
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 245be9ba-6488-439f-a0c8-b219d9e71cf0
+                stepCounter: 1b98eafe-be4a-410e-9635-a417ed06483e
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DUMMY_SOURCE: 1b98eafe-be4a-410e-9635-a417ed06483e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: DUMMY_SOURCE
+        join:
+          joinCondition: FROM {{ ref('WORK', 'DUMMY_SOURCE') }} "DUMMY_SOURCE"
+        name: TEST_Node
+        noLinkRefs: []
+  name: TEST_Node
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
