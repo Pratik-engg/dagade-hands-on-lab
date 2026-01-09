@@ -1,6 +1,6 @@
 fileVersion: 1
-id: bd0bcab8-2eac-4ec7-9ea1-756ca9c6ebd8
-name: Test_Node
+id: 2bf5c1de-6d49-45b2-809c-54cd8598fd9c
+name: TEST_NODE
 operation:
   config:
     insertStrategy: INSERT
@@ -19,8 +19,8 @@ operation:
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 652b1d36-81e8-40bf-b5a2-df221eb4fb49
-          stepCounter: bd0bcab8-2eac-4ec7-9ea1-756ca9c6ebd8
+          columnCounter: 6087e6a3-aa7a-46c4-987c-96d416b7176e
+          stepCounter: 2bf5c1de-6d49-45b2-809c-54cd8598fd9c
         config: {}
         dataType: NUMBER(38,0)
         description: ""
@@ -33,8 +33,8 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 38318d5a-618f-4dc1-a281-b2a2f5ad3b2b
-          stepCounter: bd0bcab8-2eac-4ec7-9ea1-756ca9c6ebd8
+          columnCounter: 3899665d-3510-4ee8-b584-09aabec24460
+          stepCounter: 2bf5c1de-6d49-45b2-809c-54cd8598fd9c
         config: {}
         dataType: VARCHAR(16777216)
         description: ""
@@ -57,9 +57,9 @@ operation:
             nodeName: DUMMY_SOURCE
         join:
           joinCondition: FROM {{ ref('WORK', 'DUMMY_SOURCE') }} "DUMMY_SOURCE"
-        name: Test_Node
+        name: TEST_NODE
         noLinkRefs: []
-  name: Test_Node
+  name: TEST_NODE
   overrideSQL: false
   schema: ""
   sqlType: Stage
