@@ -1,54 +1,57 @@
 fileVersion: 1
-id: d12a578f-760a-4f12-a841-662bd3f6c58c
+id: 9d6f2e83-aa39-4f20-9880-65ce5aaba269
 name: TEST_NODE
 operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
   database: ""
   deployEnabled: true
   description: ""
+  isMultisource: false
   locationName: WORK
+  materializationType: table
   metadata:
+    appliedNodeTests: []
     columns:
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: a29ea5bd-327b-494b-8f5e-092cb64bc97d
-          stepCounter: d12a578f-760a-4f12-a841-662bd3f6c58c
+          columnCounter: 241b1122-296c-48ef-95a4-d7a1c1b55327
+          stepCounter: 9d6f2e83-aa39-4f20-9880-65ce5aaba269
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: String
         defaultValue: ""
         description: ""
+        keyColumnType: None
         name: ID
         nullable: true
-        primaryKey: false
         sourceColumnReferences:
-          - columnReferences: []
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
             transform: ""
-        transform: ""
-        uniqueKey: false
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
-        columnReference:
-          columnCounter: c5c05ae1-c168-446b-b1dd-27c46e7a99d6
-          stepCounter: d12a578f-760a-4f12-a841-662bd3f6c58c
-        config: {}
-        dataType: VARCHAR(16777216)
-        defaultValue: ""
-        description: ""
-        name: NAME
-        nullable: true
-        primaryKey: false
-        sourceColumnReferences:
-          - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
+        systemColumnType: None
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: TEST_NODE
+        noLinkRefs: []
   name: TEST_NODE
+  overrideSQL: false
   schema: ""
-  sqlType: Source
-  type: sourceInput
+  sqlType: Stage
+  type: sql
   version: 1
 type: Node
