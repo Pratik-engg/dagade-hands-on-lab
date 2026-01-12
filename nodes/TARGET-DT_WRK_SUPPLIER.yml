@@ -20,7 +20,7 @@ operation:
     groupByAll: false
     immutabilityConstraint: false
     immutableExpression: ""
-    initialize: ON_CREATE
+    initialize: ON_SCHEDULE
     initializeWarehouseSize: Small
     insertStrategy: UNION ALL
     lagSpecification:
