@@ -16,18 +16,18 @@ operation:
         - {}
     clusterKeyExpressions: false
     cpygrants: false
-    downstreamOption: true
+    downstreamOption: false
     groupByAll: false
     immutabilityConstraint: false
     immutableExpression: ""
-    initialize: ON_SCHEDULE
-    initializeWarehouseSize: Small
+    initialize: ON_CREATE
+    initializeWarehouseSize: X-Small
     insertStrategy: UNION ALL
     lagSpecification:
       items:
         - lagPeriod: Minutes
-          lagValue: "1"
-    refreshWarehouseSize: X-Small
+          lagValue: "60"
+    refreshWarehouseSize: Small
     refresh_mode: AUTO
     selectDistinct: false
     timeTravel: false

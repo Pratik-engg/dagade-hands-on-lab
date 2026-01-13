@@ -128,7 +128,7 @@ operation:
         description: ""
         keyColumnType: None
         name: RECORD_TS
-        nullable: true
+        nullable: false
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: "0"
