@@ -115,6 +115,26 @@ operation:
               - columnCounter: 0fea9659-2c4f-4947-87c9-2bcc1862e84c
                 stepCounter: b480de96-d3cc-4f27-bfa3-0f59f28976b8
             transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 92cc8e8d-ead6-4291-a37f-eaa301ca5d9a
+          stepCounter: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: RECORD_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: CURRENT_TIMESTAMP()
+        systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:

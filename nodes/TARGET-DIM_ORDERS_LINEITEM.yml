@@ -274,20 +274,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 49f655cf-dedc-42a1-9cdb-df4f8b7d3300
-          stepCounter: c16311dc-a0fa-4dd9-b007-601546ad752d
-        config: {}
-        dataType: VARCHAR(1)
-        description: ""
-        name: L_RETURNFLAG
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: fe1350c3-4894-400b-a669-f39ca737cd4c
-                stepCounter: d8f5e8d3-ad69-4d2d-8eee-9b33ca93d4f5
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: 82a4b81e-d85c-4c07-b1a9-b8cdb2a7224c
           stepCounter: c16311dc-a0fa-4dd9-b007-601546ad752d
         config: {}
