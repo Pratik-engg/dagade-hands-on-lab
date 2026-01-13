@@ -16,7 +16,7 @@ operation:
         - {}
     clusterKeyExpressions: false
     cpygrants: false
-    downstreamOption: false
+    downstreamOption: true
     groupByAll: false
     immutabilityConstraint: false
     immutableExpression: ""
