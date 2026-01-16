@@ -15,7 +15,12 @@ operation:
   locationName: TARGET
   materializationType: table
   metadata:
-    appliedNodeTests: []
+    appliedNodeTests:
+      - continueOnFailure: true
+        description: ""
+        name: Test
+        runOrder: After
+        templateString: "{{ testUtils.expect_table_row_count_to_be_between(10,15) }}"
     columns:
       - appliedColumnTests: {}
         columnReference:

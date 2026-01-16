@@ -71,7 +71,7 @@ operation:
           - columnReferences:
               - columnCounter: e3d1c70e-16d5-415d-81cd-63c936ef0fde
                 stepCounter: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
-            transform: ""
+            transform: Upper("STG_SUPPLIER"."S_NAME")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: c518ab46-9a9a-44e2-8159-028a167b1f31
@@ -85,7 +85,7 @@ operation:
           - columnReferences:
               - columnCounter: 29f2fa8d-f4ef-4b0e-bfac-1245ac4a6acd
                 stepCounter: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
-            transform: ""
+            transform: Upper("STG_SUPPLIER"."S_ADDRESS")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 2d4826f2-7bce-4855-a134-427f9f5389fd

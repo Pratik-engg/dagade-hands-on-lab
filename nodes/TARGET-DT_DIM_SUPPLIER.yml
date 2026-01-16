@@ -35,7 +35,9 @@ operation:
         - {}
     orderseq:
       items:
-        - {}
+        - colNameseq:
+            columnCounter: 0a30894b-388f-42dd-8c0a-54d0e6194dbe
+            stepCounter: 2ebf7b0d-9b0d-478b-8abd-71cde8c4e27a
     partitionBy:
       items:
         - partColName:
@@ -44,7 +46,9 @@ operation:
     recordVersioning: Integer Column
     recordorderBy:
       items:
-        - ocolName: null
+        - ocolName:
+            columnCounter: cfce4d26-3789-47de-9b17-458de45b3d0b
+            stepCounter: 2ebf7b0d-9b0d-478b-8abd-71cde8c4e27a
     refreshWarehouseSize: X-Small
     refresh_mode: AUTO
     timeTravel: false
@@ -269,7 +273,7 @@ operation:
           columnCounter: 0a30894b-388f-42dd-8c0a-54d0e6194dbe
           stepCounter: 2ebf7b0d-9b0d-478b-8abd-71cde8c4e27a
         config: {}
-        dataType: NUMBER(38,0)
+        dataType: INTEGER
         defaultValue: ""
         description: ""
         keyColumnType: None
