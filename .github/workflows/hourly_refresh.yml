@@ -27,4 +27,4 @@ jobs:
         # "coa refresh" triggers a pipeline run in your Coalesce environment
         run: |
           echo "$COA_CONFIG" > coa_config.json
-          coa refresh --config coa_config.json --environmentID 8 --jobID 4
+          coa refresh --config coa_config.json --environmentID 41 --jobID 9
