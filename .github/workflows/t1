@@ -1,0 +1,41 @@
+name: Deploy to PROD
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allows manual trigger from GitHub UI
+
+jobs:
+  refresh-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Coalesce CLI
+        run: npm install -g @coalescesoftware/coa
+
+      - name: Create Deployment Plan
+        env:
+          COA_CONFIG: ${{ secrets.COA_CONFIG }}
+        run: npx coa plan --config COA_CONFIG --out ./coa-plan2 --debug
+
+      - name: Print version
+        run: npx coa --version
+
+      - name: Trigger Coalesce Job
+        env:
+          COA_CONFIG: ${{ secrets.COA_CONFIG }}
+        run: npx coa refresh --config COA_CONFIG
+
+      - name: Deploy Plan
+        env:
+          COA_CONFIG: ${{ secrets.COA_CONFIG }}
+        run: npx coa deploy --config COA_CONFIG --plan ./coa-plan2 --debug
