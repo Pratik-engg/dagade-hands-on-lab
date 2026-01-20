@@ -20,7 +20,7 @@ operation:
     immutabilityConstraint: false
     immutableExpression: ""
     initialize: ON_CREATE
-    initializeWarehouseSize: Small
+    initializeWarehouseSize: Large
     lagSpecification:
       items:
         - lagPeriod: Minutes
@@ -49,7 +49,7 @@ operation:
         - ocolName:
             columnCounter: cfce4d26-3789-47de-9b17-458de45b3d0b
             stepCounter: 2ebf7b0d-9b0d-478b-8abd-71cde8c4e27a
-    refreshWarehouseSize: X-Small
+    refreshWarehouseSize: Large
     refresh_mode: AUTO
     timeTravel: false
     timeTravelreference: ""
