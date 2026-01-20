@@ -49,7 +49,7 @@ operation:
     timeTravelvalue: ""
     warehouseName: dev_wh_xs
   database: ""
-  deployEnabled: true
+  deployEnabled: false
   description: Supplier data as defined by TPC-H
   isMultisource: false
   locationName: TARGET
