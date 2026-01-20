@@ -1,54 +1,132 @@
 fileVersion: 1
-id: 8af215c9-debd-40f1-911a-dbf0fa4be1f0
+id: 58203156-81cf-47f6-91b3-988782ef4352
 name: TEST_NODE
 operation:
+  config:
+    clusterKey: false
+    clusterKeyConfig:
+      items:
+        - {}
+    clusterKeyConfigExpressions:
+      items:
+        - {}
+    clusterKeyExpressions: false
+    devMode: false
+    flagSrcStream: true
+    groupByAll: false
+    insertStrategy: UNION
+    loadType: Insert
+    mergeOrderBy:
+      items:
+        - colName: null
+          sortOrd: desc
+    multiStreamBehavior: AND
+    orderby: false
+    orderbycolumn:
+      items:
+        - {}
+    partitionBy:
+      items:
+        - partColName: null
+    predTask: DATA_TRANSFORMATION_ROOT_TASK
+    rootTask: DATA_TRANSFORMATION_ROOT_TASK
+    scheduleCRON: 5 0-23 * * * America/Los_Angeles
+    schedulePeriod: "5"
+    schedulePeriodOption: Minutes
+    schedulingMode: Warehouse Task
+    selectDistinct: false
+    serverlessSize: MEDIUM
+    truncateBefore: true
+    whName: COMPUTE_WH
   database: ""
   deployEnabled: true
   description: ""
+  isMultisource: false
   locationName: WORK
+  materializationType: table
   metadata:
+    appliedNodeTests: []
     columns:
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
-          columnCounter: c6db7920-7c50-4ba4-8de7-de58583e0bdf
-          stepCounter: 8af215c9-debd-40f1-911a-dbf0fa4be1f0
+          columnCounter: a7b2b2e7-5fea-4bbc-925f-0280f61b4008
+          stepCounter: 58203156-81cf-47f6-91b3-988782ef4352
         config: {}
         dataType: NUMBER(38,0)
-        defaultValue: ""
         description: ""
         name: ID
         nullable: true
-        primaryKey: false
         sourceColumnReferences:
-          - columnReferences: []
+          - columnReferences:
+              - columnCounter: f0af4d99-1fc5-46e8-8437-456091ed7d40
+                stepCounter: 1b98eafe-be4a-410e-9635-a417ed06483e
             transform: ""
-        transform: ""
-        uniqueKey: false
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fb1a37e9-9418-447d-b67f-b64286016cef
+          stepCounter: 58203156-81cf-47f6-91b3-988782ef4352
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 245be9ba-6488-439f-a0c8-b219d9e71cf0
+                stepCounter: 1b98eafe-be4a-410e-9635-a417ed06483e
+            transform: ""
       - acceptedValues:
           strictMatch: true
           values: []
         appliedColumnTests: {}
         columnReference:
-          columnCounter: f98c6014-7204-4503-a741-f0079ebb3a8a
-          stepCounter: 8af215c9-debd-40f1-911a-dbf0fa4be1f0
+          columnCounter: e1143801-07cb-4d88-ab57-f5915757dcdf
+          stepCounter: 58203156-81cf-47f6-91b3-988782ef4352
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: TIMESTAMP
         defaultValue: ""
         description: ""
-        name: NAME
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
         nullable: true
-        primaryKey: false
         sourceColumnReferences:
           - columnReferences: []
-            transform: ""
-        transform: ""
-        uniqueKey: false
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f4a32394-4c20-4938-bf7a-c71383e634bc
+          stepCounter: 58203156-81cf-47f6-91b3-988782ef4352
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DUMMY_SOURCE: 1b98eafe-be4a-410e-9635-a417ed06483e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: DUMMY_SOURCE
+        join:
+          joinCondition: FROM {{ ref('WORK', 'DUMMY_SOURCE') }} "DUMMY_SOURCE"
+        name: TEST_NODE
+        noLinkRefs: []
   name: TEST_NODE
+  overrideSQL: false
   schema: ""
-  sqlType: Source
-  type: sourceInput
+  sqlType: task:::567
+  type: sql
   version: 1
 type: Node
