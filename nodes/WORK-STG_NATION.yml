@@ -5,14 +5,14 @@ operation:
   config:
     insertStrategy: INSERT
     postSQL: |-
-      UPDATE DAGADE.WORKDEV.AUDIT_JOB_RUN
+      UPDATE DB_PRATIK.WORKDEV.AUDIT_JOB_RUN
       SET
           END_TIME = CURRENT_TIMESTAMP,
           STATUS   = 'SUCCESS'
       WHERE RUN_ID   = '{{  parameters.RUN_ID }}'
         AND JOB_NAME = '{{  parameters.JOB_NAME }}';
     preSQL: |
-      INSERT INTO DAGADE.WORKDEV.AUDIT_JOB_RUN (
+      INSERT INTO DB_PRATIK.WORKDEV.AUDIT_JOB_RUN (
           RUN_ID,
           JOB_NAME,
           START_TIME,
