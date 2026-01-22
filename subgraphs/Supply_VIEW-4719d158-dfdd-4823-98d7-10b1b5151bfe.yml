@@ -1,0 +1,13 @@
+fileVersion: 1
+id: 4719d158-dfdd-4823-98d7-10b1b5151bfe
+name: Supply_VIEW
+steps:
+  - 117207ab-9a1e-4755-bce9-688d2c3e0cb7
+  - 19626e04-0fa9-4093-a99b-acd9269bb744
+  - 2d2bbf39-8b0f-435f-a0c7-e8eb465ad3ba
+  - 8094c606-49e4-400e-8252-c68f8d33990b
+  - a2220834-bf7f-4a79-932b-e8949fbac991
+  - b1262221-0d02-4956-938c-69477fb60563
+  - bca5b7c1-f74b-46f9-ab25-ba22a9fd21a8
+  - cf709dcf-f402-4ca8-9d12-f33567f52da8
+type: Subgraph
