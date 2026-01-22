@@ -52,5 +52,11 @@ jobs:
       - name: Create Deployment Plan
         run: npx coa plan --config COA_CONFIG --out ./coa-plan --debug
 
+      - name: Upload deployment plan
+        uses: actions/upload-artifact@v4
+        with:
+         name: coa-deployment-plan
+         path: coa-plan
+         
       - name: Deploy Plan
         run: npx coa deploy --config COA_CONFIG --plan ./coa-plan --debug
