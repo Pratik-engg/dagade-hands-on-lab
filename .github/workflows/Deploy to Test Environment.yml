@@ -22,6 +22,8 @@ jobs:
       TEST_COA_BASE_CONFIG: ${{ secrets.TEST_COA_BASE_CONFIG }}
       TEST_SNOWFLAKE_USERNAME: ${{ secrets.TEST_SNOWFLAKE_USERNAME }}
       TEST_SNOWFLAKE_PASSWORD: ${{ secrets.TEST_SNOWFLAKE_PASSWORD }}
+      COALESCE_TOKEN: ${{ secrets.COALESCE_TOKEN }}
+      COALESCE_ENV_ID: ${{ secrets.COALESCE_ENV_ID }}
 
     steps:
       - name: Checkout repository
