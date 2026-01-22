@@ -40,6 +40,8 @@ jobs:
           echo "$TEST_COA_BASE_CONFIG" | \
             jq --arg user "$TEST_SNOWFLAKE_USERNAME" \
                --arg pass "$TEST_SNOWFLAKE_PASSWORD" \
+               --arg token "$COALESCE_TOKEN" \
+               --argjson envId "$COALESCE_ENV_ID" \
                '. + {snowflakeUsername: $user, snowflakePassword: $pass,token: $token, environmentID: $envId}' \
             > COA_CONFIG
 
