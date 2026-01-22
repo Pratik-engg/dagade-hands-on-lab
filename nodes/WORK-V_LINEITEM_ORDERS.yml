@@ -471,7 +471,7 @@ operation:
         name: V_LINEITEM_ORDERS
         noLinkRefs: []
   name: V_LINEITEM_ORDERS
-  overrideSQL: true
+  overrideSQL: false
   schema: ""
   sqlType: View
   type: sql
