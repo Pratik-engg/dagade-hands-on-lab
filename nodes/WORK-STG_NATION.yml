@@ -24,7 +24,7 @@ operation:
           CURRENT_TIMESTAMP,
           'STARTED'
       );
-    testsEnabled: false
+    testsEnabled: true
     truncateBefore: false
   database: ""
   deployEnabled: true
@@ -40,7 +40,7 @@ operation:
         runOrder: Before
         templateString: |-
           select * from {{ref_no_link('SRC','NATION')}}
-          where N_NATIONKEY = 24
+          where N_REGIONKEY <> 3
     columns:
       - appliedColumnTests: {}
         columnReference:
