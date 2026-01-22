@@ -1,0 +1,56 @@
+name: Deploy to Test Environment
+
+on:
+  # Uncomment when ready to auto-deploy on PR merge to main
+  # pull_request:
+  #   types: [closed]
+  #   branches:
+  #     - main
+  workflow_dispatch:
+
+env:
+  COA_VERSION: latest
+
+jobs:
+  deploy-test:
+    # Uncomment when enabling PR trigger
+    # if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    environment: test
+
+    env:
+      TEST_COA_BASE_CONFIG: ${{ secrets.TEST_COA_BASE_CONFIG }}
+      TEST_SNOWFLAKE_USERNAME: ${{ secrets.TEST_SNOWFLAKE_USERNAME }}
+      TEST_SNOWFLAKE_PASSWORD: ${{ secrets.TEST_SNOWFLAKE_PASSWORD }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Construct COA_CONFIG by merging base config with credentials
+      - name: Build COA config
+        run: |
+          echo "$TEST_COA_BASE_CONFIG" | \
+            jq --arg user "$TEST_SNOWFLAKE_USERNAME" \
+               --arg pass "$TEST_SNOWFLAKE_PASSWORD" \
+               '. + {snowflakeUsername: $user, snowflakePassword: $pass}' \
+            > COA_CONFIG
+
+      - name: Install Coalesce CLI
+        run: |
+          npm list | grep "@coalescesoftware/coa@${COA_VERSION}" \
+          || npm install @coalescesoftware/coa@${COA_VERSION}
+
+      - name: Print Coalesce CLI version
+        run: npx coa --version
+
+      - name: Create Deployment Plan
+        run: npx coa plan --config COA_CONFIG --out ./coa-plan --debug
+
+      - name: Deploy Plan
+        run: npx coa deploy --config COA_CONFIG --plan ./coa-plan --debug
