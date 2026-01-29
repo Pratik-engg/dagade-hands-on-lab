@@ -3,7 +3,7 @@ id: 07c03cbc-3123-44cd-8240-05cad15f2849
 name: NATION
 operation:
   database: ""
-  deployEnabled: true
+  deployEnabled: false
   description: Nation data as defined by TPC-H
   locationName: SRC
   metadata:

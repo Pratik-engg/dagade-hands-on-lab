@@ -3,7 +3,7 @@ id: ff1ce864-d355-431c-944c-cc7b602bc001
 name: REGION
 operation:
   database: ""
-  deployEnabled: true
+  deployEnabled: false
   description: Region data as defined by TPC-H
   locationName: SRC
   metadata:
