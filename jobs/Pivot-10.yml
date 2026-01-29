@@ -1,0 +1,6 @@
+excludeSelector: ""
+fileVersion: 1
+id: "10"
+includeSelector: "{ location: SRC name: SUPPLIER } OR { location: TARGET name: USERS } OR { location: SRC2 name: CALL_CENTER } OR { location: TARGET name: STG_SUPPLIER } OR { location: TARGET name: STG_CALL_CENTER } OR { location: TARGET name: PVT_CALL_CENTER } OR { location: TEST name: STG_CALL_CENTER }"
+name: Pivot
+type: Job
