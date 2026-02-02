@@ -1,0 +1,126 @@
+fileVersion: 1
+id: f68f8baa-9684-4997-982f-5bd4aac80ecd
+name: RCTE_CUSTOMER_HIERARCHY
+operation:
+  config:
+    anctablename: ""
+    joincol:
+      items:
+        - columnName: null
+          ctecolumnName: null
+    mulsources: false
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Recursive CTE example building hierarchical customer relationships
+  isMultisource: true
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c1627-891e-7357-9bdb-019869ad1723
+          stepCounter: f68f8baa-9684-4997-982f-5bd4aac80ecd
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: C_CUSTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+          - columnReferences: []
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c1627-891e-7357-9bdb-06cdc83f914a
+          stepCounter: f68f8baa-9684-4997-982f-5bd4aac80ecd
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: C_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+          - columnReferences: []
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c1627-891f-74a9-829a-33a211d68828
+          stepCounter: f68f8baa-9684-4997-982f-5bd4aac80ecd
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: C_NATIONKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+          - columnReferences: []
+            transform: ""
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c1627-891f-74a9-829a-3537a49f8bb6
+          stepCounter: f68f8baa-9684-4997-982f-5bd4aac80ecd
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: HIERARCHY_LEVEL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+          - columnReferences: []
+            transform: ""
+          - columnReferences: []
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          CALL_CENTER: 248a4a29-9c29-4088-b789-7df5f307e62f
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC2
+            nodeName: CALL_CENTER
+        join:
+          joinCondition: "{{ ref('SRC2', 'CALL_CENTER') }}"
+        name: RCTE_ANCHOR
+        noLinkRefs: []
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: RCTE_RECURSIVE
+        noLinkRefs: []
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: RCTE_FINAL
+        noLinkRefs: []
+  name: RCTE_CUSTOMER_HIERARCHY
+  overrideSQL: false
+  schema: ""
+  sqlType: PVT:::586
+  type: sql
+  version: 1
+type: Node
