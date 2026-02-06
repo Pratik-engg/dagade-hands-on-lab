@@ -1,0 +1,6 @@
+excludeSelector: ""
+fileVersion: 1
+id: "12"
+includeSelector: "{ location: S1 name: CUSTOMER } OR { location: S1 name: ORDERS } OR { location: T1 name: STG_SRC_CPY }"
+name: test_Keypair
+type: Job
