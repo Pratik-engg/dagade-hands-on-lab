@@ -1,0 +1,11 @@
+fileVersion: 1
+id: "55"
+mappingDefinitions:
+  S1:
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF1
+  T1:
+    database: DB_PRATIK
+    schema: WORKTEST
+name: key_test
+type: Environment
