@@ -5,7 +5,7 @@ mappingDefinitions:
     database: SNOWFLAKE_SAMPLE_DATA
     schema: TPCH_SF1
   T1:
-    database: PRACTICE
-    schema: TKT6327WORKPROD
+    database: DB_PRATIK
+    schema: WORKPROD
 name: Production
 type: Environment

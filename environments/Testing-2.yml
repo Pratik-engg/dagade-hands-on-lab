@@ -5,7 +5,7 @@ mappingDefinitions:
     database: SNOWFLAKE_SAMPLE_DATA
     schema: TPCH_SF1
   T1:
-    database: PRACTICE
-    schema: TKT6327WORKTEST
+    database: DB_PRATIK
+    schema: WORKTEST
 name: Testing
 type: Environment
