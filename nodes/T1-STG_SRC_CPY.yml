@@ -33,34 +33,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: c3aa5263-f1e2-4cbb-9576-891805f9a6ff
-          stepCounter: 80d94ae0-11e4-440c-9943-4b254623d496
-        config: {}
-        dataType: VARCHAR(25)
-        description: ""
-        name: C_NAME
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: a42b7d8b-5048-4e44-8f28-b5dda9a346fd
-                stepCounter: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
-            transform: UPPER("CUSTOMER".C_NAME)
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: a4bae0ee-c623-49f8-9db4-2a167677966a
-          stepCounter: 80d94ae0-11e4-440c-9943-4b254623d496
-        config: {}
-        dataType: VARCHAR(40)
-        description: ""
-        name: C_ADDRESS
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 4a95ffe0-7a75-4aa5-ad48-12fd5b1bfe6c
-                stepCounter: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
-            transform: TRIM("CUSTOMER".C_ADDRESS)
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: 68b12d34-dc1f-485e-a79b-727ed272195b
           stepCounter: 80d94ae0-11e4-440c-9943-4b254623d496
         config: {}
@@ -75,13 +47,41 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: ef054e98-24c9-4056-8db0-7d556068670c
+          columnCounter: 019c41b5-73ca-749f-b327-b8d9474bcbf8
           stepCounter: 80d94ae0-11e4-440c-9943-4b254623d496
         config: {}
-        dataType: VARCHAR(15)
+        dataType: VARCHAR
         description: ""
-        name: C_PHONE
-        nullable: false
+        name: C_NAME_UPPER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a42b7d8b-5048-4e44-8f28-b5dda9a346fd
+                stepCounter: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
+            transform: UPPER("CUSTOMER".C_NAME)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c41b5-73ca-749f-b327-be87377290cd
+          stepCounter: 80d94ae0-11e4-440c-9943-4b254623d496
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: C_ADDRESS_TRIM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4a95ffe0-7a75-4aa5-ad48-12fd5b1bfe6c
+                stepCounter: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
+            transform: TRIM("CUSTOMER".C_ADDRESS)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c41b5-73ca-749f-b327-c06e16cec376
+          stepCounter: 80d94ae0-11e4-440c-9943-4b254623d496
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: C_PHONE_CLEANED
+        nullable: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: d1f85b8f-2fd3-416e-ba4a-8b2da77bfabb
@@ -89,13 +89,13 @@ operation:
             transform: REGEXP_REPLACE("CUSTOMER".C_PHONE, '[^0-9]', '')
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 57b562c2-9e7b-45cc-9929-ace8205f4cea
+          columnCounter: 019c41b5-73ca-749f-b327-c425b3b76a88
           stepCounter: 80d94ae0-11e4-440c-9943-4b254623d496
         config: {}
-        dataType: NUMBER(12,2)
+        dataType: NUMBER
         description: ""
-        name: C_ACCTBAL
-        nullable: false
+        name: C_ACCTBAL_ROUNDED
+        nullable: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 40e60515-c584-46af-b126-df8508b5eb14
@@ -103,12 +103,12 @@ operation:
             transform: ROUND("CUSTOMER".C_ACCTBAL, 0)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: ce9a6163-e6c5-4665-a31b-6ba68f1ab2ab
+          columnCounter: 019c41b5-73ca-749f-b327-c88c54ca92e1
           stepCounter: 80d94ae0-11e4-440c-9943-4b254623d496
         config: {}
-        dataType: VARCHAR(10)
+        dataType: VARCHAR
         description: ""
-        name: C_MKTSEGMENT
+        name: C_MKTSEGMENT_LOWER
         nullable: true
         sourceColumnReferences:
           - columnReferences:
@@ -117,12 +117,12 @@ operation:
             transform: LOWER("CUSTOMER".C_MKTSEGMENT)
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 190c0423-6699-43aa-a106-699f0c127e39
+          columnCounter: 019c41b5-73ca-749f-b327-cd4e8c471d50
           stepCounter: 80d94ae0-11e4-440c-9943-4b254623d496
         config: {}
-        dataType: VARCHAR(117)
+        dataType: VARCHAR
         description: ""
-        name: C_COMMENT
+        name: C_COMMENT_UPPER
         nullable: true
         sourceColumnReferences:
           - columnReferences:
