@@ -44,7 +44,7 @@ operation:
           - columnReferences:
               - columnCounter: a42b7d8b-5048-4e44-8f28-b5dda9a346fd
                 stepCounter: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
-            transform: ""
+            transform: UPPER("CUSTOMER".C_NAME)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: a4bae0ee-c623-49f8-9db4-2a167677966a
@@ -58,7 +58,7 @@ operation:
           - columnReferences:
               - columnCounter: 4a95ffe0-7a75-4aa5-ad48-12fd5b1bfe6c
                 stepCounter: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
-            transform: ""
+            transform: TRIM("CUSTOMER".C_ADDRESS)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 68b12d34-dc1f-485e-a79b-727ed272195b
@@ -86,7 +86,7 @@ operation:
           - columnReferences:
               - columnCounter: d1f85b8f-2fd3-416e-ba4a-8b2da77bfabb
                 stepCounter: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
-            transform: ""
+            transform: REGEXP_REPLACE("CUSTOMER".C_PHONE, '[^0-9]', '')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 57b562c2-9e7b-45cc-9929-ace8205f4cea
@@ -100,7 +100,7 @@ operation:
           - columnReferences:
               - columnCounter: 40e60515-c584-46af-b126-df8508b5eb14
                 stepCounter: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
-            transform: ""
+            transform: ROUND("CUSTOMER".C_ACCTBAL, 0)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: ce9a6163-e6c5-4665-a31b-6ba68f1ab2ab
@@ -114,7 +114,7 @@ operation:
           - columnReferences:
               - columnCounter: 2d81cbcd-f4d9-440f-8b59-8af118326e59
                 stepCounter: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
-            transform: ""
+            transform: LOWER("CUSTOMER".C_MKTSEGMENT)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 190c0423-6699-43aa-a106-699f0c127e39
@@ -128,9 +128,12 @@ operation:
           - columnReferences:
               - columnCounter: 98b4de46-26fe-4313-9949-4dc61b6c5670
                 stepCounter: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
-            transform: ""
+            transform: UPPER("CUSTOMER".C_COMMENT)
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           CUSTOMER: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
