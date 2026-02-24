@@ -5,7 +5,9 @@ operation:
   config:
     insertStrategy: INSERT
     postSQL: ""
-    preSQL: ""
+    preSQL: |
+      select *  FROM {{ ref('S1', 'CUSTOMER') }} "CUSTOMER"
+      WHERE "CUSTOMER".C_NATIONKEY ='7'
     testsEnabled: true
     truncateBefore: true
   database: ""
@@ -28,8 +30,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 8db6978a-0ccc-48a4-8d8f-2690bc90f61b
-                stepCounter: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
+              - columnCounter: 6ae48462-93d8-483b-8613-3cca77c60f63
+                stepCounter: d9975506-01bf-4154-917f-0b6774e96f7a
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -42,8 +44,8 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: f3480365-da75-4da6-a5c0-0379a4dec039
-                stepCounter: eda182aa-ca0e-4034-8a90-9c29aa88ce8b
+              - columnCounter: 2a9f3166-db9a-4484-b2bc-0f39aca92ecf
+                stepCounter: d9975506-01bf-4154-917f-0b6774e96f7a
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -143,7 +145,9 @@ operation:
           - locationName: S1
             nodeName: CUSTOMER
         join:
-          joinCondition: FROM {{ ref('S1', 'CUSTOMER') }} "CUSTOMER"
+          joinCondition: |-
+            FROM {{ ref('S1', 'CUSTOMER') }} "CUSTOMER"
+            WHERE "CUSTOMER".C_NATIONKEY IN (3, 7, 18, 21,8)
         name: STG_SRC_CPY
         noLinkRefs: []
   name: STG_SRC_CPY

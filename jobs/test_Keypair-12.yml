@@ -1,6 +1,6 @@
 excludeSelector: ""
 fileVersion: 1
 id: "12"
-includeSelector: "{ location: S1 name: CUSTOMER } OR { location: S1 name: ORDERS } OR { location: T1 name: STG_SRC_CPY }"
+includeSelector: "{ location: S1 name: CUSTOMER } OR { location: S1 name: ORDERS } OR { location: T1 name: STG_SRC_CPY } OR { location: T1 name: STG_CUSTOMER_123 } OR { location: T1 name: PSTG_SRC_CPY } OR { location: T1 name: FCT_SRC_CPY } OR { location: T1 name: PSTG_CUSTOMER1_SRC_CPY } OR { location: T2_RAW name: STG_CUSTOMER_123 }"
 name: test_Keypair
 type: Job

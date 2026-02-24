@@ -4,7 +4,9 @@ name: PSTG_SRC_CPY
 operation:
   config:
     postSQL: ""
-    preSQL: ""
+    preSQL: |-
+      select * FROM {{ ref('T1', 'STG_SRC_CPY') }} "STG_SRC_CPY"
+      WHERE "STG_SRC_CPY"."C_NATIONKEY" = 9
     testsEnabled: true
   database: ""
   deployEnabled: true
@@ -57,7 +59,7 @@ operation:
           - columnReferences:
               - columnCounter: 019c41b5-73ca-749f-b327-b8d9474bcbf8
                 stepCounter: 80d94ae0-11e4-440c-9943-4b254623d496
-            transform: ""
+            transform: UPPER("STG_SRC_CPY"."C_NAME_UPPER")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: beb4b005-3aef-40ad-83c0-b6b930b6514f
@@ -71,7 +73,7 @@ operation:
           - columnReferences:
               - columnCounter: 019c41b5-73ca-749f-b327-be87377290cd
                 stepCounter: 80d94ae0-11e4-440c-9943-4b254623d496
-            transform: ""
+            transform: UPPER("STG_SRC_CPY"."C_ADDRESS_TRIM")
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 968bda2a-05ea-4f3c-91e2-2452afa81307
@@ -240,7 +242,9 @@ operation:
           - locationName: T1
             nodeName: STG_SRC_CPY
         join:
-          joinCondition: FROM {{ ref('T1', 'STG_SRC_CPY') }} "STG_SRC_CPY"
+          joinCondition: |-
+            FROM {{ ref('T1', 'STG_SRC_CPY') }} "STG_SRC_CPY"
+            WHERE "STG_SRC_CPY"."C_NATIONKEY" IN (3, 7, 18, 21,8)
         name: PSTG_SRC_CPY
         noLinkRefs: []
   name: PSTG_SRC_CPY
