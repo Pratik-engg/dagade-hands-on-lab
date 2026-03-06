@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 412e2e3e-ad59-4bd8-b9ba-d4eaa4255b73
+name: LOGIN_HISTORY
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: eca74ee7-5681-4f84-aa95-ce9aa8ef3122
+          stepCounter: 412e2e3e-ad59-4bd8-b9ba-d4eaa4255b73
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: LOGIN_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: aa9af3ff-c104-432c-a800-ef58f63bd917
+          stepCounter: 412e2e3e-ad59-4bd8-b9ba-d4eaa4255b73
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: USER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 86bc8328-eb8d-42bb-be6e-7beb0c2a45db
+          stepCounter: 412e2e3e-ad59-4bd8-b9ba-d4eaa4255b73
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: LOGIN_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: LOGIN_HISTORY
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

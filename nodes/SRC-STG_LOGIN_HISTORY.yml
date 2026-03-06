@@ -1,0 +1,82 @@
+fileVersion: 1
+id: fb85dbda-4870-4128-9e11-28d7475e34a0
+name: STG_LOGIN_HISTORY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SRC
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 62325294-b2d8-4166-81bf-b383c6791f91
+          stepCounter: fb85dbda-4870-4128-9e11-28d7475e34a0
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: LOGIN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: eca74ee7-5681-4f84-aa95-ce9aa8ef3122
+                stepCounter: 412e2e3e-ad59-4bd8-b9ba-d4eaa4255b73
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c87ba48-98b4-4d88-b56f-eb8a9414ed5b
+          stepCounter: fb85dbda-4870-4128-9e11-28d7475e34a0
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: aa9af3ff-c104-432c-a800-ef58f63bd917
+                stepCounter: 412e2e3e-ad59-4bd8-b9ba-d4eaa4255b73
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d4b62826-ede7-457f-bc72-9b3a597aa1a3
+          stepCounter: fb85dbda-4870-4128-9e11-28d7475e34a0
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: LOGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 86bc8328-eb8d-42bb-be6e-7beb0c2a45db
+                stepCounter: 412e2e3e-ad59-4bd8-b9ba-d4eaa4255b73
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          LOGIN_HISTORY: 412e2e3e-ad59-4bd8-b9ba-d4eaa4255b73
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: LOGIN_HISTORY
+        join:
+          joinCondition: FROM {{ ref('SRC', 'LOGIN_HISTORY') }} "LOGIN_HISTORY"
+        name: STG_LOGIN_HISTORY
+        noLinkRefs: []
+  name: STG_LOGIN_HISTORY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

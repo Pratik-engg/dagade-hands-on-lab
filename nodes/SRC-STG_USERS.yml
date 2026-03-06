@@ -1,0 +1,96 @@
+fileVersion: 1
+id: fa40b804-9636-4a49-a406-db7584703d62
+name: STG_USERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SRC
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b57b19d0-e8c5-4e37-89e0-de507a2d66c2
+          stepCounter: fa40b804-9636-4a49-a406-db7584703d62
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3c2678fb-bbb6-4fa3-a212-7bdcee7a66da
+                stepCounter: 4faead70-7668-4096-8c1d-42660a634d10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 938f7503-df4a-4399-86c2-ee6dd5281dd4
+          stepCounter: fa40b804-9636-4a49-a406-db7584703d62
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: USER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 082884f5-cb19-4fa2-85e5-74c0871df371
+                stepCounter: 4faead70-7668-4096-8c1d-42660a634d10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d751d5a1-877c-44be-9b2a-9a912885b164
+          stepCounter: fa40b804-9636-4a49-a406-db7584703d62
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EMAIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d87e6811-1004-4d72-9de8-3d9d9c42dba8
+                stepCounter: 4faead70-7668-4096-8c1d-42660a634d10
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3393cf1f-7195-48d2-a084-011899bbd18a
+          stepCounter: fa40b804-9636-4a49-a406-db7584703d62
+        config: {}
+        dataType: DATE
+        description: ""
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 12ceff9d-2ff7-4c4d-9fa7-68ea1e4c5560
+                stepCounter: 4faead70-7668-4096-8c1d-42660a634d10
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          USERS: 4faead70-7668-4096-8c1d-42660a634d10
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: USERS
+        join:
+          joinCondition: FROM {{ ref('SRC', 'USERS') }} "USERS"
+        name: STG_USERS
+        noLinkRefs: []
+  name: STG_USERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

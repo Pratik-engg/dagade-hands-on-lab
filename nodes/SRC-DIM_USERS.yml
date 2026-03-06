@@ -1,0 +1,213 @@
+fileVersion: 1
+id: 98f866cd-1299-4b82-ae15-9c984d324a3d
+name: DIM_USERS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SRC
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 00cc6c9e-c046-4f13-968d-bb0d6308744e
+          stepCounter: 98f866cd-1299-4b82-ae15-9c984d324a3d
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_USERS_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: f2744fa2-55c1-4398-b0e0-5a1782dcfd3e
+          stepCounter: 98f866cd-1299-4b82-ae15-9c984d324a3d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: true
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b57b19d0-e8c5-4e37-89e0-de507a2d66c2
+                stepCounter: fa40b804-9636-4a49-a406-db7584703d62
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d98d36d5-af06-4adb-8fca-4d2fbddb4823
+          stepCounter: 98f866cd-1299-4b82-ae15-9c984d324a3d
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: USER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 938f7503-df4a-4399-86c2-ee6dd5281dd4
+                stepCounter: fa40b804-9636-4a49-a406-db7584703d62
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 51d64bca-8511-4dd8-9e52-b845203c7176
+          stepCounter: 98f866cd-1299-4b82-ae15-9c984d324a3d
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: EMAIL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d751d5a1-877c-44be-9b2a-9a912885b164
+                stepCounter: fa40b804-9636-4a49-a406-db7584703d62
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c27ccfe-e58e-47ad-81ab-00b0ba5b4d51
+          stepCounter: 98f866cd-1299-4b82-ae15-9c984d324a3d
+        config: {}
+        dataType: DATE
+        description: ""
+        name: CREATED_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3393cf1f-7195-48d2-a084-011899bbd18a
+                stepCounter: fa40b804-9636-4a49-a406-db7584703d62
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0c2cee76-894a-41c1-b86d-e797e6a4ad10
+          stepCounter: 98f866cd-1299-4b82-ae15-9c984d324a3d
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9126a692-8fec-4343-b650-95649b89ec66
+          stepCounter: 98f866cd-1299-4b82-ae15-9c984d324a3d
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ba0e6884-ae9c-4374-9f79-b3340107ba96
+          stepCounter: 98f866cd-1299-4b82-ae15-9c984d324a3d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 398f0091-afaf-4226-bc49-e96f7b5f2edf
+          stepCounter: 98f866cd-1299-4b82-ae15-9c984d324a3d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1ba7ecd0-47b1-430d-b38e-ebb889e6f37f
+          stepCounter: 98f866cd-1299-4b82-ae15-9c984d324a3d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 68e086b2-1d7f-4fbe-b6a3-81c88d030d58
+          stepCounter: 98f866cd-1299-4b82-ae15-9c984d324a3d
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cc2bd-51e8-7079-8525-8e6c75a1c88f
+          stepCounter: 98f866cd-1299-4b82-ae15-9c984d324a3d
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: LAST_LOGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MAX(F.LOGIN_DATE)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          STG_USERS: fa40b804-9636-4a49-a406-db7584703d62
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: FCT_LOGIN_HISTORY
+          - locationName: SRC
+            nodeName: STG_USERS
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'STG_USERS') }} "STG_USERS"
+            LEFT JOIN {{ ref('SRC', 'FCT_LOGIN_HISTORY') }} F ON "STG_USERS".USER_ID = F.USER_ID
+            GROUP BY "STG_USERS".USER_ID, "STG_USERS".USER_NAME, "STG_USERS".EMAIL, "STG_USERS".CREATED_DATE
+        name: DIM_USERS
+        noLinkRefs: []
+  name: DIM_USERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Dimension
+  type: sql
+  version: 1
+type: Node

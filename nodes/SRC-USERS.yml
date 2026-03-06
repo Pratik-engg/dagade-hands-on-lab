@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 4faead70-7668-4096-8c1d-42660a634d10
+name: USERS
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: SRC
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3c2678fb-bbb6-4fa3-a212-7bdcee7a66da
+          stepCounter: 4faead70-7668-4096-8c1d-42660a634d10
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: USER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 082884f5-cb19-4fa2-85e5-74c0871df371
+          stepCounter: 4faead70-7668-4096-8c1d-42660a634d10
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: USER_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d87e6811-1004-4d72-9de8-3d9d9c42dba8
+          stepCounter: 4faead70-7668-4096-8c1d-42660a634d10
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: EMAIL
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 12ceff9d-2ff7-4c4d-9fa7-68ea1e4c5560
+          stepCounter: 4faead70-7668-4096-8c1d-42660a634d10
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: CREATED_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: USERS
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

@@ -1,0 +1,127 @@
+fileVersion: 1
+id: 0dfc77fc-7bcd-4b1b-b1f8-a4fc126ad8c6
+name: FCT_LOGIN_HISTORY
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: SRC
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fdfdcae2-688c-4d61-bc57-c90438456a07
+          stepCounter: 0dfc77fc-7bcd-4b1b-b1f8-a4fc126ad8c6
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: LOGIN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 62325294-b2d8-4166-81bf-b383c6791f91
+                stepCounter: fb85dbda-4870-4128-9e11-28d7475e34a0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 62533575-ca89-4d4d-900d-7843bed5761f
+          stepCounter: 0dfc77fc-7bcd-4b1b-b1f8-a4fc126ad8c6
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c87ba48-98b4-4d88-b56f-eb8a9414ed5b
+                stepCounter: fb85dbda-4870-4128-9e11-28d7475e34a0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3bd27c0f-5002-4ac6-a15f-84caec5bab46
+          stepCounter: 0dfc77fc-7bcd-4b1b-b1f8-a4fc126ad8c6
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: LOGIN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d4b62826-ede7-457f-bc72-9b3a597aa1a3
+                stepCounter: fb85dbda-4870-4128-9e11-28d7475e34a0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 73613b05-40a9-4e8f-aaf4-f6575728a091
+          stepCounter: 0dfc77fc-7bcd-4b1b-b1f8-a4fc126ad8c6
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 74f9cc22-b10a-42e9-93ef-3deef827281f
+          stepCounter: 0dfc77fc-7bcd-4b1b-b1f8-a4fc126ad8c6
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cc2c1-c34f-70fb-a68d-d3ebe0f4fbeb
+          stepCounter: 0dfc77fc-7bcd-4b1b-b1f8-a4fc126ad8c6
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: USER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: D.USER_NAME
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          STG_LOGIN_HISTORY: fb85dbda-4870-4128-9e11-28d7475e34a0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: DIM_USERS
+          - locationName: SRC
+            nodeName: STG_LOGIN_HISTORY
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'STG_LOGIN_HISTORY') }} "STG_LOGIN_HISTORY"
+            LEFT JOIN {{ ref('SRC', 'DIM_USERS') }} D ON "STG_LOGIN_HISTORY".USER_ID = D.USER_ID
+        name: FCT_LOGIN_HISTORY
+        noLinkRefs: []
+  name: FCT_LOGIN_HISTORY
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node
