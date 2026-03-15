@@ -1,5 +1,11 @@
 fileVersion: 1
 id: "62"
-mappingDefinitions: {}
+mappingDefinitions:
+  SRC:
+    database: PRATIK
+    schema: SCHEMA_RAW
+  TARGET:
+    database: PRATIK
+    schema: TEST
 name: New Environment
 type: Environment
