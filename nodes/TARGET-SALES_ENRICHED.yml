@@ -1,0 +1,138 @@
+fileVersion: 1
+id: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+name: SALES_ENRICHED
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Enriched sales data with customer and product joins and gross amount calculation
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ce1f0-629c-765e-ad4a-bae1fa3b53b6
+          stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TRANSACTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cd25b-b384-76f9-94c9-b18f7d3ff177
+                stepCounter: 7607425a-1dbb-40ec-864a-ddcdf1a23457
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ce1f0-629c-765e-ad4a-bc1b93217b6f
+          stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cd26c-22c5-747f-85f1-c27d5b90ba4e
+                stepCounter: 5e86afa8-e33a-4624-904a-f6315ed6c268
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ce1f0-629c-765e-ad4a-c301f6db71ce
+          stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PRODUCT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cd26c-2be6-751f-a68f-b98a4d351b0b
+                stepCounter: ab6d8d12-3f16-45d2-b0e4-0a3394a7b9a3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ce1f0-629c-765e-ad4a-c63ac1e72671
+          stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SALE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cd25b-b384-76f9-94c9-c5211e8682df
+                stepCounter: 7607425a-1dbb-40ec-864a-ddcdf1a23457
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ce1f0-629c-765e-ad4a-cb1c8d836c8a
+          stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cd25b-b384-76f9-94c9-bc8e72828f82
+                stepCounter: 7607425a-1dbb-40ec-864a-ddcdf1a23457
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ce1f0-629c-765e-ad4a-cd97bfc89f5e
+          stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: GROSS_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: (STG_SALES_F.QUANTITY * DIM_PRODUCTS.CURRENT_UNIT_PRICE)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          DIM_CUSTOMERS: 5e86afa8-e33a-4624-904a-f6315ed6c268
+          DIM_PRODUCTS: ab6d8d12-3f16-45d2-b0e4-0a3394a7b9a3
+          STG_SALES_F: 7607425a-1dbb-40ec-864a-ddcdf1a23457
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: DIM_CUSTOMERS
+          - locationName: TARGET
+            nodeName: DIM_PRODUCTS
+          - locationName: TARGET
+            nodeName: STG_SALES_F
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'STG_SALES_F') }} STG_SALES_F
+            INNER JOIN {{ ref('TARGET', 'DIM_CUSTOMERS') }} DIM_CUSTOMERS 
+                ON STG_SALES_F.CUSTOMER_ID = DIM_CUSTOMERS.CUSTOMER_ID 
+                AND STG_SALES_F.SALE_DATE >= DIM_CUSTOMERS.EFF_START_DATE 
+                AND (STG_SALES_F.SALE_DATE <= DIM_CUSTOMERS.EFF_END_DATE OR DIM_CUSTOMERS.EFF_END_DATE IS NULL)
+            INNER JOIN {{ ref('TARGET', 'DIM_PRODUCTS') }} DIM_PRODUCTS 
+                ON STG_SALES_F.PRODUCT_ID = DIM_PRODUCTS.PRODUCT_ID
+        name: SALES_ENRICHED
+        noLinkRefs: []
+  name: SALES_ENRICHED
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

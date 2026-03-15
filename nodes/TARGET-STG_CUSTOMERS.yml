@@ -1,0 +1,113 @@
+fileVersion: 1
+id: c3a0b903-7ce5-4377-9194-e3d2c9210405
+name: STG_CUSTOMERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Staged customer data with normalized names and emails
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd263-18a2-70cf-b6c9-73897ecb61b7
+          stepCounter: c3a0b903-7ce5-4377-9194-e3d2c9210405
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d7e28c17-d58a-4b9f-940c-0aebb0ae3762
+                stepCounter: 59489029-ba2e-4a92-9121-8364d015da48
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd263-18a2-70cf-b6c9-75dddb502dbf
+          stepCounter: c3a0b903-7ce5-4377-9194-e3d2c9210405
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2afbe2c3-3b9a-4055-9615-6784009355d5
+                stepCounter: 59489029-ba2e-4a92-9121-8364d015da48
+            transform: UPPER("RAW_CUSTOMERS"."NAME")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd263-18a2-70cf-b6c9-7a423dacf8a4
+          stepCounter: c3a0b903-7ce5-4377-9194-e3d2c9210405
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EMAIL_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 64b36766-c31d-4f91-938b-a11ec6c7d48f
+                stepCounter: 59489029-ba2e-4a92-9121-8364d015da48
+            transform: LOWER("RAW_CUSTOMERS"."EMAIL")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd263-18a2-70cf-b6c9-7f919b4a74ba
+          stepCounter: c3a0b903-7ce5-4377-9194-e3d2c9210405
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e2eb1a33-259c-4072-8419-99fe90d9d91d
+                stepCounter: 59489029-ba2e-4a92-9121-8364d015da48
+            transform: COALESCE("RAW_CUSTOMERS"."CITY", 'Unknown')
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd263-18a2-70cf-b6c9-8272fc926da9
+          stepCounter: c3a0b903-7ce5-4377-9194-e3d2c9210405
+        config: {}
+        dataType: DATE
+        description: ""
+        name: UPDATE_DT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cc1991e4-bc73-453b-8fe9-3497a549cabe
+                stepCounter: 59489029-ba2e-4a92-9121-8364d015da48
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          RAW_CUSTOMERS: 59489029-ba2e-4a92-9121-8364d015da48
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: RAW_CUSTOMERS
+        join:
+          joinCondition: FROM {{ ref('SRC', 'RAW_CUSTOMERS') }}
+        name: STG_CUSTOMERS
+        noLinkRefs: []
+  name: STG_CUSTOMERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

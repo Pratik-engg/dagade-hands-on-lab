@@ -1,0 +1,6 @@
+excludeSelector: ""
+fileVersion: 1
+id: "14"
+includeSelector: "{ location: SRC name: RAW_CUSTOMERS } OR { location: SRC name: RAW_PRODUCTS } OR { location: SRC name: RAW_SALES } OR { location: TARGET name: SALES_ENRICHED } OR { location: TARGET name: STG_CUSTOMERS } OR { location: TARGET name: STG_SALES_F } OR { location: TARGET name: PSTG_RAW_SALES } OR { location: TARGET name: INC_RAW_SALES } OR { location: TARGET name: FACT_SALES } OR { location: TARGET name: DIM_CUSTOMERS } OR { location: TARGET name: DIM_PRODUCTS }"
+name: Fact_Job
+type: Job

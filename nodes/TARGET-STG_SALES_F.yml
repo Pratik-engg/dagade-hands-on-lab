@@ -1,0 +1,127 @@
+fileVersion: 1
+id: 7607425a-1dbb-40ec-864a-ddcdf1a23457
+name: STG_SALES_F
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Staged sales transactions view with standardized column names
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd25b-b384-76f9-94c9-b18f7d3ff177
+          stepCounter: 7607425a-1dbb-40ec-864a-ddcdf1a23457
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TRANSACTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b4f73431-823d-4849-9ecf-f141c87b686c
+                stepCounter: 895c0360-2aee-4ab0-88c9-22382badeb1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd25b-b384-76f9-94c9-b54c04155bf4
+          stepCounter: 7607425a-1dbb-40ec-864a-ddcdf1a23457
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CUSTOMER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3e810fe1-b112-42cc-a134-c024765eb8c0
+                stepCounter: 895c0360-2aee-4ab0-88c9-22382badeb1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd25b-b384-76f9-94c9-b874cf15ab9f
+          stepCounter: 7607425a-1dbb-40ec-864a-ddcdf1a23457
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PRODUCT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c68c29b4-3a79-4951-bae5-6dbe8795e633
+                stepCounter: 895c0360-2aee-4ab0-88c9-22382badeb1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd25b-b384-76f9-94c9-bc8e72828f82
+          stepCounter: 7607425a-1dbb-40ec-864a-ddcdf1a23457
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 38607c0c-0573-453d-af76-574ce86f1f77
+                stepCounter: 895c0360-2aee-4ab0-88c9-22382badeb1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd25b-b384-76f9-94c9-c1806d4f207f
+          stepCounter: 7607425a-1dbb-40ec-864a-ddcdf1a23457
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SALE_TIMESTAMP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 92f623fb-5fcf-4558-a1c9-df7935696659
+                stepCounter: 895c0360-2aee-4ab0-88c9-22382badeb1e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd25b-b384-76f9-94c9-c5211e8682df
+          stepCounter: 7607425a-1dbb-40ec-864a-ddcdf1a23457
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SALE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 92f623fb-5fcf-4558-a1c9-df7935696659
+                stepCounter: 895c0360-2aee-4ab0-88c9-22382badeb1e
+            transform: DATE(PSTG_RAW_SALES.TXN_TS)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          PSTG_RAW_SALES: 895c0360-2aee-4ab0-88c9-22382badeb1e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PSTG_RAW_SALES
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'PSTG_RAW_SALES') }} PSTG_RAW_SALES
+        name: STG_SALES_F
+        noLinkRefs: []
+  name: STG_SALES_F
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

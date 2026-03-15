@@ -1,0 +1,139 @@
+fileVersion: 1
+id: c5972df3-50b2-4185-bede-f3f66d2b3dde
+name: FACT_SALES
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd276-99e9-77ef-8eae-4dd0e9a2e291
+          stepCounter: c5972df3-50b2-4185-bede-f3f66d2b3dde
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: true
+        name: TRANSACTION_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019ce1f0-629c-765e-ad4a-bae1fa3b53b6
+                stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd276-99e9-77ef-8eae-52543bcbd5d3
+          stepCounter: c5972df3-50b2-4185-bede-f3f66d2b3dde
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: CUSTOMER_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019ce1f0-629c-765e-ad4a-bc1b93217b6f
+                stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd276-99e9-77ef-8eae-551d91a27d00
+          stepCounter: c5972df3-50b2-4185-bede-f3f66d2b3dde
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PRODUCT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019ce1f0-629c-765e-ad4a-c301f6db71ce
+                stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd276-99e9-77ef-8eae-5b84574a117c
+          stepCounter: c5972df3-50b2-4185-bede-f3f66d2b3dde
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SALE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019ce1f0-629c-765e-ad4a-c63ac1e72671
+                stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd276-99e9-77ef-8eae-5f5951e9a17f
+          stepCounter: c5972df3-50b2-4185-bede-f3f66d2b3dde
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019ce1f0-629c-765e-ad4a-cb1c8d836c8a
+                stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd276-99e9-77ef-8eae-607a38b9ad65
+          stepCounter: c5972df3-50b2-4185-bede-f3f66d2b3dde
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: GROSS_AMT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019ce1f0-629c-765e-ad4a-cd97bfc89f5e
+                stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cd276-99e9-77ef-8eae-66dd970cb574
+          stepCounter: c5972df3-50b2-4185-bede-f3f66d2b3dde
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: NET_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019ce1f0-629c-765e-ad4a-cd97bfc89f5e
+                stepCounter: dcfa96aa-540f-46fd-ac5f-e5e27eedd059
+            transform: (SALES_ENRICHED.GROSS_AMT * 0.9)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SALES_ENRICHED
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'SALES_ENRICHED') }} SALES_ENRICHED
+        name: FACT_SALES
+        noLinkRefs: []
+  name: FACT_SALES
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

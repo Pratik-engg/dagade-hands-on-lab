@@ -1,0 +1,131 @@
+fileVersion: 1
+id: 078d3283-e4b3-4abe-ad49-f9238adbf173
+name: INC_RAW_SALES
+operation:
+  config:
+    ddqcolumns:
+      items:
+        - {}
+    dqdup: false
+    dqhandle: false
+    dqnull: false
+    incColumn:
+      columnCounter: 7960e239-9975-4a18-9dfb-fe9cab0b2fb7
+      stepCounter: 078d3283-e4b3-4abe-ad49-f9238adbf173
+    ndqcolumns:
+      items:
+        - {}
+    persistTableLocation: TARGET
+    persistTableName: PSTG_RAW_SALES
+    postSQL: ""
+    preSQL: ""
+    refTable: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 69ca4c8b-158d-42c0-ac2f-2366ff8fa2cf
+          stepCounter: 078d3283-e4b3-4abe-ad49-f9238adbf173
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TXN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82414fb2-d280-410a-9367-57ad3fdcf77c
+                stepCounter: 0fea196e-2daa-464c-94ce-7cb493b619fb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 33ca5dca-e78e-49f6-a5e9-565df63ea14a
+          stepCounter: 078d3283-e4b3-4abe-ad49-f9238adbf173
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CUST_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3aa35bbe-14c6-4a53-adde-e5adbe2f9974
+                stepCounter: 0fea196e-2daa-464c-94ce-7cb493b619fb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3904fc2b-0694-4092-b894-2685b6467768
+          stepCounter: 078d3283-e4b3-4abe-ad49-f9238adbf173
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PROD_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d30ec42f-9e98-45c0-9719-05b04d5c97e2
+                stepCounter: 0fea196e-2daa-464c-94ce-7cb493b619fb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3701e347-e715-4586-bf35-fddaf74f42d2
+          stepCounter: 078d3283-e4b3-4abe-ad49-f9238adbf173
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: QTY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9763184a-2352-4696-86d5-83f749f67763
+                stepCounter: 0fea196e-2daa-464c-94ce-7cb493b619fb
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7960e239-9975-4a18-9dfb-fe9cab0b2fb7
+          stepCounter: 078d3283-e4b3-4abe-ad49-f9238adbf173
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: TXN_TS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bc8d08b8-e3c4-4f73-94f6-00182ab8513a
+                stepCounter: 0fea196e-2daa-464c-94ce-7cb493b619fb
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          RAW_SALES: 0fea196e-2daa-464c-94ce-7cb493b619fb
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: RAW_SALES
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC', 'RAW_SALES') }} "RAW_SALES"
+              WHERE "RAW_SALES"."TXN_TS" >= 
+              (SELECT COALESCE(MAX("TXN_TS"), '1900-01-01 00:00:00'::TIMESTAMP) 
+                        FROM {{ ref_no_link('TARGET', 'PSTG_RAW_SALES') }} )
+        name: INC_RAW_SALES
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: PSTG_RAW_SALES
+  name: INC_RAW_SALES
+  overrideSQL: false
+  schema: ""
+  sqlType: INC:::230
+  type: sql
+  version: 1
+type: Node
