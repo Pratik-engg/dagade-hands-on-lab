@@ -22,7 +22,7 @@ config:
   packageVariables: ""
 fileVersion: 1
 id: "@coalesce/snowflake/base-node-types"
-name: BaseNT
+name: PBaseNT
 packageID: "@coalesce/snowflake/base-node-types"
-releaseID: 11dbe8df-fc67-4c9c-9817-1c2c62862bfa
+releaseID: 078d1426-409c-4ca4-9831-e834c90044b2
 type: Package
