@@ -1,0 +1,127 @@
+fileVersion: 1
+id: f590390d-c340-4f12-89d9-782d0e926b2a
+name: STG_PIVOT_CLEAN
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Cleaned pivot results without quotes in column names
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d52b8-2448-72d0-be5b-05ea173dc50c
+          stepCounter: f590390d-c340-4f12-89d9-782d0e926b2a
+        config: {}
+        dataType: VARCHAR(4)
+        description: ""
+        name: DEPT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8fac9f3c-480e-4453-90fe-897cdf620f8f
+                stepCounter: 2e5726d4-f435-4e0c-9206-ce569307a5cc
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d52b8-2448-72d0-be5b-0a8460edd059
+          stepCounter: f590390d-c340-4f12-89d9-782d0e926b2a
+        config: {}
+        dataType: NUMBER(17,0)
+        description: ""
+        name: Q1_2023
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4953c024-ddbb-4168-afea-a1ef63888bd9
+                stepCounter: 2e5726d4-f435-4e0c-9206-ce569307a5cc
+            transform: "\"PVT_NODE\".\"'2023_Q1'\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d52b8-2448-72d0-be5b-0c4097168ef6
+          stepCounter: f590390d-c340-4f12-89d9-782d0e926b2a
+        config: {}
+        dataType: NUMBER(17,0)
+        description: ""
+        name: Q2_2023
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 38be05e3-3d98-4c03-9d27-0d3926584a6d
+                stepCounter: 2e5726d4-f435-4e0c-9206-ce569307a5cc
+            transform: "\"PVT_NODE\".\"'2023_Q2'\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d52b8-2448-72d0-be5b-122f706b0370
+          stepCounter: f590390d-c340-4f12-89d9-782d0e926b2a
+        config: {}
+        dataType: NUMBER(17,0)
+        description: ""
+        name: Q3_2023
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9cf46ddb-0c6b-4dc7-a86f-fb56c7afeffd
+                stepCounter: 2e5726d4-f435-4e0c-9206-ce569307a5cc
+            transform: "\"PVT_NODE\".\"'2023_Q3'\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d52b8-2448-72d0-be5b-14af1bcd8e7c
+          stepCounter: f590390d-c340-4f12-89d9-782d0e926b2a
+        config: {}
+        dataType: NUMBER(17,0)
+        description: ""
+        name: Q4_2023
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c8e45eef-0b3b-4398-b76a-9fbeb6aa5174
+                stepCounter: 2e5726d4-f435-4e0c-9206-ce569307a5cc
+            transform: "\"PVT_NODE\".\"'2023_Q4'\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d52b8-2448-72d0-be5b-191e9c1113bf
+          stepCounter: f590390d-c340-4f12-89d9-782d0e926b2a
+        config: {}
+        dataType: NUMBER(1,0)
+        description: ""
+        name: EMPID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019d5172-f0c7-7087-aa5d-332b00f5c177
+                stepCounter: 2e5726d4-f435-4e0c-9206-ce569307a5cc
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          PVT_NODE: 2e5726d4-f435-4e0c-9206-ce569307a5cc
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: PVT_NODE
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'PVT_NODE') }}
+        name: STG_PIVOT_CLEAN
+        noLinkRefs: []
+  name: STG_PIVOT_CLEAN
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

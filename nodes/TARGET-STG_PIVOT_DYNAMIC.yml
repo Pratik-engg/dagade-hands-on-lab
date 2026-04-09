@@ -1,0 +1,75 @@
+fileVersion: 1
+id: 8b94f9c0-1146-4d48-8e91-168003993f31
+name: STG_PIVOT_DYNAMIC
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Dynamic pivot with ANY ORDER BY quarter
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d52ff-4ca4-70d1-8fe1-346c21ad6214
+          stepCounter: 8b94f9c0-1146-4d48-8e91-168003993f31
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: PIVOT_RESULTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "*"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: |-
+            FROM (SELECT * EXCLUDE(DEPT)     
+            FROM VALUES
+            (1,'pet', 10000, '2023_Q1'),
+            (1, 'pet', 400, '2023_Q1'),
+            (2, 'food',4500, '2023_Q1'),
+            (2, 'food',35000, '2023_Q1'),
+            (1, 'pet',5000, '2023_Q2'),
+            (1, 'pet',3000, '2023_Q2'),
+            (2, 'food',200, '2023_Q2'),
+            (2, 'food',90500, '2023_Q2'),
+            (1, 'pet',6000, '2023_Q3'),
+            (1, 'pet',5000, '2023_Q3'),
+            (2, 'food',2500, '2023_Q3'),
+            (2, 'food',9500, '2023_Q3'),
+            (3, 'food',2700, '2023_Q3'),
+            (1, 'pet',8000, '2023_Q4'),
+            (1, 'pet',10000, '2023_Q4'),
+            (2, 'food',800, '2023_Q4'),
+            (2, 'food',4500, '2023_Q4'),
+            (3, 'food',2700, '2023_Q4'),
+            (3, 'food',16000, '2023_Q4'),
+            (3, 'food',10200, '2023_Q4') AS T(EMPID, DEPT, AMOUNT, QUARTER))
+            PIVOT(SUM(AMOUNT) FOR QUARTER IN (ANY))
+        name: STG_PIVOT_DYNAMIC
+        noLinkRefs: []
+  name: STG_PIVOT_DYNAMIC
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

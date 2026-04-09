@@ -1,0 +1,126 @@
+fileVersion: 1
+id: 00848668-4d93-4194-a582-b6203d5ee053
+name: PVT_RESULT
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Pivot query with EXCLUDE clause as requested
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d6828-3959-70da-a9af-156f9091e1e7
+          stepCounter: 00848668-4d93-4194-a582-b6203d5ee053
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: EMPID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: EMPID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d6828-3959-70da-a9af-1be698e153b7
+          stepCounter: 00848668-4d93-4194-a582-b6203d5ee053
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: Q1_2023
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: Q1
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d6828-3959-70da-a9af-1e93fb41cc75
+          stepCounter: 00848668-4d93-4194-a582-b6203d5ee053
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: Q2_2023
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: Q2
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d6828-3959-70da-a9af-231225ff5593
+          stepCounter: 00848668-4d93-4194-a582-b6203d5ee053
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: Q3_2023
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: Q3
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019d6828-3959-70da-a9af-27f700167149
+          stepCounter: 00848668-4d93-4194-a582-b6203d5ee053
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: Q4_2023
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: Q4
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: |-
+            FROM (
+              SELECT * EXCLUDE("dept") 
+              FROM VALUES 
+                (1,'pet', 10000, '2023_Q1'), 
+                (1, 'pet', 400, '2023_Q1'), 
+                (2, 'food',4500, '2023_Q1'), 
+                (2, 'food',35000, '2023_Q1'), 
+                (1, 'pet',5000, '2023_Q2'), 
+                (1, 'pet',3000, '2023_Q2'), 
+                (2, 'food',200, '2023_Q2'), 
+                (2, 'food',90500, '2023_Q2'), 
+                (1, 'pet',6000, '2023_Q3'), 
+                (1, 'pet',5000, '2023_Q3'), 
+                (2, 'food',2500, '2023_Q3'), 
+                (2, 'food',9500, '2023_Q3'), 
+                (3, 'food',2700, '2023_Q3'), 
+                (1, 'pet',8000, '2023_Q4'), 
+                (1, 'pet',10000, '2023_Q4'), 
+                (2, 'food',800, '2023_Q4'), 
+                (2, 'food',4500, '2023_Q4'), 
+                (3, 'food',2700, '2023_Q4'), 
+                (3, 'food',16000, '2023_Q4'), 
+                (3, 'food',10200, '2023_Q4') 
+                AS T("empid","dept","amount","quarter") 
+            )
+            PIVOT(SUM("amount") FOR "quarter" IN ('2023_Q1' AS Q1, '2023_Q2' AS Q2, '2023_Q3' AS Q3, '2023_Q4' AS Q4))
+        name: STG_NODE
+        noLinkRefs: []
+  name: PVT_RESULT
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

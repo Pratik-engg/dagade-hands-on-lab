@@ -1,0 +1,92 @@
+fileVersion: 1
+id: 3ac4129b-e83f-4469-9903-d74274795644
+name: PVT_NODE1
+operation:
+  config:
+    Colvol1: ""
+    addcolumns: false
+    aggfunc:
+      items:
+        - {}
+    aggfunc1:
+      items:
+        - funcname1: SUM
+    defaultval: ""
+    defvalue: false
+    excolval: false
+    exlcol:
+      items:
+        - {}
+    filterColumn: ""
+    filterOperator: ""
+    filterValues: ""
+    inferPivot: true
+    pivotMode: Standard
+    samKeyColval: false
+    sfuncname: AVG
+    simtabKeyColumn:
+      items:
+        - {}
+    simtabValueColumn:
+      items:
+        - {}
+    sincol: true
+    subqueryval1: ""
+    tabKeyColumn:
+      items:
+        - keyColDropdown: null
+          keyColTextBox: quarter
+    tabValueColumn:
+      items:
+        - valColDropdown: null
+          valColTextBox: amount
+    testsEnabled: false
+    trunc: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: |-
+            FROM VALUES
+            (1,'pet', 10000, '2023_Q1'),
+            (1, 'pet', 400, '2023_Q1'),
+            (2, 'food',4500, '2023_Q1'),
+            (2, 'food',35000, '2023_Q1'),
+            (1, 'pet',5000, '2023_Q2'),
+            (1, 'pet',3000, '2023_Q2'),
+            (2, 'food',200, '2023_Q2'),
+            (2, 'food',90500, '2023_Q2'),
+            (1, 'pet',6000, '2023_Q3'),
+            (1, 'pet',5000, '2023_Q3'),
+            (2, 'food',2500, '2023_Q3'),
+            (2, 'food',9500, '2023_Q3'),
+            (3, 'food',2700, '2023_Q3'),
+            (1, 'pet',8000, '2023_Q4'),
+            (1, 'pet',10000, '2023_Q4'),
+            (2, 'food',800, '2023_Q4'),
+            (2, 'food',4500, '2023_Q4'),
+            (3, 'food',2700, '2023_Q4'),
+            (3, 'food',16000, '2023_Q4'),
+            (3, 'food',10200, '2023_Q4') AS T(empid,dept,amount,quarter)
+        name: PVT_NODE1
+        noLinkRefs: []
+  name: PVT_NODE1
+  overrideSQL: false
+  schema: ""
+  sqlType: "33"
+  type: sql
+  version: 1
+type: Node

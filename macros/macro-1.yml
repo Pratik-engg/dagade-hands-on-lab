@@ -1,5 +1,17 @@
 fileVersion: 1
 id: "1"
-macroString: "{% import \"testpkg\" as testUtils with context %}"
+macroString: |-
+  {% import "testpkg" as testUtils with context %}
+
+  {%- macro is_incremental(timestamp_column) -%}
+      WHERE COALESCE({{ timestamp_column }},'1900-01-02') >
+          (
+              SELECT COALESCE(
+                  MAX({{ timestamp_column }}),
+                  '1900-01-01'
+              )
+              FROM {{ this }}
+          )
+  {%- endmacro -%}
 name: macro
 type: Macro

@@ -70,7 +70,8 @@ operation:
           - locationName: SRC
             nodeName: REGION
         join:
-          joinCondition: FROM {{ ref('SRC', 'REGION') }} "REGION"
+          joinCondition: |
+            FROM {{ ref('SRC', 'REGION') }} "REGION"
         name: STG_REGION1
         noLinkRefs: []
   name: STG_REGION1
