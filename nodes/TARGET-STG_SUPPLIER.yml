@@ -125,7 +125,7 @@ operation:
         config: {}
         dataType: TIMESTAMP_NTZ
         defaultValue: ""
-        description: ""
+        description: Timestamp indicating when the record was created. System-generated column using the CURRENT_TIMESTAMP() function. Used for auditing and tracking data changes. Helps in understanding the recency of the data. Not sourced from any table. Essential for maintaining data integrity and traceability.
         keyColumnType: None
         name: RECORD_TS
         nullable: false
