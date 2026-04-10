@@ -115,7 +115,7 @@ operation:
                 AS T("empid","dept","amount","quarter") 
             )
             PIVOT(SUM("amount") FOR "quarter" IN ('2023_Q1' AS Q1, '2023_Q2' AS Q2, '2023_Q3' AS Q3, '2023_Q4' AS Q4))
-        name: STG_NODE
+        name: PVT_RESULT
         noLinkRefs: []
   name: PVT_RESULT
   overrideSQL: false

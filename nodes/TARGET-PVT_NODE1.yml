@@ -43,7 +43,7 @@ operation:
     testsEnabled: false
     trunc: false
   database: ""
-  deployEnabled: true
+  deployEnabled: false
   description: ""
   isMultisource: false
   locationName: TARGET
