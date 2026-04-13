@@ -1,0 +1,101 @@
+fileVersion: 1
+id: 80669cc6-7477-4a12-affb-3e6a9ba143cc
+name: FCT_SRC_ORDERS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1b2c92df-ba51-48e6-80b6-dae4455a912b
+          stepCounter: 80669cc6-7477-4a12-affb-3e6a9ba143cc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: true
+        name: ORDER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 999583db-d59f-4a8b-b45c-36a0aaffc0fa
+                stepCounter: cdf3afe2-f9ef-42ea-830f-3720b73938fa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ed3b8f07-93f1-462d-8923-0ce9a245303e
+          stepCounter: 80669cc6-7477-4a12-affb-3e6a9ba143cc
+        config: {}
+        dataType: NUMBER(10,2)
+        description: ""
+        name: ORDER_DISCOUNT_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ce3fdf2-4290-4152-be5f-2a79a35d005b
+                stepCounter: cdf3afe2-f9ef-42ea-830f-3720b73938fa
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2e12a9e-bca0-445b-81ff-57c3398feb43
+          stepCounter: 80669cc6-7477-4a12-affb-3e6a9ba143cc
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 47b7f5c8-4ec3-46ed-a696-6d81ae6cd005
+          stepCounter: 80669cc6-7477-4a12-affb-3e6a9ba143cc
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_SRC_ORDERS: cdf3afe2-f9ef-42ea-830f-3720b73938fa
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: STG_SRC_ORDERS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'STG_SRC_ORDERS') }} "STG_SRC_ORDERS"
+        name: FCT_SRC_ORDERS
+        noLinkRefs: []
+  name: FCT_SRC_ORDERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

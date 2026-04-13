@@ -1,0 +1,246 @@
+fileVersion: 1
+id: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+name: DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT
+operation:
+  config:
+    clusterKey: true
+    clusterKeyConfig:
+      items:
+        - columnName:
+            columnCounter: 6a59ae98-719f-45e2-9e6d-8bc3b4af8cbb
+            stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+    clusterKeyConfigExpressions:
+      items:
+        - {}
+    clusterKeyExpressions: false
+    customZeroKeyValues:
+      items:
+        - {}
+    deleteStrategy: NO DELETE
+    excludeMergeList:
+      items:
+        - {}
+    excludeMergeToggle: false
+    groupByAll: false
+    insertStrategy: UNION ALL
+    insertZeroKey: false
+    insertZeroKeyAdvanced: false
+    insertZeroKeyBol: "TRUE"
+    insertZeroKeyDate: 01-01-1900
+    insertZeroKeyStr: UNKNOWN
+    insertZeroKeySurrogateKey: "0"
+    insertZeroKeyTimestamp: "1900-01-01 00:00:00.000"
+    lastModifiedComparison: false
+    orderby: false
+    orderbycolumn:
+      items:
+        - {}
+    postSQL: ""
+    preSQL: |-
+      DELETE FROM {{ this }}
+      WHERE SNAPSHOT_DATE = CURRENT_DATE()
+    primary: false
+    primaryKeyCol:
+      items:
+        - {}
+    primaryKeyName: ""
+    selectDistinct: false
+    testsEnabled: false
+    treatNullAsCurrentTimestamp: false
+    truncateBefore: false
+    type2Dimension: false
+    updateStrategy: MERGE
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 947b519d-c045-4d06-bb18-61321d48fed1
+          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSurrogateKey: true
+        name: DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 43db9479-bd09-4f2f-af70-af4e8597d7d7
+          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: true
+        name: ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c0580d1-dbaa-4e40-905e-929226911e4f
+                stepCounter: 06ad3b8e-a322-49b8-acdb-ecc8ce2ff5b4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a59ae98-719f-45e2-9e6d-8bc3b4af8cbb
+          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SNAPSHOT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 910583c5-3ef1-473a-9588-0945a45055c4
+                stepCounter: 06ad3b8e-a322-49b8-acdb-ecc8ce2ff5b4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 59ef1ccd-edac-4eca-9c3b-7e359232d7d7
+          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+        config: {}
+        dataType: NUMBER(10,2)
+        description: ""
+        name: REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 12d70c83-f8c4-4bc4-b6a5-31824780d46c
+                stepCounter: 06ad3b8e-a322-49b8-acdb-ecc8ce2ff5b4
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4ccde6e6-32c0-4459-9487-887386566561
+          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+        config: {}
+        dataType: NUMBER
+        defaultValue: ""
+        description: ""
+        isSystemVersion: true
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: fbf0f325-6065-4ef0-a2f7-53f6519a5a1d
+          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+        config: {}
+        dataType: VARCHAR
+        defaultValue: ""
+        description: ""
+        isSystemCurrentFlag: true
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a43e73c6-6dd7-4ced-b40f-b085c900ae79
+          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemStartDate: true
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 106a7801-b34b-4e04-9cae-21c02824159f
+          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemEndDate: true
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8830be67-d1f1-4b7b-a620-3bd5752bcacb
+          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: cc200b75-1434-46ea-a065-3e49a4049a69
+          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          FACT_SALES_REVENUE_DAILY_SNAPSHOT: 06ad3b8e-a322-49b8-acdb-ecc8ce2ff5b4
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: NEW
+            nodeName: FACT_SALES_REVENUE_DAILY_SNAPSHOT
+        join:
+          joinCondition: |-
+            FROM {{ ref('NEW', 'FACT_SALES_REVENUE_DAILY_SNAPSHOT') }} "FACT_SALES_REVENUE_DAILY_SNAPSHOT"
+            where "SNAPSHOT_DATE"= current_date()
+        name: DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT
+        noLinkRefs: []
+  name: DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT
+  overrideSQL: false
+  schema: ""
+  sqlType: Adv-BNT:::388
+  type: sql
+  version: 1
+type: Node

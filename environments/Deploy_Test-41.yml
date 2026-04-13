@@ -4,6 +4,9 @@ mappingDefinitions:
   MY_DB:
     database: PRATIK_DB
     schema: RAW
+  NEW:
+    database: PRATIK_DB
+    schema: PRESENTATION
   SRC:
     database: SNOWFLAKE_SAMPLE_DATA
     schema: TPCH_SF1

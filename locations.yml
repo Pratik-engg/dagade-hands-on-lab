@@ -2,5 +2,6 @@ defaultStorageMapping: TARGET
 fileVersion: 1
 locations:
   - MY_DB
+  - NEW
   - SRC
   - TARGET

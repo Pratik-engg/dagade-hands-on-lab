@@ -1,0 +1,73 @@
+fileVersion: 1
+id: 06ad3b8e-a322-49b8-acdb-ecc8ce2ff5b4
+name: FACT_SALES_REVENUE_DAILY_SNAPSHOT
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: NEW
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 7c0580d1-dbaa-4e40-905e-929226911e4f
+          stepCounter: 06ad3b8e-a322-49b8-acdb-ecc8ce2ff5b4
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 910583c5-3ef1-473a-9588-0945a45055c4
+          stepCounter: 06ad3b8e-a322-49b8-acdb-ecc8ce2ff5b4
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: ""
+        name: SNAPSHOT_DATE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 12d70c83-f8c4-4bc4-b6a5-31824780d46c
+          stepCounter: 06ad3b8e-a322-49b8-acdb-ecc8ce2ff5b4
+        config: {}
+        dataType: NUMBER(10,2)
+        defaultValue: ""
+        description: ""
+        name: REVENUE
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: FACT_SALES_REVENUE_DAILY_SNAPSHOT
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

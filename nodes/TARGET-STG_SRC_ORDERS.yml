@@ -1,0 +1,68 @@
+fileVersion: 1
+id: cdf3afe2-f9ef-42ea-830f-3720b73938fa
+name: STG_SRC_ORDERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 999583db-d59f-4a8b-b45c-36a0aaffc0fa
+          stepCounter: cdf3afe2-f9ef-42ea-830f-3720b73938fa
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ORDER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e7ac7c75-d55b-472e-8373-2a2ad1c03e04
+                stepCounter: a57e558f-f781-4eaf-b589-7d05712c3ec8
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ce3fdf2-4290-4152-be5f-2a79a35d005b
+          stepCounter: cdf3afe2-f9ef-42ea-830f-3720b73938fa
+        config: {}
+        dataType: NUMBER(10,2)
+        description: ""
+        name: ORDER_DISCOUNT_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: b94f61c1-ae15-466b-97f7-bb3a3eba19c6
+                stepCounter: a57e558f-f781-4eaf-b589-7d05712c3ec8
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SRC_ORDERS: a57e558f-f781-4eaf-b589-7d05712c3ec8
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: MY_DB
+            nodeName: SRC_ORDERS
+        join:
+          joinCondition: FROM {{ ref('MY_DB', 'SRC_ORDERS') }} "SRC_ORDERS"
+        name: STG_SRC_ORDERS
+        noLinkRefs: []
+  name: STG_SRC_ORDERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
