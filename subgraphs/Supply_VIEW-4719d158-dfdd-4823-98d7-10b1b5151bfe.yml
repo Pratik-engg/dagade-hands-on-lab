@@ -1,18 +1,13 @@
 fileVersion: 1
-id: 95beda1e-1ef2-4da5-8925-5b8be9faf26b
-name: Supply_1ststage
+id: 4719d158-dfdd-4823-98d7-10b1b5151bfe
+name: Supply_VIEW
 steps:
   - 117207ab-9a1e-4755-bce9-688d2c3e0cb7
   - 19626e04-0fa9-4093-a99b-acd9269bb744
   - 2d2bbf39-8b0f-435f-a0c7-e8eb465ad3ba
-  - 59296e40-b3db-46d7-9405-16da495c6564
-  - 6f53145b-b1a3-4597-8508-f9a231521906
   - 8094c606-49e4-400e-8252-c68f8d33990b
   - a2220834-bf7f-4a79-932b-e8949fbac991
-  - a5c005eb-3b5e-4ae8-afb0-ed7945589384
   - b1262221-0d02-4956-938c-69477fb60563
   - bca5b7c1-f74b-46f9-ab25-ba22a9fd21a8
-  - cae6c7c8-304e-4721-a540-0e24acbee88e
   - cf709dcf-f402-4ca8-9d12-f33567f52da8
-  - fbeef231-52e6-4040-a4c6-5c8c5920cc9e
 type: Subgraph

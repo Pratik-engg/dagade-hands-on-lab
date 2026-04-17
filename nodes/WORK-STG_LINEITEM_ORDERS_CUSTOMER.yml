@@ -1,0 +1,275 @@
+fileVersion: 1
+id: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+name: STG_LINEITEM_ORDERS_CUSTOMER
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Line items with orders and customer details
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-89bcebd39871
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: L_ORDERKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_ORDERKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-8edb3288b6df
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: O_ORDERKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.O_ORDERKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-929cc21c2a9a
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: L_LINENUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_LINENUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-949195fa24cf
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: L_PARTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_PARTKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-9b4aa6a7ab3c
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: L_SUPPKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_SUPPKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-9fb44c2db1fd
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: L_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_QUANTITY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-a1d38e2f35d2
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: L_EXTENDEDPRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_EXTENDEDPRICE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-a57964c55b0d
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: L_DISCOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_DISCOUNT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-a9f8275c4d35
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: L_TAX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_TAX
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-ae4ff6f3ad29
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: O_CUSTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.O_CUSTKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-b25a95593d3c
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: DATE
+        description: ""
+        name: O_ORDERDATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.O_ORDERDATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-b4889fc4cbbf
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: O_TOTALPRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.O_TOTALPRICE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-b9f1dcb52832
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: C_CUSTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: C.C_CUSTKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-bd03b8d987ee
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: C_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: C.C_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-c01eadf8907d
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: VARCHAR(40)
+        description: ""
+        name: C_ADDRESS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: C.C_ADDRESS
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-c44581f04ee8
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: C_NATIONKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: C.C_NATIONKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-ca8829992a6a
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: VARCHAR(15)
+        description: ""
+        name: C_PHONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: C.C_PHONE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-cc3fd4dfd4a6
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: C_ACCTBAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: C.C_ACCTBAL
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdafc-dbca-71fe-8082-d1bceee002fe
+          stepCounter: 6f26db82-ea53-4b98-a18e-f63efcb6276d
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        name: C_MKTSEGMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: C.C_MKTSEGMENT
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_CUSTOMER
+          - locationName: WORK
+            nodeName: STG_LINEITEM_ORDERS
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'STG_LINEITEM_ORDERS') }} LIO
+            LEFT JOIN {{ ref('WORK', 'STG_CUSTOMER') }} C
+            ON LIO.O_CUSTKEY = C.C_CUSTKEY
+        name: STG_LINEITEM_ORDERS_CUSTOMER
+        noLinkRefs: []
+  name: STG_LINEITEM_ORDERS_CUSTOMER
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

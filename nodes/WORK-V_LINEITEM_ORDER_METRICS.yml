@@ -1,0 +1,243 @@
+fileVersion: 1
+id: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+name: V_LINEITEM_ORDER_METRICS
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: Order line items with calculated metrics and time dimensions
+  isMultisource: false
+  locationName: WORK
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9620-f17af31bc6b8
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: L_ORDERKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_ORDERKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9620-f446f5a58402
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: L_LINENUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_LINENUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9620-f8baaa9cb1d6
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: DATE
+        description: ""
+        name: O_ORDERDATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.O_ORDERDATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9620-fc312a7e9823
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: DATE
+        description: ""
+        name: L_SHIPDATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_SHIPDATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-0188f6d7725a
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: L_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_QUANTITY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-064022ed5965
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: L_EXTENDEDPRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_EXTENDEDPRICE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-0b5aaa87e546
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: L_DISCOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_DISCOUNT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-0c0abbb0c5f6
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: L_TAX
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_TAX
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-124804c776c1
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: NET_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_EXTENDEDPRICE * (1 - LIO.L_DISCOUNT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-1747d8e802ed
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: GROSS_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_EXTENDEDPRICE * (1 - LIO.L_DISCOUNT) * (1 + LIO.L_TAX)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-1b0987512a0f
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: DISCOUNT_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_EXTENDEDPRICE * LIO.L_DISCOUNT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-1d81f79a9454
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: TAX_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: LIO.L_EXTENDEDPRICE * (1 - LIO.L_DISCOUNT) * LIO.L_TAX
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-23f06cd8819e
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ORDER_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: YEAR(LIO.O_ORDERDATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-259db5cb921a
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ORDER_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MONTH(LIO.O_ORDERDATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-28cb86acbb4b
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: ORDER_QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: QUARTER(LIO.O_ORDERDATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-2d08bc51903a
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: DAYS_TO_SHIP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: DATEDIFF('DAY', LIO.O_ORDERDATE, LIO.L_SHIPDATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cdb09-2ca7-7769-9621-306518161c5e
+          stepCounter: a2a82d5d-920c-4e00-b18b-7dc7968d946c
+        config: {}
+        dataType: BOOLEAN
+        description: ""
+        name: IS_LATE_SHIPMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN LIO.L_SHIPDATE > LIO.L_COMMITDATE THEN TRUE ELSE FALSE END
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_LINEITEM_ORDERS
+        join:
+          joinCondition: FROM {{ ref('WORK', 'STG_LINEITEM_ORDERS') }} LIO
+        name: V_NODE
+        noLinkRefs: []
+  name: V_LINEITEM_ORDER_METRICS
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
