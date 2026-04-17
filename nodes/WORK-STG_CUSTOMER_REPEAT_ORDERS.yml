@@ -1,0 +1,190 @@
+fileVersion: 1
+id: bad43a78-3ab0-4b49-9187-53c901aef587
+name: STG_CUSTOMER_REPEAT_ORDERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Self-join analysis identifying repeat customer orders with timing and value comparisons
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-afea-710c-afcd-2f55720449d7
+          stepCounter: bad43a78-3ab0-4b49-9187-53c901aef587
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: C_CUSTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: A.C_CUSTKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-afea-710c-afcd-311970bbf6b6
+          stepCounter: bad43a78-3ab0-4b49-9187-53c901aef587
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: C_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: A.C_NAME
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-afea-710c-afcd-37d92a5853cc
+          stepCounter: bad43a78-3ab0-4b49-9187-53c901aef587
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: FIRST_ORDER_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: A.L_ORDERKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-afea-710c-afcd-3b5dc1653e41
+          stepCounter: bad43a78-3ab0-4b49-9187-53c901aef587
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: false
+        name: FIRST_ORDER_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: A.O_ORDERDATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-afea-710c-afcd-3c426560b624
+          stepCounter: bad43a78-3ab0-4b49-9187-53c901aef587
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: FIRST_ORDER_TOTAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: A.O_TOTALPRICE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-afea-710c-afcd-42f0d2ee36a5
+          stepCounter: bad43a78-3ab0-4b49-9187-53c901aef587
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: SECOND_ORDER_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: B.L_ORDERKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-afea-710c-afcd-447392349712
+          stepCounter: bad43a78-3ab0-4b49-9187-53c901aef587
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: false
+        name: SECOND_ORDER_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: B.O_ORDERDATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-afea-710c-afcd-4816b5030957
+          stepCounter: bad43a78-3ab0-4b49-9187-53c901aef587
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: SECOND_ORDER_TOTAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: B.O_TOTALPRICE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-afea-710c-afcd-4e5e4090ea5c
+          stepCounter: bad43a78-3ab0-4b49-9187-53c901aef587
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: DAYS_BETWEEN_ORDERS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: DATEDIFF('DAY', A.O_ORDERDATE, B.O_ORDERDATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-afea-710c-afcd-5146861e87ff
+          stepCounter: bad43a78-3ab0-4b49-9187-53c901aef587
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CUSTOMER_SEGMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: A.C_MKTSEGMENT
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-afea-710c-afcd-5624c97c4c9f
+          stepCounter: bad43a78-3ab0-4b49-9187-53c901aef587
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: CUSTOMER_REGION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: A.R_NAME
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_ALL_COMBINED
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'STG_ALL_COMBINED') }} A
+            INNER JOIN {{ ref('WORK', 'STG_ALL_COMBINED') }} B
+            ON A.C_CUSTKEY = B.C_CUSTKEY
+            AND A.L_ORDERKEY <> B.L_ORDERKEY
+            WHERE A.O_ORDERDATE < B.O_ORDERDATE
+        name: STG_NODE
+        noLinkRefs: []
+  name: STG_CUSTOMER_REPEAT_ORDERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

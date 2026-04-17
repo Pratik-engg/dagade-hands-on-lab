@@ -144,7 +144,10 @@ operation:
                 stepCounter: 2d2bbf39-8b0f-435f-a0c7-e8eb465ad3ba
             transform: ""
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           ORDERS: 2d2bbf39-8b0f-435f-a0c7-e8eb465ad3ba

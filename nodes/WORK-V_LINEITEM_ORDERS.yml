@@ -421,10 +421,12 @@ operation:
                 stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
             transform: ""
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
-      - aliases:
-          STG_LINEITEM_ORDERS: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
+      - aliases: {}
         customSQL:
           customSQL: |-
             {{ stage('Override Create SQL') }}

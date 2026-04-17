@@ -88,7 +88,10 @@ operation:
                 stepCounter: 19626e04-0fa9-4093-a99b-acd9269bb744
             transform: ""
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           PARTSUPP: 19626e04-0fa9-4093-a99b-acd9269bb744

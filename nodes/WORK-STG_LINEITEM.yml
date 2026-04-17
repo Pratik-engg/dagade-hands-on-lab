@@ -242,17 +242,20 @@ operation:
                 stepCounter: b1262221-0d02-4956-938c-69477fb60563
             transform: ""
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
-          LINEITEM: b1262221-0d02-4956-938c-69477fb60563
+          STG_LINEITEM: b1262221-0d02-4956-938c-69477fb60563
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: SRC
             nodeName: LINEITEM
         join:
-          joinCondition: FROM {{ ref('SRC', 'LINEITEM') }} "LINEITEM"
+          joinCondition: FROM {{ ref('SRC', 'LINEITEM') }} STG_LINEITEM
         name: STG_LINEITEM
         noLinkRefs: []
   name: STG_LINEITEM

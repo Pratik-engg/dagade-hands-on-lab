@@ -1,0 +1,271 @@
+fileVersion: 1
+id: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+name: STG_COMBINED_RECENT_LARGE_ORDERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Filtered view of STG_ALL_COMBINED showing recent orders (last year) with quantity greater than 10
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-80afa6d9b410
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: L_ORDERKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-d1f28f6c8f4d
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-863fe1f454d1
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: L_PARTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-d5c65287604b
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-8ab6ce0b23b9
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: L_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-e0cc09c121bc
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-8cf9f06b1e14
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: L_EXTENDEDPRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-e779aa3682b7
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-9393d89da4af
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: L_DISCOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-ebecf6fce57a
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-951a9157982e
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-e779aa3682b7
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: STG_ALL_COMBINED.L_EXTENDEDPRICE * (1 - STG_ALL_COMBINED.L_DISCOUNT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-99712a58cd93
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: false
+        name: O_ORDERDATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-4443-7705-8d73-33ca8b53255d
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-9c59aa37c7b5
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: O_TOTALPRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8f-1eab6ac62328
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-a35375066455
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: C_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-6f291408015d
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-a6a1b8edaaad
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: C_MKTSEGMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-804d956e6594
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-a825df038028
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: P_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-4443-7705-8d73-791fc8228d43
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-afb38f7bdc56
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: P_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-5517dc2df3af
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-b30632cfcec6
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: S_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-4443-7705-8d73-5d7738c8d7ab
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-b6ceb8abe3d6
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: N_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-8daba848620a
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-1f6a-7298-8fec-bbf400385054
+          stepCounter: 2d9e8aae-ffc5-4f95-ae0a-73f4f5e5a053
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: R_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-97fb-71b8-9fa8-6eb1818b0676
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          STG_ALL_COMBINED: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_ALL_COMBINED
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'STG_ALL_COMBINED') }} STG_ALL_COMBINED
+            WHERE STG_ALL_COMBINED.O_ORDERDATE >= DATEADD('YEAR', -1, CURRENT_DATE())
+            AND STG_ALL_COMBINED.L_QUANTITY > 10
+        name: STG_NODE
+        noLinkRefs: []
+  name: STG_COMBINED_RECENT_LARGE_ORDERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

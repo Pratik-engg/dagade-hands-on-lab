@@ -116,7 +116,10 @@ operation:
                 stepCounter: a0444450-23e7-4bc1-b104-53045933c5e8
             transform: ""
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases: {}
         customSQL:

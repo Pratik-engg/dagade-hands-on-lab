@@ -1,0 +1,196 @@
+fileVersion: 1
+id: e34b9b57-a8ea-4eb6-82e4-4b3bfe23f870
+name: STG_REGIONAL_MONTHLY_SALES
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Monthly sales aggregation by region and nation with revenue and volume metrics
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-fc09-75f8-8798-eb630908e61b
+          stepCounter: e34b9b57-a8ea-4eb6-82e4-4b3bfe23f870
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: R_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-97fb-71b8-9fa8-6eb1818b0676
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-fc09-75f8-8798-edcc2803a665
+          stepCounter: e34b9b57-a8ea-4eb6-82e4-4b3bfe23f870
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: N_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-8daba848620a
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-fc09-75f8-8798-f31d317dbabe
+          stepCounter: e34b9b57-a8ea-4eb6-82e4-4b3bfe23f870
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: false
+        name: ORDER_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-4443-7705-8d73-33ca8b53255d
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: DATE_TRUNC('MONTH', STG_ALL_COMBINED.O_ORDERDATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-fc09-75f8-8798-f6b28398e759
+          stepCounter: e34b9b57-a8ea-4eb6-82e4-4b3bfe23f870
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: MONTHLY_ORDERS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-d1f28f6c8f4d
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: COUNT(DISTINCT STG_ALL_COMBINED.L_ORDERKEY)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-fc09-75f8-8798-fbff66abd94d
+          stepCounter: e34b9b57-a8ea-4eb6-82e4-4b3bfe23f870
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: MONTHLY_LINE_ITEMS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COUNT(*)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-fc09-75f8-8798-fd6f2edf91f6
+          stepCounter: e34b9b57-a8ea-4eb6-82e4-4b3bfe23f870
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: MONTHLY_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-e0cc09c121bc
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: SUM(STG_ALL_COMBINED.L_QUANTITY)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-fc09-75f8-8799-02a6561e5a0d
+          stepCounter: e34b9b57-a8ea-4eb6-82e4-4b3bfe23f870
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: MONTHLY_REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-e779aa3682b7
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: SUM(STG_ALL_COMBINED.L_EXTENDEDPRICE * (1 - STG_ALL_COMBINED.L_DISCOUNT))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-fc09-75f8-8799-05162da1d52d
+          stepCounter: e34b9b57-a8ea-4eb6-82e4-4b3bfe23f870
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: AVG_ORDER_SIZE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8f-1eab6ac62328
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: AVG(STG_ALL_COMBINED.O_TOTALPRICE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-fc09-75f8-8799-0b76503a0ac1
+          stepCounter: e34b9b57-a8ea-4eb6-82e4-4b3bfe23f870
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: UNIQUE_CUSTOMERS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-6a1091d025af
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: COUNT(DISTINCT STG_ALL_COMBINED.C_CUSTKEY)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-fc09-75f8-8799-0d9f2739d757
+          stepCounter: e34b9b57-a8ea-4eb6-82e4-4b3bfe23f870
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: UNIQUE_PARTS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-4443-7705-8d73-747bea0c2768
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: COUNT(DISTINCT STG_ALL_COMBINED.P_PARTKEY)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          STG_ALL_COMBINED: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_ALL_COMBINED
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'STG_ALL_COMBINED') }} STG_ALL_COMBINED
+            GROUP BY 
+              STG_ALL_COMBINED.R_NAME,
+              STG_ALL_COMBINED.N_NAME,
+              DATE_TRUNC('MONTH', STG_ALL_COMBINED.O_ORDERDATE)
+        name: STG_NODE1
+        noLinkRefs: []
+  name: STG_REGIONAL_MONTHLY_SALES
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

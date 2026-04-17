@@ -144,17 +144,20 @@ operation:
                 stepCounter: b6a84e58-a853-4cda-b26f-ffc86808b8ae
             transform: ""
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
-          PART: b6a84e58-a853-4cda-b26f-ffc86808b8ae
+          STG_PART: b6a84e58-a853-4cda-b26f-ffc86808b8ae
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: SRC
             nodeName: PART
         join:
-          joinCondition: FROM {{ ref('SRC', 'PART') }} "PART"
+          joinCondition: FROM {{ ref('SRC', 'PART') }} STG_PART
         name: STG_PART
         noLinkRefs: []
   name: STG_PART

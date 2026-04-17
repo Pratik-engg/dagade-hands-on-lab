@@ -1,0 +1,228 @@
+fileVersion: 1
+id: 7130d79b-a545-498d-b89a-8451d12971e5
+name: STG_PART_PERFORMANCE
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Aggregated part performance metrics including sales volume, revenue, and customer reach
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-e6b7-7759-9761-80ad962356be
+          stepCounter: 7130d79b-a545-498d-b89a-8451d12971e5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: P_PARTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-4443-7705-8d73-747bea0c2768
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-e6b7-7759-9761-878c1d59bca8
+          stepCounter: 7130d79b-a545-498d-b89a-8451d12971e5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: P_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-4443-7705-8d73-791fc8228d43
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-e6b7-7759-9761-8b16e4f95d10
+          stepCounter: 7130d79b-a545-498d-b89a-8451d12971e5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: P_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-5517dc2df3af
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-e6b7-7759-9761-8cc54e64a215
+          stepCounter: 7130d79b-a545-498d-b89a-8451d12971e5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: P_BRAND
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-505c4796bcec
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-e6b7-7759-9761-936c262a6a18
+          stepCounter: 7130d79b-a545-498d-b89a-8451d12971e5
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: P_MFGR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-4443-7705-8d73-7cd6ce0b0e14
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-e6b7-7759-9761-95566736c5e3
+          stepCounter: 7130d79b-a545-498d-b89a-8451d12971e5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: TIMES_ORDERED
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COUNT(*)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-e6b7-7759-9761-99c3e66cfcbb
+          stepCounter: 7130d79b-a545-498d-b89a-8451d12971e5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: TOTAL_QUANTITY_SOLD
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-e0cc09c121bc
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: SUM(STG_ALL_COMBINED.L_QUANTITY)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-e6b7-7759-9761-9df40733b6ab
+          stepCounter: 7130d79b-a545-498d-b89a-8451d12971e5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: TOTAL_REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-e779aa3682b7
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: SUM(STG_ALL_COMBINED.L_EXTENDEDPRICE * (1 - STG_ALL_COMBINED.L_DISCOUNT))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-e6b7-7759-9761-a1dad317de45
+          stepCounter: 7130d79b-a545-498d-b89a-8451d12971e5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: AVG_DISCOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-ebecf6fce57a
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: AVG(STG_ALL_COMBINED.L_DISCOUNT)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-e6b7-7759-9761-a55083a82711
+          stepCounter: 7130d79b-a545-498d-b89a-8451d12971e5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: AVG_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-e779aa3682b7
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: AVG(STG_ALL_COMBINED.L_EXTENDEDPRICE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-e6b7-7759-9761-a974857d2b96
+          stepCounter: 7130d79b-a545-498d-b89a-8451d12971e5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: UNIQUE_CUSTOMERS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-6a1091d025af
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: COUNT(DISTINCT STG_ALL_COMBINED.C_CUSTKEY)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-e6b7-7759-9761-ac9665c25df9
+          stepCounter: 7130d79b-a545-498d-b89a-8451d12971e5
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: UNIQUE_SUPPLIERS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-4443-7705-8d73-584579e442f9
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: COUNT(DISTINCT STG_ALL_COMBINED.S_SUPPKEY)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          STG_ALL_COMBINED: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_ALL_COMBINED
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'STG_ALL_COMBINED') }} STG_ALL_COMBINED
+            GROUP BY 
+              STG_ALL_COMBINED.P_PARTKEY,
+              STG_ALL_COMBINED.P_NAME,
+              STG_ALL_COMBINED.P_TYPE,
+              STG_ALL_COMBINED.P_BRAND,
+              STG_ALL_COMBINED.P_MFGR
+        name: STG_PART_PERFORMANCE
+        noLinkRefs: []
+  name: STG_PART_PERFORMANCE
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

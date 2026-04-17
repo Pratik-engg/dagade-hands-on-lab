@@ -1,0 +1,228 @@
+fileVersion: 1
+id: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+name: STG_CUSTOMER_SUMMARY
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Aggregated customer summary with order counts, revenue totals, and date ranges
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-c7d9-741f-abdd-e544a6b0b43d
+          stepCounter: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: C_CUSTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-6a1091d025af
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-c7d9-741f-abdd-eb0a6686e0aa
+          stepCounter: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: C_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-6f291408015d
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-c7d9-741f-abdd-ec9af63987bd
+          stepCounter: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: C_MKTSEGMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-804d956e6594
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-c7d9-741f-abdd-f2a317c4dacd
+          stepCounter: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: N_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-684b-725a-b7bb-8daba848620a
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-c7d9-741f-abdd-f5de1da00ea5
+          stepCounter: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        isBusinessKey: false
+        name: R_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-97fb-71b8-9fa8-6eb1818b0676
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-c7d9-741f-abdd-f9cfb1b081a7
+          stepCounter: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: TOTAL_ORDERS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-d1f28f6c8f4d
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: COUNT(DISTINCT STG_ALL_COMBINED.L_ORDERKEY)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-c7d9-741f-abdd-fcbc02e328d2
+          stepCounter: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: TOTAL_LINE_ITEMS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: COUNT(*)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-c7d9-741f-abde-03cfc52e6dd4
+          stepCounter: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: TOTAL_QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-e0cc09c121bc
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: SUM(STG_ALL_COMBINED.L_QUANTITY)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-c7d9-741f-abde-04a14f58caed
+          stepCounter: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: TOTAL_REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8e-e779aa3682b7
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: SUM(STG_ALL_COMBINED.L_EXTENDEDPRICE * (1 - STG_ALL_COMBINED.L_DISCOUNT))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-c7d9-741f-abde-0832fb5bb974
+          stepCounter: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+        config: {}
+        dataType: NUMBER
+        description: ""
+        isBusinessKey: false
+        name: AVG_ORDER_VALUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-1951-76dc-bd8f-1eab6ac62328
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: AVG(STG_ALL_COMBINED.O_TOTALPRICE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-c7d9-741f-abde-0e9088e63799
+          stepCounter: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: false
+        name: MIN_ORDER_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-4443-7705-8d73-33ca8b53255d
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: MIN(STG_ALL_COMBINED.O_ORDERDATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019c0e9b-c7d9-741f-abde-1366b3524c29
+          stepCounter: d9fa46f8-4515-4fb0-821c-afe49c5eae14
+        config: {}
+        dataType: DATE
+        description: ""
+        isBusinessKey: false
+        name: MAX_ORDER_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019c0e92-4443-7705-8d73-33ca8b53255d
+                stepCounter: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+            transform: MAX(STG_ALL_COMBINED.O_ORDERDATE)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          STG_ALL_COMBINED: 286a9b77-331c-4553-8f3a-ae55f1b085f0
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_ALL_COMBINED
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'STG_ALL_COMBINED') }} STG_ALL_COMBINED
+            GROUP BY 
+              STG_ALL_COMBINED.C_CUSTKEY,
+              STG_ALL_COMBINED.C_NAME,
+              STG_ALL_COMBINED.C_MKTSEGMENT,
+              STG_ALL_COMBINED.N_NAME,
+              STG_ALL_COMBINED.R_NAME
+        name: STG_NODE
+        noLinkRefs: []
+  name: STG_CUSTOMER_SUMMARY
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

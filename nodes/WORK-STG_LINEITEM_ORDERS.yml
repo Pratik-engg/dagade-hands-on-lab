@@ -409,10 +409,7 @@ operation:
               - columnCounter: 913f5db8-a252-44eb-bef8-dca076b74c75
                 stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 012d4e64-2e0d-4dfe-b96e-4a21c9505a33
           stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
@@ -420,19 +417,14 @@ operation:
         dataType: NUMBER
         defaultValue: ""
         description: ""
-        keyColumnType: None
         name: DAYS TO SHIP
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: "0"
-                stepCounter: "0"
+              - columnCounter: c4a4f6e8-814e-49b6-a2e5-d04c932c7503
+                stepCounter: a2220834-bf7f-4a79-932b-e8949fbac991
             transform: DATEDIFF('DAY',"STG_ORDERS"."O_ORDERDATE","STG_LINEITEM"."L_SHIPDATE")
-        systemColumnType: None
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 52e5af9d-1067-4a58-8123-c08ef1395480
           stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
@@ -440,7 +432,6 @@ operation:
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        keyColumnType: None
         name: UnusedA
         nullable: true
         sourceColumnReferences:
@@ -448,11 +439,7 @@ operation:
               - columnCounter: "0"
                 stepCounter: "0"
             transform: ""
-        systemColumnType: None
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 69141232-7e8c-48a4-8baf-94d9a0ee2b06
           stepCounter: 117207ab-9a1e-4755-bce9-688d2c3e0cb7
@@ -460,7 +447,6 @@ operation:
         dataType: VARCHAR
         defaultValue: ""
         description: ""
-        keyColumnType: None
         name: UnusedB
         nullable: true
         sourceColumnReferences:
@@ -468,9 +454,11 @@ operation:
               - columnCounter: "0"
                 stepCounter: "0"
             transform: ""
-        systemColumnType: None
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           STG_LINEITEM: 8094c606-49e4-400e-8252-c68f8d33990b
