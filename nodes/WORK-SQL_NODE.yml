@@ -16,7 +16,7 @@ operation:
     warehouseName: WH_SMALL
     warehouse_name: ""
   database: ""
-  deployEnabled: true
+  deployEnabled: false
   description: ""
   isMultisource: false
   locationName: WORK
