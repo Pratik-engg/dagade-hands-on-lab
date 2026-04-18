@@ -5,7 +5,7 @@ mappingDefinitions:
     database: SNOWFLAKE_SAMPLE_DATA
     schema: TPCH_SF1
   WORK:
-    database: DB_PRATIK
+    database: PRATIK
     schema: WORKTEST
 name: New Environment
 type: Environment
