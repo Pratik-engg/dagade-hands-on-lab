@@ -6,6 +6,6 @@ mappingDefinitions:
     schema: TPCH_SF1
   WORK:
     database: PRATIK
-    schema: WORKTEST
+    schema: WORKTEST1
 name: New Environment
 type: Environment
