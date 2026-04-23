@@ -13,7 +13,7 @@ config:
   packageVariables: ""
 fileVersion: 1
 id: "@coalesce/snowflake/dynamic-tables"
-name: DT
+name: DT-2-1-7
 packageID: "@coalesce/snowflake/dynamic-tables"
-releaseID: 746cc7d7-0bcc-4148-ac3e-9c13cbd2581b
+releaseID: 49f106ef-a307-4b6c-baaa-5a79f0b78bad
 type: Package
