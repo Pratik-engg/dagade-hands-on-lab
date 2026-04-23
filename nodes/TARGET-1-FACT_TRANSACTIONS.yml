@@ -1,0 +1,139 @@
+fileVersion: 1
+id: 442292f4-bea5-43ed-8213-584fde034b62
+name: FACT_TRANSACTIONS
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Fact table for all transaction events
+  isMultisource: false
+  locationName: TARGET-1
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58d-76ec-76aa-bd73-3ed834776f10
+          stepCounter: 442292f4-bea5-43ed-8213-584fde034b62
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TXN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cf58b-0607-7708-a443-1553d35e0514
+                stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58d-76ec-76aa-bd73-4379a9304e88
+          stepCounter: 442292f4-bea5-43ed-8213-584fde034b62
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CLIENT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cf58b-0607-7708-a443-1aeee00b39f3
+                stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58d-76ec-76aa-bd73-47cae3064d8d
+          stepCounter: 442292f4-bea5-43ed-8213-584fde034b62
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cf58b-0607-7708-a443-1e1d381384bb
+                stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58d-76ec-76aa-bd73-48bb7a018e79
+          stepCounter: 442292f4-bea5-43ed-8213-584fde034b62
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: TXN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cf58b-0607-7708-a443-2102da4275a0
+                stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58d-76ec-76aa-bd73-4dc04429e239
+          stepCounter: 442292f4-bea5-43ed-8213-584fde034b62
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cf58b-0607-7708-a443-2797c94ba4cf
+                stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58d-76ec-76aa-bd73-510a7683d5d5
+          stepCounter: 442292f4-bea5-43ed-8213-584fde034b62
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TXN_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cf58b-0607-7708-a443-2978ee965f4b
+                stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58d-76ec-76aa-bd73-54c81140f389
+          stepCounter: 442292f4-bea5-43ed-8213-584fde034b62
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: TOTAL_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cf58b-0607-7708-a443-2db42998b968
+                stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          ENRICHED_DATA: a8cbb239-4378-413b-a14f-eeb3e88d999d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET-1
+            nodeName: ENRICHED_DATA
+        join:
+          joinCondition: FROM {{ ref('TARGET-1', 'ENRICHED_DATA') }} ENRICHED_DATA
+        name: FACT_TRANSACTIONS
+        noLinkRefs: []
+  name: FACT_TRANSACTIONS
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

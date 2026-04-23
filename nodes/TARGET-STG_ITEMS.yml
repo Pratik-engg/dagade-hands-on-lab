@@ -1,0 +1,96 @@
+fileVersion: 1
+id: 5dc716d1-9771-4eb8-a044-35dcd8a8d3c3
+name: STG_ITEMS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9209ffde-7721-4110-bf73-222a78dec2c1
+          stepCounter: 5dc716d1-9771-4eb8-a044-35dcd8a8d3c3
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 17593505-c30f-4353-97f5-180cb6279fbf
+                stepCounter: 88d92a8a-0c67-459b-83d1-ecc82d9e6ce3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d0a4c65b-c3d0-4bb9-a9fd-a62bee9ab842
+          stepCounter: 5dc716d1-9771-4eb8-a044-35dcd8a8d3c3
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ITEM_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ad410725-3f97-4b2a-b395-f8d53b81add8
+                stepCounter: 88d92a8a-0c67-459b-83d1-ecc82d9e6ce3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5c473de4-3f6f-4398-9674-348d642d424b
+          stepCounter: 5dc716d1-9771-4eb8-a044-35dcd8a8d3c3
+        config: {}
+        dataType: NUMBER(10,2)
+        description: ""
+        name: UNIT_PRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c9983f65-4786-4628-9db6-55ac7097b464
+                stepCounter: 88d92a8a-0c67-459b-83d1-ecc82d9e6ce3
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d38108f1-095d-43d4-b1e0-5af49c7522c8
+          stepCounter: 5dc716d1-9771-4eb8-a044-35dcd8a8d3c3
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: ITEM_GROUP
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 164eb4a0-073f-49fa-a291-7a98468b5cf3
+                stepCounter: 88d92a8a-0c67-459b-83d1-ecc82d9e6ce3
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          ITEMS: 88d92a8a-0c67-459b-83d1-ecc82d9e6ce3
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: ITEMS
+        join:
+          joinCondition: FROM {{ ref('SRC', 'ITEMS') }} "ITEMS"
+        name: STG_ITEMS
+        noLinkRefs: []
+  name: STG_ITEMS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,125 @@
+fileVersion: 1
+id: fde1a0f7-fbf3-4080-b886-77347a66238f
+name: STG_RETURNS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 569603b1-906d-4bf5-ab51-8b9336fd4c86
+          stepCounter: fde1a0f7-fbf3-4080-b886-77347a66238f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TXN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3b8c0e98-19db-4a89-b724-d71484bb5d1d
+                stepCounter: c3c134a5-eede-420f-b81a-f8d08139da97
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6b13bc7c-9cde-4d8e-89a9-02c5aeea4efc
+          stepCounter: fde1a0f7-fbf3-4080-b886-77347a66238f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CLIENT_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 19f045da-1f42-485b-afc6-560638505bde
+                stepCounter: c3c134a5-eede-420f-b81a-f8d08139da97
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b2a9721e-a931-46f0-94ed-6222e106ea3a
+          stepCounter: fde1a0f7-fbf3-4080-b886-77347a66238f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6635aa9b-0952-444f-9a48-47a23942a0da
+                stepCounter: c3c134a5-eede-420f-b81a-f8d08139da97
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9ec6a11f-715b-4a72-88c7-6b9a89cdd118
+          stepCounter: fde1a0f7-fbf3-4080-b886-77347a66238f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 864d4549-3091-440f-981b-3fe27fc1cb74
+                stepCounter: c3c134a5-eede-420f-b81a-f8d08139da97
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 70a63511-2f9f-41b5-a4f1-4b4cf7a5eb88
+          stepCounter: fde1a0f7-fbf3-4080-b886-77347a66238f
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: TXN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a057b17b-1725-4f10-be6f-128e28799096
+                stepCounter: c3c134a5-eede-420f-b81a-f8d08139da97
+            transform: DATE("RETURNS"."RETURN_TIME")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf5b7-e822-7266-9115-d8f3fd4b5d04
+          stepCounter: fde1a0f7-fbf3-4080-b886-77347a66238f
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TXN_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'RETURN'"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          RETURNS: c3c134a5-eede-420f-b81a-f8d08139da97
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: RETURNS
+        join:
+          joinCondition: FROM {{ ref('SRC', 'RETURNS') }} "RETURNS"
+        name: STG_RETURNS
+        noLinkRefs: []
+  name: STG_RETURNS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

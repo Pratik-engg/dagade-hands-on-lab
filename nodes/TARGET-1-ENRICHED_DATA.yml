@@ -1,0 +1,146 @@
+fileVersion: 1
+id: a8cbb239-4378-413b-a14f-eeb3e88d999d
+name: ENRICHED_DATA
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Enriched transaction data with client and item dimensions
+  isMultisource: false
+  locationName: TARGET-1
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58b-0607-7708-a443-1553d35e0514
+          stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: TXN_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: A.TXN_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58b-0607-7708-a443-1aeee00b39f3
+          stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CLIENT_SK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cf579-72a7-75bd-9a0d-1eaf267e1592
+                stepCounter: ec36ea33-7a56-42d4-890e-ce114b78f1ad
+            transform: C.CLIENT_SK
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58b-0607-7708-a443-1e1d381384bb
+          stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ITEM_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cf585-1329-734f-ae95-35ccf96b9d24
+                stepCounter: e9c14778-946e-48c8-b0aa-c2daf000da1a
+            transform: I.ITEM_ID
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58b-0607-7708-a443-2102da4275a0
+          stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: TXN_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: A.TXN_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58b-0607-7708-a443-2797c94ba4cf
+          stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: QUANTITY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: A.QUANTITY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58b-0607-7708-a443-2978ee965f4b
+          stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TXN_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: A.TXN_TYPE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019cf58b-0607-7708-a443-2db42998b968
+          stepCounter: a8cbb239-4378-413b-a14f-eeb3e88d999d
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: TOTAL_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019cf585-1329-734f-ae95-4364af7d3778
+                stepCounter: e9c14778-946e-48c8-b0aa-c2daf000da1a
+            transform: (A.QUANTITY * I.UNIT_PRICE)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          A: fdd00823-553c-4d5a-9620-797750c18d0f
+          C: ec36ea33-7a56-42d4-890e-ce114b78f1ad
+          I: e9c14778-946e-48c8-b0aa-c2daf000da1a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: ALL_EVENTS
+          - locationName: TARGET
+            nodeName: DIM_CLIENTS
+          - locationName: TARGET
+            nodeName: DIM_ITEMS
+        join:
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'ALL_EVENTS') }} A
+            INNER JOIN {{ ref('TARGET', 'DIM_CLIENTS') }} C
+                ON A.CLIENT_ID = C.CLIENT_ID
+                AND A.TXN_DATE >= C.START_DATE
+                AND (A.TXN_DATE <= C.END_DATE OR C.END_DATE IS NULL)
+            INNER JOIN {{ ref('TARGET', 'DIM_ITEMS') }} I
+                ON A.ITEM_ID = I.ITEM_ID
+        name: ENRICHED_DATA
+        noLinkRefs: []
+  name: ENRICHED_DATA
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
