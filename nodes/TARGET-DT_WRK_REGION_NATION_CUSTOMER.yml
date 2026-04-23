@@ -203,7 +203,7 @@ operation:
   name: DT_WRK_REGION_NATION_CUSTOMER
   overrideSQL: false
   schema: ""
-  sqlType: DT-2-1-7:::347
+  sqlType: DT-2-1-6:::347
   type: sql
   version: 1
 type: Node
