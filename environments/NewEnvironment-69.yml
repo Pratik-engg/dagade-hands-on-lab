@@ -9,6 +9,6 @@ mappingDefinitions:
     schema: WORKTESTNEW
   TARGETB:
     database: PRATIK_DB
-    schema: RAW
+    schema: PUBLIC
 name: New Environment
 type: Environment
