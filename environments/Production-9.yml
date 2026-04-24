@@ -7,5 +7,8 @@ mappingDefinitions:
   TARGET:
     database: DB_PRATIK
     schema: WORKPROD
+  TARGETB:
+    database: ""
+    schema: ""
 name: Production
 type: Environment
