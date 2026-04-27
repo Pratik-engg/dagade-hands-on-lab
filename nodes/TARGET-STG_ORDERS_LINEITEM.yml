@@ -366,7 +366,7 @@ operation:
           - columnReferences:
               - columnCounter: 964ca699-6e9a-41c7-b3b7-858c10dd3dab
                 stepCounter: 3f14c8ce-dd74-4e8f-af61-e8f2d8d7cd02
-            transform: ""
+            transform: "'abcdefgh'"
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
