@@ -3,6 +3,7 @@ id: 07e6f80d-c383-4122-a1dc-93c1a5478165
 name: test2
 steps:
   - 0aa1adb4-d67b-440d-8fd4-dc39a4a925d4
+  - 117207ab-9a1e-4755-bce9-688d2c3e0cb7
   - 19626e04-0fa9-4093-a99b-acd9269bb744
   - 1b98eafe-be4a-410e-9635-a417ed06483e
   - 286a9b77-331c-4553-8f3a-ae55f1b085f0
@@ -17,7 +18,10 @@ steps:
   - a2220834-bf7f-4a79-932b-e8949fbac991
   - a5c005eb-3b5e-4ae8-afb0-ed7945589384
   - b1262221-0d02-4956-938c-69477fb60563
+  - bca5b7c1-f74b-46f9-ab25-ba22a9fd21a8
+  - cae6c7c8-304e-4721-a540-0e24acbee88e
   - cf709dcf-f402-4ca8-9d12-f33567f52da8
   - de95eb55-87f4-4f8e-8ee8-e89b33cc8f8b
+  - fbeef231-52e6-4040-a4c6-5c8c5920cc9e
   - ff1ce864-d355-431c-944c-cc7b602bc001
 type: Subgraph

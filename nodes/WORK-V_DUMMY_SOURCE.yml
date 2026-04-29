@@ -53,7 +53,9 @@ operation:
           - locationName: WORK
             nodeName: STG_DUMMY_SOURCE
         join:
-          joinCondition: FROM {{ ref('WORK', 'STG_DUMMY_SOURCE') }} "STG_DUMMY_SOURCE"
+          joinCondition: |-
+            /* dummy view node */
+            FROM {{ ref('WORK', 'STG_DUMMY_SOURCE') }} "STG_DUMMY_SOURCE"
         name: V_DUMMY_SOURCE
         noLinkRefs: []
   name: V_DUMMY_SOURCE
