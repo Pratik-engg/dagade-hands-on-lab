@@ -27,7 +27,7 @@ operation:
     groupByAll: false
     immutabilityConstraint: false
     immutableExpression: ""
-    initialize: ON_SCHEDULE
+    initialize: ON_CREATE
     initializeWarehouseSize: ""
     insertStrategy: INSERT
     lagSpecification:
