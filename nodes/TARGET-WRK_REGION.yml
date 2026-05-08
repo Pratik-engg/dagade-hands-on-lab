@@ -124,6 +124,18 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019e070d-2925-7132-9d7f-e91002e6c6c2
+          stepCounter: f53b2825-8b9a-48bb-b2b7-f41e361986ab
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TEST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'test_value'"
     cteString: ""
     description: ""
     destinationName: ""
