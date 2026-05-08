@@ -90,7 +90,7 @@ operation:
           stepCounter: f53b2825-8b9a-48bb-b2b7-f41e361986ab
         config: {}
         dataType: VARCHAR(25)
-        description: ""
+        description: "Region name from source system, loaded without transformations. "
         name: R_NAME
         nullable: false
         sourceColumnReferences:
