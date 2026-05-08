@@ -3,6 +3,7 @@ id: f53b2825-8b9a-48bb-b2b7-f41e361986ab
 name: WRK_REGION
 operation:
   config:
+    advanceWarehouse: false
     asofColumn:
       items:
         - {}
@@ -10,6 +11,9 @@ operation:
     asofJoinMain: false
     asofJoinON: false
     asofJoinUSING: false
+    backfill: false
+    backfillSource: ""
+    backfillSourceSchema: ""
     clusterKey: false
     clusterKeyConfig:
       items:
@@ -18,17 +22,45 @@ operation:
       items:
         - {}
     clusterKeyExpressions: false
+    cpygrants: false
+    downstreamOption: false
     groupByAll: false
+    immutabilityConstraint: false
+    immutableExpression: ""
+    initialize: ON_SCHEDULE
+    initializeWarehouseSize: ""
     insertStrategy: INSERT
+    lagSpecification:
+      items:
+        - lagPeriod: Minutes
+          lagValue: "15"
+    orderBy:
+      items:
+        - colName:
+            columnCounter: 019e069c-da59-76d7-9a2a-e5abb809825b
+            stepCounter: f53b2825-8b9a-48bb-b2b7-f41e361986ab
     orderby: false
     orderbycolumn:
       items:
         - {}
+    partitionBy:
+      items:
+        - partColName:
+            columnCounter: a3bc3d59-5312-4012-9b34-d3801405b48f
+            stepCounter: f53b2825-8b9a-48bb-b2b7-f41e361986ab
     postSQL: ""
     preSQL: ""
+    recordVersioning: Datetime Column
+    refreshWarehouseSize: ""
+    refresh_mode: AUTO
     selectDistinct: false
     testsEnabled: false
+    timeTravel: false
+    timeTravelreference: ""
+    timeTraveltype: ""
+    timeTravelvalue: ""
     truncateBefore: true
+    warehouseName: COMPUTE_WH
   database: ""
   deployEnabled: true
   description: Region data as defined by TPC-H
@@ -80,8 +112,23 @@ operation:
               - columnCounter: 0b621bb4-4c06-4f3a-8454-28fdb3e5f9a8
                 stepCounter: 9b834369-66fa-41d9-826b-aa9b2d060354
             transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019e069c-da59-76d7-9a2a-e5abb809825b
+          stepCounter: f53b2825-8b9a-48bb-b2b7-f41e361986ab
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: Record version timestamp for tracking the latest version of each region record
+        name: RECORD_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           STG_REGION: 9b834369-66fa-41d9-826b-aa9b2d060354
@@ -97,7 +144,7 @@ operation:
   name: WRK_REGION
   overrideSQL: false
   schema: ""
-  sqlType: B-N-T-Ad-D:::179
+  sqlType: DT-2-1-7:::351
   type: sql
   version: 1
 type: Node
