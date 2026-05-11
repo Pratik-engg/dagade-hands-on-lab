@@ -7,7 +7,7 @@ operation:
     preSQL: ""
     testsEnabled: true
   database: ""
-  deployEnabled: false
+  deployEnabled: true
   description: Customer data as defined by TPC-H
   isMultisource: false
   locationName: TARGET
@@ -15,10 +15,7 @@ operation:
   metadata:
     appliedNodeTests: []
     columns:
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 3fefb966-6f32-40da-a802-de5a44ad47c6
           stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
@@ -145,10 +142,7 @@ operation:
               - columnCounter: fc32591e-c52d-4e4a-a70d-eee8b58085bf
                 stepCounter: 661a90a9-9b7b-4ae2-9edc-1e43927f83f6
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 704ff742-c5f3-45ed-a64c-8867917500e3
           stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
@@ -162,10 +156,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: d1fda0f3-143e-4532-ad92-f2c4ee665aec
           stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
@@ -179,10 +170,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: ad0e1cf6-9175-4ff1-a46a-01da701b57d3
           stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
@@ -195,11 +183,8 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences: []
-            transform: CONVERT_TIMEZONE('UTC',CURRENT_TIMESTAMP())
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+            transform: CAST(CONVERT_TIMEZONE('UTC',CURRENT_TIMESTAMP()) AS TIMESTAMP_NTZ)
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: fb142e2c-19d0-47cf-9ae5-2d044e6a943a
           stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
@@ -213,10 +198,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 29521fab-9294-4547-b45b-44f635a84e83
           stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
@@ -230,10 +212,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: CAST(SYSDATE() AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 1b6579a4-30f1-4c4c-92a6-7f4076d8f887
           stepCounter: 1cb4343a-a59b-45b6-b7b6-b87912edecee
@@ -248,7 +227,10 @@ operation:
           - columnReferences: []
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           STG_CUSTOMER: 661a90a9-9b7b-4ae2-9edc-1e43927f83f6
