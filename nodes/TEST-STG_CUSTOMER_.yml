@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 661a90a9-9b7b-4ae2-9edc-1e43927f83f6
-name: STG_CUSTOMER
+name: STG_CUSTOMER_
 operation:
   config:
     insertStrategy: INSERT
@@ -163,9 +163,9 @@ operation:
         join:
           joinCondition: |
             FROM {{ ref('SRC', 'CUSTOMER') }} "CUSTOMER"
-        name: STG_CUSTOMER
+        name: STG_CUSTOMER_
         noLinkRefs: []
-  name: STG_CUSTOMER
+  name: STG_CUSTOMER_
   overrideSQL: false
   schema: ""
   sqlType: Stage

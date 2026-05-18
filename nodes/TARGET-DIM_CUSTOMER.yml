@@ -237,10 +237,10 @@ operation:
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: TARGET
-            nodeName: STG_CUSTOMER
+          - locationName: TEST
+            nodeName: STG_CUSTOMER_
         join:
-          joinCondition: FROM {{ ref('TARGET', 'STG_CUSTOMER') }} "STG_CUSTOMER"
+          joinCondition: FROM {{ ref('TEST', 'STG_CUSTOMER_') }} "STG_CUSTOMER"
         name: DIM_CUSTOMER
         noLinkRefs: []
   name: DIM_CUSTOMER
