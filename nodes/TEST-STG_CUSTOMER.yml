@@ -24,7 +24,7 @@ operation:
   deployEnabled: true
   description: Customer data as defined by TPC-H
   isMultisource: false
-  locationName: TARGET
+  locationName: TEST
   materializationType: table
   metadata:
     appliedNodeTests: []
