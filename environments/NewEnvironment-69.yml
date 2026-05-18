@@ -1,11 +1,8 @@
 fileVersion: 1
 id: "69"
 mappingDefinitions:
-  SRC:
-    database: SNOWFLAKE_SAMPLE_DATA
-    schema: TPCH_SF1
-  TARGET:
-    database: DB_PRATIK
-    schema: WORKTESTNEW
+  TEST:
+    database: ""
+    schema: ""
 name: New Environment
 type: Environment
