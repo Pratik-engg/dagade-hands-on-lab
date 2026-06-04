@@ -1,0 +1,6 @@
+excludeSelector: ""
+fileVersion: 1
+id: "13"
+includeSelector: "{ location: TEST_SRC name: CUSTOMER } OR { location: TEST_TARGET name: DIM_CUSTOMER2 } OR { location: TEST_TARGET name: DIM_CUSTOMER } OR { location: TEST_TARGET name: DIM_CUSTOMER1 } OR { location: TEST_TARGET name: FCT_CUSTOMER1_CUSTOMER2 } OR { location: TEST_TARGET name: PSTG_CUSTOMER } OR { location: TEST_TARGET name: STG_CUSTOMER } OR { location: TEST_TARGET name: STG_CUSTOMER1 } OR { location: TEST_TARGET name: STG_CUSTOMER2 } OR { location: TEST_TARGET name: V_CUSTOMER1_CUSTOMER2 }"
+name: test
+type: Job
