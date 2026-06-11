@@ -50,17 +50,20 @@ operation:
           columnCounter: 8bd09dbb-aba0-4609-a11f-2e5a06c19ca5
           stepCounter: 4bddf406-8f72-4cb0-aed9-f9deec4fa43b
         config: {}
-        dataType: VARCHAR(152)
+        dataType: VARCHAR(40)
         description: ""
         name: R_COMMENT
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 5b30c312-8c6b-4204-90bb-f68d8d82f24f
-                stepCounter: ff1ce864-d355-431c-944c-cc7b602bc001
-            transform: ""
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'AltisourcePipeline'"
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           REGION: ff1ce864-d355-431c-944c-cc7b602bc001

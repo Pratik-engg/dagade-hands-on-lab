@@ -1,5 +1,5 @@
 fileVersion: 1
-id: "62"
+id: "69"
 mappingDefinitions:
   SRC:
     database: SNOWFLAKE_SAMPLE_DATA
