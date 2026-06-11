@@ -1,0 +1,6 @@
+excludeSelector: ""
+fileVersion: 1
+id: "17"
+includeSelector: "{ location: \"TARGET\" name: \"PSTG_CUSTOMER\" } OR { location: \"SRC\" name: \"CUSTOMER\" } OR { location: \"SRC\" name: \"LINEITEM\" } OR { location: \"SRC\" name: \"NATION\" } OR { location: \"SRC\" name: \"ORDERS\" } OR { location: \"SRC\" name: \"PART\" } OR { location: \"SRC\" name: \"PARTSUPP\" } OR { location: \"SRC\" name: \"REGION\" } OR { location: \"SRC\" name: \"SUPPLIER\" } OR { location: \"TARGET\" name: \"STG_CUSTOMER\" } OR { location: \"TARGET\" name: \"STG_LINEITEM\" } OR { location: \"TARGET\" name: \"STG_NATION\" } OR { location: \"TARGET\" name: \"STG_ORDERS\" } OR { location: \"TARGET\" name: \"STG_PART\" } OR { location: \"TARGET\" name: \"STG_PARTSUPP\" } OR { location: \"TARGET\" name: \"STG_REGION\" } OR { location: \"TARGET\" name: \"STG_SUPPLIER\" }"
+name: test
+type: Job
