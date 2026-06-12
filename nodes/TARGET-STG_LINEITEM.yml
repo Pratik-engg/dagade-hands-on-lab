@@ -131,34 +131,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: e4e9ebbc-f5a0-4138-ad7e-5d9d5634323c
-          stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
-        config: {}
-        dataType: VARCHAR(1)
-        description: ""
-        name: L_RETURNFLAG
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 6ec67365-d1a2-4192-a8ee-9491ae1ee8b3
-                stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 6e381f9a-2255-4f31-b228-5d5b3d10899a
-          stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
-        config: {}
-        dataType: VARCHAR(1)
-        description: ""
-        name: L_LINESTATUS
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: dc174f88-0f7a-4d0f-bf3e-40e9efb81213
-                stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: cf49a0dc-a4d3-4759-bab9-579fd46eb39b
           stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
         config: {}
@@ -169,6 +141,20 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: f7dd63ff-61cf-484b-b2c1-a700b0ee5283
+                stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3bdd2877-8115-49bf-8615-e31a8c32f85f
+          stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
+        config: {}
+        dataType: VARCHAR(46)
+        description: ""
+        name: L_COMMENT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cca46dcd-379a-4c4f-955d-24aed8c18ed9
                 stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
             transform: ""
       - appliedColumnTests: {}
@@ -187,6 +173,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: e4e9ebbc-f5a0-4138-ad7e-5d9d5634323c
+          stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: L_RETURNFLAG
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6ec67365-d1a2-4192-a8ee-9491ae1ee8b3
+                stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: 3e48e7ad-76e2-41c5-9171-a725044705e7
           stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
         config: {}
@@ -197,6 +197,20 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 783eed0f-4b28-478b-9537-9f3f10e2ef04
+                stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6e381f9a-2255-4f31-b228-5d5b3d10899a
+          stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
+        config: {}
+        dataType: VARCHAR(50)
+        description: ""
+        name: L_LINESTATUS
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: dc174f88-0f7a-4d0f-bf3e-40e9efb81213
                 stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
             transform: ""
       - appliedColumnTests: {}
@@ -225,20 +239,6 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: e3e3bce7-5a53-49dc-bec7-2f8e61d6a7ab
-                stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 3bdd2877-8115-49bf-8615-e31a8c32f85f
-          stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
-        config: {}
-        dataType: VARCHAR(44)
-        description: ""
-        name: L_COMMENT
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: cca46dcd-379a-4c4f-955d-24aed8c18ed9
                 stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
             transform: ""
     cteString: ""
