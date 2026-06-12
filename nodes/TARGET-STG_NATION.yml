@@ -47,6 +47,20 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
+          columnCounter: 8ee2cab2-1a17-4c56-baec-b0ea941f55ac
+          stepCounter: a6c6357b-9ce0-45b8-bc15-c608a1a8f45f
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: N_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 3bc0de1c-30b6-4686-8544-6c08f27f733f
+                stepCounter: 1600f02a-ed6b-41fe-b012-b92f97b7b6cf
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
           columnCounter: c4b1a147-c164-4716-b5bf-43ca7daf4c64
           stepCounter: a6c6357b-9ce0-45b8-bc15-c608a1a8f45f
         config: {}
