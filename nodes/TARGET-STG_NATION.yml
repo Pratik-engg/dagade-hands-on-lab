@@ -24,13 +24,13 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        name: N_NATIONKEY
+        name: Entity_key
         nullable: false
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 8eabc16a-ebe2-47e0-8e3c-4cabad375f8c
                 stepCounter: 1600f02a-ed6b-41fe-b012-b92f97b7b6cf
-            transform: ""
+            transform: "\"NATION\".\"N_NATIONKEY\" as Entity_key"
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 8ee2cab2-1a17-4c56-baec-b0ea941f55ac
