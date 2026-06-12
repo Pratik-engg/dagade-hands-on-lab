@@ -215,20 +215,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 3f966795-af01-48b5-8849-44b67cd242e8
-          stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
-        config: {}
-        dataType: VARCHAR(25)
-        description: ""
-        name: L_SHIPINSTRUCT
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 462ffd29-e6a0-4850-a957-b4904ae55f1d
-                stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: bb78c73f-7601-45af-b6ce-ac37c6ccf5ba
           stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
         config: {}
@@ -239,6 +225,20 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: e3e3bce7-5a53-49dc-bec7-2f8e61d6a7ab
+                stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3f966795-af01-48b5-8849-44b67cd242e8
+          stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: L_SHIPINSTRUCT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 462ffd29-e6a0-4850-a957-b4904ae55f1d
                 stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
             transform: ""
     cteString: ""
