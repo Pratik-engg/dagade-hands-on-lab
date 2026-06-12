@@ -131,20 +131,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: cf49a0dc-a4d3-4759-bab9-579fd46eb39b
-          stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
-        config: {}
-        dataType: DATE
-        description: ""
-        name: L_SHIPDATE
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: f7dd63ff-61cf-484b-b2c1-a700b0ee5283
-                stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: 3bdd2877-8115-49bf-8615-e31a8c32f85f
           stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
         config: {}
@@ -155,6 +141,20 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: cca46dcd-379a-4c4f-955d-24aed8c18ed9
+                stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cf49a0dc-a4d3-4759-bab9-579fd46eb39b
+          stepCounter: e0216a05-67e6-42a1-8171-1d7b52954867
+        config: {}
+        dataType: DATE
+        description: ""
+        name: L_SHIPDATE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f7dd63ff-61cf-484b-b2c1-a700b0ee5283
                 stepCounter: c08cf006-9dfb-4ef3-a285-5fd5565b4dfe
             transform: ""
       - appliedColumnTests: {}
