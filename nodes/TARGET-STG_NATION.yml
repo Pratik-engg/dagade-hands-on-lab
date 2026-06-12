@@ -47,20 +47,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: b9f559bf-fa27-4e8b-8dc8-e9dae4c3b681
-          stepCounter: a6c6357b-9ce0-45b8-bc15-c608a1a8f45f
-        config: {}
-        dataType: NUMBER(38,0)
-        description: ""
-        name: N_REGIONKEY
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 1df7453f-f78a-4286-8393-c68e53a2b675
-                stepCounter: 1600f02a-ed6b-41fe-b012-b92f97b7b6cf
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: c4b1a147-c164-4716-b5bf-43ca7daf4c64
           stepCounter: a6c6357b-9ce0-45b8-bc15-c608a1a8f45f
         config: {}
@@ -73,6 +59,60 @@ operation:
               - columnCounter: a064baff-b0d1-4c77-99d7-57dc203cc403
                 stepCounter: 1600f02a-ed6b-41fe-b012-b92f97b7b6cf
             transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b9f559bf-fa27-4e8b-8dc8-e9dae4c3b681
+          stepCounter: a6c6357b-9ce0-45b8-bc15-c608a1a8f45f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: N_REGIONKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 1df7453f-f78a-4286-8393-c68e53a2b675
+                stepCounter: 1600f02a-ed6b-41fe-b012-b92f97b7b6cf
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f0056e7c-4705-4672-95d5-0aed0f5630b8
+          stepCounter: a6c6357b-9ce0-45b8-bc15-c608a1a8f45f
+        config: {}
+        dataType: VARCHAR(25)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: test1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'abc'"
+        systemColumnType: None
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: f96d4eea-51d4-462e-a69b-7c580b8fc3e4
+          stepCounter: a6c6357b-9ce0-45b8-bc15-c608a1a8f45f
+        config: {}
+        dataType: VARCHAR(25)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: test2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: "'xyz'"
+        systemColumnType: None
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
