@@ -50,7 +50,7 @@ operation:
           columnCounter: 0b621bb4-4c06-4f3a-8454-28fdb3e5f9a8
           stepCounter: 9b834369-66fa-41d9-826b-aa9b2d060354
         config: {}
-        dataType: VARCHAR(152)
+        dataType: VARCHAR(500)
         description: ""
         name: R_COMMENT
         nullable: true
@@ -60,7 +60,10 @@ operation:
                 stepCounter: 32ce79f6-e82a-45be-b259-11b790667e8f
             transform: ""
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           REGION: 32ce79f6-e82a-45be-b259-11b790667e8f

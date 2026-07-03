@@ -1,36 +1,23 @@
 fileVersion: 1
 id: 661a90a9-9b7b-4ae2-9edc-1e43927f83f6
-name: STG_CUSTOMER_
+name: STG_CUSTOMER
 operation:
   config:
     insertStrategy: INSERT
     postSQL: ""
-    preSQL: |-
-      WITH DUPLICATE_CHECK AS (
-          SELECT 
-              C_CUSTKEY,
-              COUNT(*) AS RECORD_COUNT
-          FROM {{ ref('TARGET', 'STG_CUSTOMER') }}
-          GROUP BY C_CUSTKEY
-          HAVING COUNT(*) > 1
-      )
-      SELECT 
-          C_CUSTKEY,
-          RECORD_COUNT
-      FROM DUPLICATE_CHECK
+    preSQL: ""
     testsEnabled: true
-    truncateBefore: false
+    truncateBefore: true
   database: ""
   deployEnabled: true
   description: Customer data as defined by TPC-H
   isMultisource: false
-  locationName: TEST
+  locationName: TARGET
   materializationType: table
   metadata:
     appliedNodeTests: []
     columns:
-      - appliedColumnTests:
-          hasNull: true
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 4c1e8ff3-3dd2-4224-b8db-2c5a56c8d3fc
           stepCounter: 661a90a9-9b7b-4ae2-9edc-1e43927f83f6
@@ -44,8 +31,7 @@ operation:
               - columnCounter: 9efdfa0a-7416-449a-a3a2-c0c529f65502
                 stepCounter: d2d10957-dcd6-49cb-a119-a4d85070a04a
             transform: ""
-      - appliedColumnTests:
-          hasNull: false
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 9b1f996a-2236-4137-8efd-36ce00bfa93f
           stepCounter: 661a90a9-9b7b-4ae2-9edc-1e43927f83f6
@@ -59,8 +45,7 @@ operation:
               - columnCounter: 21bc0b33-2af5-4c0c-b077-e1b0e3ae99a8
                 stepCounter: d2d10957-dcd6-49cb-a119-a4d85070a04a
             transform: ""
-      - appliedColumnTests:
-          hasNull: false
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: fbc0d828-c73f-4363-8f04-d87b1ef9e826
           stepCounter: 661a90a9-9b7b-4ae2-9edc-1e43927f83f6
@@ -73,9 +58,8 @@ operation:
           - columnReferences:
               - columnCounter: 6db74f71-23d9-4efd-95ab-2a26be7fee97
                 stepCounter: d2d10957-dcd6-49cb-a119-a4d85070a04a
-            transform: ""
-      - appliedColumnTests:
-          hasNull: false
+            transform: CONCAT("CUSTOMER"."C_ADDRESS",'fgdg')
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 716dcdf3-b6dc-4bc6-8e54-ece7ee737cb9
           stepCounter: 661a90a9-9b7b-4ae2-9edc-1e43927f83f6
@@ -89,8 +73,7 @@ operation:
               - columnCounter: 37063d8d-680e-469a-a939-f2b9a9ed272d
                 stepCounter: d2d10957-dcd6-49cb-a119-a4d85070a04a
             transform: ""
-      - appliedColumnTests:
-          hasNull: false
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 4a4d6b49-432a-4cd6-9717-68cb856c4eb6
           stepCounter: 661a90a9-9b7b-4ae2-9edc-1e43927f83f6
@@ -104,8 +87,7 @@ operation:
               - columnCounter: 1b82fd9f-fc2f-4584-9ae0-16bcca377403
                 stepCounter: d2d10957-dcd6-49cb-a119-a4d85070a04a
             transform: ""
-      - appliedColumnTests:
-          hasNull: false
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 45c412d3-67e7-4606-a43a-3e6dd9944c67
           stepCounter: 661a90a9-9b7b-4ae2-9edc-1e43927f83f6
@@ -119,8 +101,7 @@ operation:
               - columnCounter: c8a351ea-bedd-4f37-a308-7bddefc6b822
                 stepCounter: d2d10957-dcd6-49cb-a119-a4d85070a04a
             transform: ""
-      - appliedColumnTests:
-          hasNull: false
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 6add2b79-9828-49d0-b835-f18b145a2a28
           stepCounter: 661a90a9-9b7b-4ae2-9edc-1e43927f83f6
@@ -134,8 +115,7 @@ operation:
               - columnCounter: 9a969fcf-16a6-4e88-b595-73c99b9febe7
                 stepCounter: d2d10957-dcd6-49cb-a119-a4d85070a04a
             transform: ""
-      - appliedColumnTests:
-          hasNull: false
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: fc32591e-c52d-4e4a-a70d-eee8b58085bf
           stepCounter: 661a90a9-9b7b-4ae2-9edc-1e43927f83f6
@@ -150,8 +130,7 @@ operation:
                 stepCounter: d2d10957-dcd6-49cb-a119-a4d85070a04a
             transform: ""
     cteString: ""
-    enabledColumnTestIDs:
-      - hasNull
+    enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
           CUSTOMER: d2d10957-dcd6-49cb-a119-a4d85070a04a
@@ -161,11 +140,12 @@ operation:
           - locationName: SRC
             nodeName: CUSTOMER
         join:
-          joinCondition: |
+          joinCondition: |-
             FROM {{ ref('SRC', 'CUSTOMER') }} "CUSTOMER"
-        name: STG_CUSTOMER_
+            where "CUSTOMER"."C_CUSTKEY"='60001'
+        name: STG_CUSTOMER
         noLinkRefs: []
-  name: STG_CUSTOMER_
+  name: STG_CUSTOMER
   overrideSQL: false
   schema: ""
   sqlType: Stage

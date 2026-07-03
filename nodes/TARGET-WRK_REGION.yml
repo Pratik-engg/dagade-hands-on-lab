@@ -1,0 +1,162 @@
+fileVersion: 1
+id: f53b2825-8b9a-48bb-b2b7-f41e361986ab
+name: WRK_REGION
+operation:
+  config:
+    advanceWarehouse: false
+    asofColumn:
+      items:
+        - {}
+    asofJoin: true
+    asofJoinMain: false
+    asofJoinON: false
+    asofJoinUSING: false
+    backfill: false
+    backfillSource: ""
+    backfillSourceSchema: ""
+    clusterKey: false
+    clusterKeyConfig:
+      items:
+        - {}
+    clusterKeyConfigExpressions:
+      items:
+        - {}
+    clusterKeyExpressions: false
+    cpygrants: false
+    downstreamOption: false
+    groupByAll: false
+    immutabilityConstraint: false
+    immutableExpression: ""
+    initialize: ON_CREATE
+    initializeWarehouseSize: ""
+    insertStrategy: INSERT
+    lagSpecification:
+      items:
+        - lagPeriod: Minutes
+          lagValue: "15"
+    orderBy:
+      items:
+        - colName:
+            columnCounter: 019e069c-da59-76d7-9a2a-e5abb809825b
+            stepCounter: f53b2825-8b9a-48bb-b2b7-f41e361986ab
+    orderby: false
+    orderbycolumn:
+      items:
+        - {}
+    partitionBy:
+      items:
+        - partColName:
+            columnCounter: a3bc3d59-5312-4012-9b34-d3801405b48f
+            stepCounter: f53b2825-8b9a-48bb-b2b7-f41e361986ab
+    postSQL: ""
+    preSQL: ""
+    recordVersioning: Datetime Column
+    refreshWarehouseSize: ""
+    refresh_mode: AUTO
+    selectDistinct: false
+    testsEnabled: false
+    timeTravel: false
+    timeTravelreference: ""
+    timeTraveltype: ""
+    timeTravelvalue: ""
+    truncateBefore: true
+    warehouseName: COMPUTE_WH
+  database: ""
+  deployEnabled: true
+  description: Region data as defined by TPC-H
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a3bc3d59-5312-4012-9b34-d3801405b48f
+          stepCounter: f53b2825-8b9a-48bb-b2b7-f41e361986ab
+        config: {}
+        dataType: NUMBER(38,0)
+        description: Primary key for the Region table. Originates from the source system without transformations. Used to establish relationships with the Nation table. Enables filtering and grouping of sales data by geographical region in reports. Essential for regional performance analysis and strategic decision-making. Key component in executive dashboards, providing a high-level view of business operations across different regions. Ensures data integrity and efficient query performance when joining with other tables.
+        name: R_REGIONKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: ed853fee-5078-49f1-96dd-4df6e3fb3346
+                stepCounter: 9b834369-66fa-41d9-826b-aa9b2d060354
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 03c4579e-1c2b-46e1-95bb-4aaaacd4c92a
+          stepCounter: f53b2825-8b9a-48bb-b2b7-f41e361986ab
+        config: {}
+        dataType: VARCHAR(25)
+        description: "Region name from source system, loaded without transformations. "
+        name: R_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 672b14fc-5ff5-490d-aedd-671f05d1b65c
+                stepCounter: 9b834369-66fa-41d9-826b-aa9b2d060354
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c721297-8f8d-4e92-9995-21c3768fc4ee
+          stepCounter: f53b2825-8b9a-48bb-b2b7-f41e361986ab
+        config: {}
+        dataType: VARCHAR(152)
+        description: ""
+        name: R_COMMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0b621bb4-4c06-4f3a-8454-28fdb3e5f9a8
+                stepCounter: 9b834369-66fa-41d9-826b-aa9b2d060354
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019e069c-da59-76d7-9a2a-e5abb809825b
+          stepCounter: f53b2825-8b9a-48bb-b2b7-f41e361986ab
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: Record version timestamp for tracking the latest version of each region record
+        name: RECORD_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_TIMESTAMP()
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019e070d-2925-7132-9d7f-e91002e6c6c2
+          stepCounter: f53b2825-8b9a-48bb-b2b7-f41e361986ab
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: TEST
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "'test_value'"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          STG_REGION: 9b834369-66fa-41d9-826b-aa9b2d060354
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: STG_REGION
+        join:
+          joinCondition: FROM  {{ ref('TARGET', 'STG_REGION') }} STG_REGION
+        name: WRK_REGION
+        noLinkRefs: []
+  name: WRK_REGION
+  overrideSQL: false
+  schema: ""
+  sqlType: DT-2-1-7:::351
+  type: sql
+  version: 1
+type: Node

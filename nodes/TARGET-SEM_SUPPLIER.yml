@@ -1,0 +1,181 @@
+fileVersion: 1
+id: 3544d79a-3aa3-4b24-86e9-1b9021fefee7
+name: SEM_SUPPLIER
+operation:
+  config:
+    DimConfig:
+      items:
+        - dimAlias: ""
+          dimCol:
+            columnCounter: 019df7c6-7408-704a-bcce-003bd67c94d3
+            stepCounter: 3544d79a-3aa3-4b24-86e9-1b9021fefee7
+          dimComment: ""
+          dimLayer: "1"
+          dimSynonym: ""
+          dimTransform: ""
+    deriveCol: true
+    dimToggle: true
+    factDetConfig:
+      items:
+        - factAlias: ""
+          factCol: null
+          factComment: ""
+          factLayer: "1"
+          factSynonym: ""
+          factTranform: ""
+    factToggle: false
+    foreignKeyConfig:
+      items:
+        - foreignKey: null
+          refAlias: ""
+          refTable: ""
+    foreignToggle: false
+    metricConfig:
+      items:
+        - {}
+    metricToggle: false
+    primaryKeyConfig:
+      items:
+        - primAlias: ""
+          primComment: ""
+          primSynonym: ""
+          primaryKey:
+            columnCounter: 019df7c6-7408-704a-bccd-fdfdd45f4b72
+            stepCounter: 3544d79a-3aa3-4b24-86e9-1b9021fefee7
+    tableOnlyToggle: false
+  database: ""
+  deployEnabled: true
+  description: Semantic view of supplier data with load date attributes
+  isMultisource: false
+  locationName: TARGET
+  materializationType: semantic view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019df7c6-7408-704a-bccd-fdfdd45f4b72
+          stepCounter: 3544d79a-3aa3-4b24-86e9-1b9021fefee7
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: S_SUPPKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019df7c1-7042-73dc-975b-a126a60ecfb3
+                stepCounter: 2f3e1ed6-1218-4129-a0a2-d2e59d2515e8
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019df7c6-7408-704a-bcce-003bd67c94d3
+          stepCounter: 3544d79a-3aa3-4b24-86e9-1b9021fefee7
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: SUPPKEY_DIM
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019df7c1-7042-73dc-975b-a7350f5b4e14
+                stepCounter: 2f3e1ed6-1218-4129-a0a2-d2e59d2515e8
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019df7c6-7408-704a-bcce-07f25d93757b
+          stepCounter: 3544d79a-3aa3-4b24-86e9-1b9021fefee7
+        config: {}
+        dataType: DATE
+        description: ""
+        name: LOAD_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CURRENT_DATE
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019df7c6-7408-704a-bcce-09966e78c51e
+          stepCounter: 3544d79a-3aa3-4b24-86e9-1b9021fefee7
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: LOAD_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: YEAR(CURRENT_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019df7c6-7408-704a-bcce-0daef1b85603
+          stepCounter: 3544d79a-3aa3-4b24-86e9-1b9021fefee7
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: LOAD_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MONTH(CURRENT_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019df7c6-7408-704a-bcce-105038ce5f6f
+          stepCounter: 3544d79a-3aa3-4b24-86e9-1b9021fefee7
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: LOAD_DAY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: DAY(CURRENT_DATE)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019df7c6-7408-704a-bcce-17363935443a
+          stepCounter: 3544d79a-3aa3-4b24-86e9-1b9021fefee7
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: S_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019df7c1-7042-73dc-975b-a906a86f8583
+                stepCounter: 2f3e1ed6-1218-4129-a0a2-d2e59d2515e8
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019df7c6-7408-704a-bcce-199bf7374922
+          stepCounter: 3544d79a-3aa3-4b24-86e9-1b9021fefee7
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: S_NATIONKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019df7c1-7042-73dc-975b-aeba51310f4a
+                stepCounter: 2f3e1ed6-1218-4129-a0a2-d2e59d2515e8
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: DIM_SUPPLIER
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'DIM_SUPPLIER') }}
+        name: SEM_SUPPLIER
+        noLinkRefs: []
+  name: SEM_SUPPLIER
+  overrideSQL: false
+  schema: ""
+  sqlType: SMV-1-0-0:::632
+  type: sql
+  version: 1
+type: Node
