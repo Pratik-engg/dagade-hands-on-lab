@@ -2,6 +2,5 @@ fileVersion: 1
 id: 931b9666-2a16-4b1b-9c65-79959e8e82eb
 name: test123
 steps:
-  - 8e9cd37a-5c77-4385-9e75-3635b77c3dcd
   - ef457ad0-d3a8-4c49-9b64-de614e546e40
 type: Subgraph
