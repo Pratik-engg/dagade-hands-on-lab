@@ -53,21 +53,6 @@ operation:
               - columnCounter: 2e4d6334-d06e-4140-8274-c310c67420cd
                 stepCounter: 6f53145b-b1a3-4597-8508-f9a231521906
             transform: ""
-     - appliedColumnTests: {}
-        columnReference:
-          columnCounter: d7c5b2e9-18c8-4234-8364-c7ff378e82d5
-          stepCounter: 452d53b1-433d-4b7d-b225-4c38b864cd32
-        config: {}
-        dataType: NUMBER(38,0)
-        description: ""
-        isBusinessKey: true
-        name: C_CUSTKEY
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 2e4d6334-d06e-4140-8274-c310c67420cd
-                stepCounter: 6f53145b-b1a3-4597-8508-f9a231521906
-            transform: ""
       - appliedColumnTests: {}
         columnReference:
           columnCounter: b4f2da40-e1f1-49c9-bccb-2efb222741c1
