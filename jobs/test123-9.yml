@@ -1,4 +1,4 @@
-excludeSelector: ""
+excludeSelector: "{ location: \"TARGET\" name: \"DIM_SUPPLIER_TEST\" }"
 fileVersion: 1
 id: "9"
 includeSelector: "{ location: SRC name: CUSTOMER } OR { location: TARGET name: STG_CUSTOMER } OR { location: \"MY_DB\" name: \"SUPPLIER_TEST\" } OR { location: \"TARGET\" name: \"STG_SUPPLIER_TEST\" }  OR { location: \"TARGET\" name: \"DIM_SUPPLIER_TEST\" }"
