@@ -16,7 +16,7 @@ operation:
         - {}
     orderBy:
       items:
-        - {}
+        - colName: null
     orderByDateTime:
       items:
         - {}
@@ -25,7 +25,7 @@ operation:
         - {}
     partitionBy:
       items:
-        - {}
+        - partColName: null
     recordVersioning: Datetime Column
     recordorderBy:
       items:
@@ -34,7 +34,7 @@ operation:
     tgtLagSpecification: DOWNSTREAM
     warehouseName: dev_wh_xs
   database: ""
-  deployEnabled: true
+  deployEnabled: false
   description: ""
   isMultisource: false
   locationName: TARGET
