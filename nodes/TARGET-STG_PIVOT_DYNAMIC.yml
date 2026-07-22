@@ -24,7 +24,7 @@ operation:
         config: {}
         dataType: VARCHAR
         description: ""
-        name: PIVOT_RESULTS
+        name: PIVOT_RESULTS_
         nullable: true
         sourceColumnReferences:
           - columnReferences: []

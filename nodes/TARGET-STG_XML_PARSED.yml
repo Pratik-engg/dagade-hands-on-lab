@@ -1,0 +1,258 @@
+fileVersion: 1
+id: b2eddb20-1930-4f21-af9c-fb18367d5610
+name: STG_XML_PARSED
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Parses XML data from variant column into structured fields
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-c2541fb0280d
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONSIGNMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'Consignment')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-c554afdfec75
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ARTICLE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'Article')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-cb9e96d82c90
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EVENT_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'EventType')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-cd0b3fd113ae
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EVENT_SUB_TYPE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'EventSubType')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-d05acb88854a
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: EVENT_STATUS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'EventStatus')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-d63a0dd6465e
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: DEPOT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'Depot')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-d9bd93e40c75
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: TIMESTAMP_NTZ
+        description: ""
+        name: EVENT_DATE_TIME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'EventDateTime')['$']::TIMESTAMP_NTZ
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-ddd8109e0fdd
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REFERENCE1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'Reference1')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-e2198bc84bcc
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: REFERENCE2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'Reference2')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-e5759d5d2838
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SIGNATURE_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'SignatureName')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-eb9bfb108bbd
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADA_BARCODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'ADABarcode')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-eee448247158
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ATL_BARCODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'ATLBarcode')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-f078cc038f82
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POST_OFFICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'PostOffice')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-f603dfb229a4
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS1
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'Address1')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-f86ab4abf31f
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: ADDRESS2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'Address2')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9937-fdf1aad87798
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SUBURB
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'Suburb')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9938-02533cab6a5a
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: POSTCODE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'Postcode')['$']::VARCHAR
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019f5a22-46d8-724f-9938-043464b6cd7a
+          stepCounter: b2eddb20-1930-4f21-af9c-fb18367d5610
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: CONSIGNMENT_DETAILS
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: XMLGET(SRC."SRC_VARIANT", 'ConsignmentDetails')['$']::VARCHAR
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: STG_RAW_USERS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'STG_RAW_USERS') }} SRC
+        name: STG_XML_PARSED
+        noLinkRefs: []
+  name: STG_XML_PARSED
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node

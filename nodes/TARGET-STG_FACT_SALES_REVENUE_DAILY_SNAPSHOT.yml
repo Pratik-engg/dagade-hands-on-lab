@@ -1,55 +1,13 @@
 fileVersion: 1
-id: 972d7977-f9f1-44a6-9377-8632b66d2f9e
-name: DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT
+id: 692d7276-b6ab-40cb-81b8-10f2ec99bdcb
+name: STG_FACT_SALES_REVENUE_DAILY_SNAPSHOT
 operation:
   config:
-    clusterKey: true
-    clusterKeyConfig:
-      items:
-        - columnName:
-            columnCounter: 6a59ae98-719f-45e2-9e6d-8bc3b4af8cbb
-            stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
-    clusterKeyConfigExpressions:
-      items:
-        - {}
-    clusterKeyExpressions: false
-    customZeroKeyValues:
-      items:
-        - {}
-    deleteStrategy: NO DELETE
-    excludeMergeList:
-      items:
-        - {}
-    excludeMergeToggle: false
-    groupByAll: false
-    insertStrategy: UNION ALL
-    insertZeroKey: false
-    insertZeroKeyAdvanced: false
-    insertZeroKeyBol: "TRUE"
-    insertZeroKeyDate: 01-01-1900
-    insertZeroKeyStr: UNKNOWN
-    insertZeroKeySurrogateKey: "0"
-    insertZeroKeyTimestamp: "1900-01-01 00:00:00.000"
-    lastModifiedComparison: false
-    orderby: false
-    orderbycolumn:
-      items:
-        - {}
+    insertStrategy: INSERT
     postSQL: ""
-    preSQL: |-
-      DELETE FROM {{ this }}
-      WHERE SNAPSHOT_DATE = CURRENT_DATE()
-    primary: false
-    primaryKeyCol:
-      items:
-        - {}
-    primaryKeyName: ""
-    selectDistinct: false
-    testsEnabled: false
-    treatNullAsCurrentTimestamp: false
-    truncateBefore: false
-    type2Dimension: false
-    updateStrategy: MERGE
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
   database: ""
   deployEnabled: true
   description: ""
@@ -59,42 +17,38 @@ operation:
   metadata:
     appliedNodeTests: []
     columns:
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
-          columnCounter: 947b519d-c045-4d06-bb18-61321d48fed1
-          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+          columnCounter: b17ebdd0-e69c-433b-9c6c-45b12a994f9b
+          stepCounter: 692d7276-b6ab-40cb-81b8-10f2ec99bdcb
         config: {}
         dataType: NUMBER
-        defaultValue: ""
         description: Surrogate key for the daily sales revenue snapshot dimension. Primary key for this table. System-generated unique identifier. Used to track daily sales performance in dashboards and reports. Enables efficient data retrieval and joins with fact tables. Simplifies data warehousing and reporting processes. No direct source. Auto-incrementing integer. Supports historical analysis and trend identification. Facilitates accurate sales data aggregation.
-        isSurrogateKey: true
         name: DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT_KEY
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
+          - columnReferences:
+              - columnCounter: 947b519d-c045-4d06-bb18-61321d48fed1
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 43db9479-bd09-4f2f-af70-af4e8597d7d7
-          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+          columnCounter: 95e01069-5cae-48c8-8a69-cddc8e8a5d31
+          stepCounter: 692d7276-b6ab-40cb-81b8-10f2ec99bdcb
         config: {}
         dataType: NUMBER(38,0)
         description: ascddddfs
-        isBusinessKey: true
         name: ID
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 7c0580d1-dbaa-4e40-905e-929226911e4f
-                stepCounter: 06ad3b8e-a322-49b8-acdb-ecc8ce2ff5b4
+              - columnCounter: 43db9479-bd09-4f2f-af70-af4e8597d7d7
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 6a59ae98-719f-45e2-9e6d-8bc3b4af8cbb
-          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+          columnCounter: db094dec-f1a0-49b4-8e32-2e03c5f65355
+          stepCounter: 692d7276-b6ab-40cb-81b8-10f2ec99bdcb
         config: {}
         dataType: DATE
         description: Date when the sales revenue snapshot was taken. Sourced from source system. Used in trend analysis and performance monitoring reports. Enables filtering and grouping of data by date. Supports time-series analysis and forecasting. No transformations applied. Ensures accurate tracking of sales revenue over time. Essential for identifying patterns and anomalies in sales data. Facilitates timely decision-making based on current sales performance.
@@ -102,13 +56,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 910583c5-3ef1-473a-9588-0945a45055c4
-                stepCounter: 06ad3b8e-a322-49b8-acdb-ecc8ce2ff5b4
+              - columnCounter: 6a59ae98-719f-45e2-9e6d-8bc3b4af8cbb
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 59ef1ccd-edac-4eca-9c3b-7e359232d7d7
-          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+          columnCounter: fbe8b9db-5f06-46e4-8523-08bfd24dceec
+          stepCounter: 692d7276-b6ab-40cb-81b8-10f2ec99bdcb
         config: {}
         dataType: NUMBER(10,2)
         description: Revenue from source system. Used in financial reports and sales analysis. Enables calculation of key performance indicators (KPIs). Supports revenue forecasting and budgeting. No transformations applied. Represents the total income generated from sales. Essential for assessing business performance. Facilitates accurate financial reporting. Serves as a basis for profitability analysis.
@@ -116,131 +70,111 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 12d70c83-f8c4-4bc4-b6a5-31824780d46c
-                stepCounter: 06ad3b8e-a322-49b8-acdb-ecc8ce2ff5b4
+              - columnCounter: 59ef1ccd-edac-4eca-9c3b-7e359232d7d7
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
-          columnCounter: 4ccde6e6-32c0-4459-9487-887386566561
-          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+          columnCounter: 259c5c2d-432d-4cd8-aa95-1152c8dcde37
+          stepCounter: 692d7276-b6ab-40cb-81b8-10f2ec99bdcb
         config: {}
         dataType: NUMBER
-        defaultValue: ""
         description: System-generated version number for auditing changes. Increments with each update to the record. Used for tracking data lineage and history. Supports identifying the most recent version of a record. No direct source. Auto-incrementing integer. Enables identifying changes over time. Facilitates data quality monitoring. Essential for maintaining data integrity.
-        isSystemVersion: true
         name: SYSTEM_VERSION
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
+          - columnReferences:
+              - columnCounter: 4ccde6e6-32c0-4459-9487-887386566561
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
-          columnCounter: fbf0f325-6065-4ef0-a2f7-53f6519a5a1d
-          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+          columnCounter: 7869ecdd-f9d7-449c-a22b-3dcc196efc3e
+          stepCounter: 692d7276-b6ab-40cb-81b8-10f2ec99bdcb
         config: {}
         dataType: VARCHAR
-        defaultValue: ""
         description: System-generated flag indicating the current record. Set to 'Y' for the most recent version. Used for filtering current data in reports and dashboards. No direct source. Enables efficient retrieval of current data. Supports identifying active records. Facilitates accurate reporting and analysis. Essential for maintaining data integrity. Simplifies data access.
-        isSystemCurrentFlag: true
         name: SYSTEM_CURRENT_FLAG
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
+          - columnReferences:
+              - columnCounter: fbf0f325-6065-4ef0-a2f7-53f6519a5a1d
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
-          columnCounter: a43e73c6-6dd7-4ced-b40f-b085c900ae79
-          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+          columnCounter: 748c814e-b8aa-42e0-b953-f0a6ffa290ee
+          stepCounter: 692d7276-b6ab-40cb-81b8-10f2ec99bdcb
         config: {}
         dataType: TIMESTAMP
-        defaultValue: ""
         description: System-generated timestamp indicating when the record became active. Defaults to current timestamp. Used for tracking data history and lineage. Supports identifying the start date of a record's validity. No direct source. Defaults to current timestamp. Enables time-based analysis. Facilitates data quality monitoring. Essential for maintaining data integrity.
-        isSystemStartDate: true
         name: SYSTEM_START_DATE
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+          - columnReferences:
+              - columnCounter: a43e73c6-6dd7-4ced-b40f-b085c900ae79
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+      - appliedColumnTests: {}
         columnReference:
-          columnCounter: 106a7801-b34b-4e04-9cae-21c02824159f
-          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+          columnCounter: 2edba6a4-2864-4ad8-90b0-9a04383070da
+          stepCounter: 692d7276-b6ab-40cb-81b8-10f2ec99bdcb
         config: {}
         dataType: TIMESTAMP
-        defaultValue: ""
         description: System-generated timestamp indicating when the record became inactive. Defaults to '2999-12-31'. Used for tracking data history and lineage. Supports identifying the end date of a record's validity. No direct source. Defaults to '2999-12-31'. Enables time-based analysis. Facilitates data quality monitoring. Essential for maintaining data integrity.
-        isSystemEndDate: true
         name: SYSTEM_END_DATE
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+          - columnReferences:
+              - columnCounter: 106a7801-b34b-4e04-9cae-21c02824159f
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+      - appliedColumnTests: {}
         columnReference:
-          columnCounter: 8830be67-d1f1-4b7b-a620-3bd5752bcacb
-          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+          columnCounter: 0b8d8060-15d1-4a0d-b826-9e4b90582600
+          stepCounter: 692d7276-b6ab-40cb-81b8-10f2ec99bdcb
         config: {}
         dataType: TIMESTAMP
-        defaultValue: ""
         description: System-generated timestamp indicating when the record was created. Defaults to current timestamp. Used for auditing and data lineage. Supports identifying the creation date of a record. No direct source. Defaults to current timestamp. Enables tracking data creation. Facilitates data quality monitoring. Essential for maintaining data integrity. Simplifies data governance.
-        isSystemCreateDate: true
         name: SYSTEM_CREATE_DATE
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+          - columnReferences:
+              - columnCounter: 8830be67-d1f1-4b7b-a620-3bd5752bcacb
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+      - appliedColumnTests: {}
         columnReference:
-          columnCounter: cc200b75-1434-46ea-a065-3e49a4049a69
-          stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+          columnCounter: dfa86313-d72a-4f6b-a331-5c14b629a48d
+          stepCounter: 692d7276-b6ab-40cb-81b8-10f2ec99bdcb
         config: {}
         dataType: TIMESTAMP
-        defaultValue: ""
         description: System-generated timestamp indicating when the record was last updated. Defaults to current timestamp. Used for auditing and data lineage. Supports identifying the last update date of a record. No direct source. Defaults to current timestamp. Enables tracking data modifications. Facilitates data quality monitoring. Essential for maintaining data integrity.
-        isSystemUpdateDate: true
         name: SYSTEM_UPDATE_DATE
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - columnReferences:
+              - columnCounter: cc200b75-1434-46ea-a065-3e49a4049a69
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          FACT_SALES_REVENUE_DAILY_SNAPSHOT: 06ad3b8e-a322-49b8-acdb-ecc8ce2ff5b4
+          DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT: 972d7977-f9f1-44a6-9377-8632b66d2f9e
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: NEW
-            nodeName: FACT_SALES_REVENUE_DAILY_SNAPSHOT
+          - locationName: TARGET
+            nodeName: DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT
         join:
-          joinCondition: |-
-            FROM {{ ref('NEW', 'FACT_SALES_REVENUE_DAILY_SNAPSHOT') }} "FACT_SALES_REVENUE_DAILY_SNAPSHOT"
-            where "SNAPSHOT_DATE"= current_date()
-        name: DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT
+          joinCondition: FROM {{ ref('TARGET', 'DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT') }} "DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT"
+        name: STG_FACT_SALES_REVENUE_DAILY_SNAPSHOT
         noLinkRefs: []
-  name: DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT
+  name: STG_FACT_SALES_REVENUE_DAILY_SNAPSHOT
   overrideSQL: false
   schema: ""
-  sqlType: Adv-BNT:::388
+  sqlType: Stage
   type: sql
   version: 1
 type: Node

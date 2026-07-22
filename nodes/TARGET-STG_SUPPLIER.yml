@@ -7,7 +7,7 @@ operation:
     postSQL: ""
     preSQL: ""
     testsEnabled: true
-    truncateBefore: true
+    truncateBefore: false
   database: ""
   deployEnabled: true
   description: Supplier data as defined by TPC-H
@@ -47,18 +47,18 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 29f2fa8d-f4ef-4b0e-bfac-1245ac4a6acd
+          columnCounter: 019db480-bc98-729c-a39f-8663d87432bd
           stepCounter: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
         config: {}
-        dataType: VARCHAR(40)
+        dataType: VARCHAR(100)
         description: ""
         name: S_ADDRESS
-        nullable: false
+        nullable: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 266360dc-cc0f-4777-9f80-609428eb16dd
                 stepCounter: b480de96-d3cc-4f27-bfa3-0f59f28976b8
-            transform: ""
+            transform: CONCAT("SUPPLIER"."S_ADDRESS", 'DDD')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: db08bed5-b15c-4a6d-8a71-f70e1e4d59ba
@@ -115,10 +115,7 @@ operation:
               - columnCounter: 0fea9659-2c4f-4947-87c9-2bcc1862e84c
                 stepCounter: b480de96-d3cc-4f27-bfa3-0f59f28976b8
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 92cc8e8d-ead6-4291-a37f-eaa301ca5d9a
           stepCounter: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
@@ -126,7 +123,6 @@ operation:
         dataType: TIMESTAMP_NTZ
         defaultValue: ""
         description: ""
-        keyColumnType: None
         name: RECORD_TS
         nullable: false
         sourceColumnReferences:
@@ -134,9 +130,11 @@ operation:
               - columnCounter: "0"
                 stepCounter: "0"
             transform: CURRENT_TIMESTAMP()
-        systemColumnType: None
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           SUPPLIER: b480de96-d3cc-4f27-bfa3-0f59f28976b8
@@ -146,7 +144,12 @@ operation:
           - locationName: SRC
             nodeName: SUPPLIER
         join:
-          joinCondition: FROM {{ ref('SRC', 'SUPPLIER') }} "SUPPLIER"
+          joinCondition: |-
+            FROM {{ ref('SRC', 'SUPPLIER') }} "SUPPLIER"
+            QUALIFY ROW_NUMBER() OVER (
+                PARTITION BY "S_SUPPKEY"
+                ORDER BY "S_NAME" ASC
+            ) = 1
         name: STG_SUPPLIER
         noLinkRefs: []
   name: STG_SUPPLIER

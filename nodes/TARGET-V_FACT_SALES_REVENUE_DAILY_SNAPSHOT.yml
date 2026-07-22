@@ -1,0 +1,177 @@
+fileVersion: 1
+id: b507a122-8e4f-4928-a210-43ab8844ec44
+name: V_FACT_SALES_REVENUE_DAILY_SNAPSHOT
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 352113a5-e7ce-4299-8d19-00cb1f4d78d2
+          stepCounter: b507a122-8e4f-4928-a210-43ab8844ec44
+        config: {}
+        dataType: NUMBER
+        description: Surrogate key for the daily sales revenue snapshot dimension. Primary key for this table. System-generated unique identifier. Used to track daily sales performance in dashboards and reports. Enables efficient data retrieval and joins with fact tables. Simplifies data warehousing and reporting processes. No direct source. Auto-incrementing integer. Supports historical analysis and trend identification. Facilitates accurate sales data aggregation.
+        name: DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 947b519d-c045-4d06-bb18-61321d48fed1
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: dddc4a1a-ff37-47ee-a087-2f17b22020be
+          stepCounter: b507a122-8e4f-4928-a210-43ab8844ec44
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 43db9479-bd09-4f2f-af70-af4e8597d7d7
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bc69079f-5943-4d00-9c60-11fb2217fb76
+          stepCounter: b507a122-8e4f-4928-a210-43ab8844ec44
+        config: {}
+        dataType: DATE
+        description: ""
+        name: SNAPSHOT_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6a59ae98-719f-45e2-9e6d-8bc3b4af8cbb
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 207d1c66-7017-486c-906f-dcd4c5311831
+          stepCounter: b507a122-8e4f-4928-a210-43ab8844ec44
+        config: {}
+        dataType: NUMBER(10,2)
+        description: ""
+        name: REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 59ef1ccd-edac-4eca-9c3b-7e359232d7d7
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3fa5bf8e-8c4b-4ab6-9bc1-7d4b01515038
+          stepCounter: b507a122-8e4f-4928-a210-43ab8844ec44
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: SYSTEM_VERSION
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 4ccde6e6-32c0-4459-9487-887386566561
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 1da82630-e7d1-4214-bfcc-8988b0a7bac4
+          stepCounter: b507a122-8e4f-4928-a210-43ab8844ec44
+        config: {}
+        dataType: VARCHAR
+        description: ""
+        name: SYSTEM_CURRENT_FLAG
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fbf0f325-6065-4ef0-a2f7-53f6519a5a1d
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: b9341c5e-035c-452b-8541-a062c6f3f6db
+          stepCounter: b507a122-8e4f-4928-a210-43ab8844ec44
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_START_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a43e73c6-6dd7-4ced-b40f-b085c900ae79
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 193240bf-64cb-4f5c-becb-ff2a72a332b7
+          stepCounter: b507a122-8e4f-4928-a210-43ab8844ec44
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_END_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 106a7801-b34b-4e04-9cae-21c02824159f
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e937e880-838c-4db4-b7a3-7c8a38055b1e
+          stepCounter: b507a122-8e4f-4928-a210-43ab8844ec44
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8830be67-d1f1-4b7b-a620-3bd5752bcacb
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e83364d7-0d2b-440f-bce2-5949a763d991
+          stepCounter: b507a122-8e4f-4928-a210-43ab8844ec44
+        config: {}
+        dataType: TIMESTAMP
+        description: ""
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: cc200b75-1434-46ea-a065-3e49a4049a69
+                stepCounter: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT: 972d7977-f9f1-44a6-9377-8632b66d2f9e
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT') }} "DIM_FACT_SALES_REVENUE_DAILY_SNAPSHOT"
+        name: V_FACT_SALES_REVENUE_DAILY_SNAPSHOT
+        noLinkRefs: []
+  name: V_FACT_SALES_REVENUE_DAILY_SNAPSHOT
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

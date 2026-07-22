@@ -1,0 +1,130 @@
+fileVersion: 1
+id: ab2e7dc5-fbb0-405a-957a-0bb3092b9467
+name: STG_LND_CONSIGNMENTS
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: MY_DB
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bae17487-8ced-46f4-bb24-c86e5df17102
+          stepCounter: ab2e7dc5-fbb0-405a-957a-0bb3092b9467
+        config: {}
+        dataType: VARIANT
+        defaultValue: ""
+        description: ""
+        name: SRC
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2b1e089f-7957-46bb-9a0b-d55e4f9d1338
+          stepCounter: ab2e7dc5-fbb0-405a-957a-0bb3092b9467
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: LOAD_TIMESTAMP
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 680a411f-c78e-4aa9-a277-4b0dacd7c9e4
+          stepCounter: ab2e7dc5-fbb0-405a-957a-0bb3092b9467
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: FILENAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2e446885-0a0c-4b1e-8b40-70bb8d91567a
+          stepCounter: ab2e7dc5-fbb0-405a-957a-0bb3092b9467
+        config: {}
+        dataType: NUMBER(38,0)
+        defaultValue: ""
+        description: ""
+        name: FILE_ROW_NUMBER
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 0d8385d3-c79b-4c60-94b3-54e89179d96f
+          stepCounter: ab2e7dc5-fbb0-405a-957a-0bb3092b9467
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: FILE_LAST_MODIFIED
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a033f60-c581-4fc6-9e91-644502641ac0
+          stepCounter: ab2e7dc5-fbb0-405a-957a-0bb3092b9467
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: SCAN_TIME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: STG_LND_CONSIGNMENTS
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

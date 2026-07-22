@@ -1,26 +1,23 @@
 fileVersion: 1
-id: 646c27cd-1a64-40bc-9c2f-238aabd3b799
-name: STG_ORDERS_Boston
+id: 8995c61a-615d-459c-a173-871ae612b800
+name: V_ORDERS_Boston
 operation:
   config:
-    insertStrategy: INSERT
-    postSQL: ""
-    preSQL: ""
-    testsEnabled: true
-    truncateBefore: true
+    insertStrategy: UNION
+    selectDistinct: false
   database: ""
   deployEnabled: true
   description: Orders data as defined by TPC-H
   isMultisource: false
   locationName: TARGET
-  materializationType: table
+  materializationType: view
   metadata:
     appliedNodeTests: []
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 1d2e9622-ae3e-45c9-b469-31e7ea9d0e88
-          stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
+          columnCounter: a8d4a781-8c7c-466a-84d8-46a0a682f78c
+          stepCounter: 8995c61a-615d-459c-a173-871ae612b800
         config: {}
         dataType: NUMBER(38,0)
         description: Primary key for the Orders table. Unique identifier for each order placed. Used for joining with other tables like Lineitem, Customer, and Supplier. Enables drill-down analysis in sales dashboards and order lifecycle reports. Sourced directly from the Orders table without transformations. Serves as the basis for order-level aggregations and performance metrics.
@@ -28,13 +25,13 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: bf76840c-3745-4321-a03c-8ef28ed10b98
-                stepCounter: 35ba0b50-37f9-4c3f-af9b-cabb22f6e3f5
+              - columnCounter: 1d2e9622-ae3e-45c9-b469-31e7ea9d0e88
+                stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 0d702e5c-9053-4648-8c8d-a1137b082450
-          stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
+          columnCounter: 495128b3-4bc7-424d-bad1-68b0988d348a
+          stepCounter: 8995c61a-615d-459c-a173-871ae612b800
         config: {}
         dataType: NUMBER(38,0)
         description: Customer identifier from the Orders table. Foreign key to the Customer table. Links orders to specific customers for customer-centric analysis. Used in customer segmentation, marketing campaign analysis, and customer lifetime value calculations. Sourced directly from the Orders table without transformations. Facilitates cohort analysis and customer behavior tracking.
@@ -42,13 +39,13 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: f88ceb8c-847e-4374-87f2-8314efd3f368
-                stepCounter: 35ba0b50-37f9-4c3f-af9b-cabb22f6e3f5
+              - columnCounter: 0d702e5c-9053-4648-8c8d-a1137b082450
+                stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: da81fda2-1f2a-4a88-b46c-aa63395b6353
-          stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
+          columnCounter: 9793a7f9-0fb8-432d-a0e5-df686e767303
+          stepCounter: 8995c61a-615d-459c-a173-871ae612b800
         config: {}
         dataType: VARCHAR(1)
         description: ""
@@ -56,13 +53,13 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 4c246be2-c97d-4bf9-8249-f3c53bcf427d
-                stepCounter: 35ba0b50-37f9-4c3f-af9b-cabb22f6e3f5
+              - columnCounter: da81fda2-1f2a-4a88-b46c-aa63395b6353
+                stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: fa77671a-7ed9-4c1d-8197-4c5e113c5b47
-          stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
+          columnCounter: 985ca45f-412c-4778-8242-4856bd901c99
+          stepCounter: 8995c61a-615d-459c-a173-871ae612b800
         config: {}
         dataType: NUMBER(12,2)
         description: ""
@@ -70,13 +67,13 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 46d45344-f57f-4ec7-b8fe-f2be440280b6
-                stepCounter: 35ba0b50-37f9-4c3f-af9b-cabb22f6e3f5
+              - columnCounter: fa77671a-7ed9-4c1d-8197-4c5e113c5b47
+                stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 8eb358e2-8075-4db1-921c-cbc09cdae90d
-          stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
+          columnCounter: 489d5814-f3bc-4802-bc02-4c8a4b71f1c1
+          stepCounter: 8995c61a-615d-459c-a173-871ae612b800
         config: {}
         dataType: DATE
         description: ""
@@ -84,13 +81,13 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: af4858fb-cb9c-4c83-985b-384879ab90fb
-                stepCounter: 35ba0b50-37f9-4c3f-af9b-cabb22f6e3f5
+              - columnCounter: 8eb358e2-8075-4db1-921c-cbc09cdae90d
+                stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 0c068a1c-8289-4597-aace-770596b1bb8c
-          stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
+          columnCounter: d7d11e12-e8ea-490f-96c3-c683d5e904fc
+          stepCounter: 8995c61a-615d-459c-a173-871ae612b800
         config: {}
         dataType: VARCHAR(15)
         description: ""
@@ -98,13 +95,13 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 1ebd369f-b921-45f3-808c-4adb899ca6f8
-                stepCounter: 35ba0b50-37f9-4c3f-af9b-cabb22f6e3f5
+              - columnCounter: 0c068a1c-8289-4597-aace-770596b1bb8c
+                stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 99ddb96a-27da-4668-92dc-f7b948ddb2b4
-          stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
+          columnCounter: 470e8592-2683-4c53-9c6b-56a371816770
+          stepCounter: 8995c61a-615d-459c-a173-871ae612b800
         config: {}
         dataType: VARCHAR(15)
         description: ""
@@ -112,13 +109,13 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 7843fbfe-dbd5-4ff8-8da3-17f7a0baafaa
-                stepCounter: 35ba0b50-37f9-4c3f-af9b-cabb22f6e3f5
+              - columnCounter: 99ddb96a-27da-4668-92dc-f7b948ddb2b4
+                stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 7ded9a0a-a038-431c-a3c6-67d5ac70ec88
-          stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
+          columnCounter: eb4e9550-a04d-49fe-aebd-d1fddbbd7e98
+          stepCounter: 8995c61a-615d-459c-a173-871ae612b800
         config: {}
         dataType: NUMBER(38,0)
         description: ""
@@ -126,13 +123,13 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 237b7317-bc5f-492c-bfa9-58dc10c0d237
-                stepCounter: 35ba0b50-37f9-4c3f-af9b-cabb22f6e3f5
+              - columnCounter: 7ded9a0a-a038-431c-a3c6-67d5ac70ec88
+                stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 45d4450d-1a54-435d-8098-f23f28a270ce
-          stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
+          columnCounter: 1cb97c6a-a660-48ba-b77e-de18a48cc335
+          stepCounter: 8995c61a-615d-459c-a173-871ae612b800
         config: {}
         dataType: VARCHAR(79)
         description: ""
@@ -140,27 +137,27 @@ operation:
         nullable: false
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 9c494c59-4be6-4a11-a0ec-c01c1a5ac03e
-                stepCounter: 35ba0b50-37f9-4c3f-af9b-cabb22f6e3f5
+              - columnCounter: 45d4450d-1a54-435d-8098-f23f28a270ce
+                stepCounter: 646c27cd-1a64-40bc-9c2f-238aabd3b799
             transform: ""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          ORDERS: 35ba0b50-37f9-4c3f-af9b-cabb22f6e3f5
+          STG_ORDERS_Boston: 646c27cd-1a64-40bc-9c2f-238aabd3b799
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: SRC
-            nodeName: ORDERS
+          - locationName: TARGET
+            nodeName: STG_ORDERS_Boston
         join:
-          joinCondition: FROM {{ ref('SRC', 'ORDERS') }} "ORDERS"
-        name: STG_ORDERS_Boston
+          joinCondition: FROM {{ ref('TARGET', 'STG_ORDERS_Boston') }} "STG_ORDERS_Boston"
+        name: V_ORDERS_Boston
         noLinkRefs: []
-  name: STG_ORDERS_Boston
+  name: V_ORDERS_Boston
   overrideSQL: false
   schema: ""
-  sqlType: Stage
+  sqlType: View
   type: sql
   version: 1
 type: Node

@@ -23,7 +23,7 @@ operation:
           stepCounter: 00848668-4d93-4194-a582-b6203d5ee053
         config: {}
         dataType: NUMBER
-        description: ""
+        description: Employee identifier. Serves as a unique key for employees within the organization. Used for tracking individual performance metrics and organizational reporting. Sourced directly from the employee records system without transformations. Links employee performance data across different quarters. Essential for calculating year-end performance summaries and identifying top performers. Referenced in quarterly performance reports and employee dashboards. Enables drill-down analysis of individual contributions to overall company goals.
         name: EMPID
         nullable: true
         sourceColumnReferences:
@@ -35,7 +35,7 @@ operation:
           stepCounter: 00848668-4d93-4194-a582-b6203d5ee053
         config: {}
         dataType: NUMBER
-        description: ""
+        description: Represents the performance metric for the first quarter of 2023. Used in trend analysis and quarterly performance evaluations. Sourced from the Q1 column in the source data. Aggregated to calculate annual performance scores. Compared against previous years to identify performance improvements or declines. Included in quarterly performance reports and dashboards. Helps in identifying seasonal trends in employee performance. Essential for resource allocation and performance improvement planning.
         name: Q1_2023
         nullable: true
         sourceColumnReferences:
@@ -47,7 +47,7 @@ operation:
           stepCounter: 00848668-4d93-4194-a582-b6203d5ee053
         config: {}
         dataType: NUMBER
-        description: ""
+        description: Reflects the performance Q2_2023
         name: Q2_2023
         nullable: true
         sourceColumnReferences:
@@ -59,7 +59,7 @@ operation:
           stepCounter: 00848668-4d93-4194-a582-b6203d5ee053
         config: {}
         dataType: NUMBER
-        description: ""
+        description: Denotes the performance metric for the third quarter of 2023. Used in ongoing performance monitoring and trend analysis. Sourced from the Q3 column in the source data. Aggregated to calculate nine-month performance scores. Compared against Q2 performance to identify performance trends. Included in quarterly and nine-month performance reports. Supports identifying the impact of mid-year adjustments. Critical for forecasting year-end performance based on nine-month data.
         name: Q3_2023
         nullable: true
         sourceColumnReferences:
@@ -71,7 +71,7 @@ operation:
           stepCounter: 00848668-4d93-4194-a582-b6203d5ee053
         config: {}
         dataType: NUMBER
-        description: ""
+        description: Indicates the performance metric for the fourth quarter of 2023. Used in year-end performance evaluations and final trend analysis. Sourced from the Q4 column in the source data. Aggregated to calculate annual performance scores. Compared against Q3 performance to identify final performance trends. Included in quarterly and annual performance reports. Essential for final performance assessments and bonus calculations. Key component in year-end strategic planning and resource allocation.
         name: Q4_2023
         nullable: true
         sourceColumnReferences:

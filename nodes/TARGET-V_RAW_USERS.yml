@@ -1,53 +1,51 @@
 fileVersion: 1
-id: c92caa3e-2df8-4a93-9a10-8935f351017c
-name: PSTG_RAW_USERS
+id: 2139e00d-8e8c-47a2-95fd-9a96baeb8977
+name: V_RAW_USERS
 operation:
   config:
-    postSQL: ""
-    preSQL: delete from {{ ref('TARGET', 'STG_RAW_USERS') }} where COUNTRY = 'USA'
-    testsEnabled: true
+    insertStrategy: UNION
+    selectDistinct: false
   database: ""
   deployEnabled: true
   description: ""
   isMultisource: false
   locationName: TARGET
-  materializationType: table
+  materializationType: view
   metadata:
     appliedNodeTests: []
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: df547036-76a8-4909-80f6-ecb90c6dad36
-          stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+          columnCounter: 74093052-2dc1-4fbd-99a8-3fa6ebe839ae
+          stepCounter: 2139e00d-8e8c-47a2-95fd-9a96baeb8977
         config: {}
         dataType: NUMBER
-        defaultValue: ""
         description: ""
-        isSurrogateKey: true
         name: PSTG_RAW_USERS_KEY
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
+          - columnReferences:
+              - columnCounter: df547036-76a8-4909-80f6-ecb90c6dad36
+                stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: ef29bb85-1bd5-4ff7-b02e-f38e752c4f54
-          stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+          columnCounter: 9ca57a4a-c990-4ed0-8e9c-8a10f00c77ce
+          stepCounter: 2139e00d-8e8c-47a2-95fd-9a96baeb8977
         config: {}
         dataType: VARCHAR(16777216)
         description: Unique identifier for each user. Primary key for the Users table. Sourced directly from the source system without transformations. Used for user activity tracking, access control, and linking user data across different systems. Referenced by other tables to establish user relationships. Essential for user-centric reporting and analytics, including user engagement metrics and personalized experiences. Enables identification of individual users in compliance audits.
-        isBusinessKey: true
         name: USER_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 5af64a10-024b-427d-9d36-b1fac50c7c8c
-                stepCounter: 5cfc2af3-046b-4326-83af-70d2ca990345
+              - columnCounter: ef29bb85-1bd5-4ff7-b02e-f38e752c4f54
+                stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 207e1a41-880c-4bbb-ac04-818ef81005fa
-          stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+          columnCounter: 20720876-4a6d-4438-8cbf-66b1a71964de
+          stepCounter: 2139e00d-8e8c-47a2-95fd-9a96baeb8977
         config: {}
         dataType: VARCHAR(16777216)
         description: Name of the user, sourced directly from the source system. Used for display purposes in applications and reports. Provides a human-readable identifier for users, complementing the USER_ID. Supports user search and identification within the system. No transformations applied. Useful in generating user directories and audit logs. Facilitates communication and collaboration features by displaying user-friendly names. Aids in distinguishing users with similar attributes.
@@ -55,13 +53,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 325d6ace-8e41-46b6-8e2f-feae24eefe2d
-                stepCounter: 5cfc2af3-046b-4326-83af-70d2ca990345
+              - columnCounter: 207e1a41-880c-4bbb-ac04-818ef81005fa
+                stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: d9c17c8b-e696-47b9-9a09-95ad32bf0db1
-          stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+          columnCounter: d37c5233-3377-44a6-976e-b89ecf426052
+          stepCounter: 2139e00d-8e8c-47a2-95fd-9a96baeb8977
         config: {}
         dataType: VARCHAR(16777216)
         description: Country of residence for the user. Sourced directly from the source system. Used for geographic segmentation and regional analysis. Enables filtering and grouping of users based on their location. Supports compliance with regional regulations and data privacy laws. No transformations applied. Useful in tailoring content and services to specific regions. Informs decisions related to market expansion and localization efforts. Essential for international reporting and global performance monitoring.
@@ -69,13 +67,13 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 372b9b78-44a5-4129-a62f-f0ce2de4a4de
-                stepCounter: 5cfc2af3-046b-4326-83af-70d2ca990345
+              - columnCounter: d9c17c8b-e696-47b9-9a09-95ad32bf0db1
+                stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 94b1f30e-882d-429e-a48c-c633c5ce795d
-          stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+          columnCounter: 2fa61e35-c04f-41b8-84c2-9597dba387f6
+          stepCounter: 2139e00d-8e8c-47a2-95fd-9a96baeb8977
         config: {}
         dataType: TIMESTAMP_NTZ(9)
         description: Timestamp indicating when the user account was created. Sourced directly from the source system without transformations. Used for tracking user growth and identifying trends in user acquisition. Enables cohort analysis based on signup date. Supports lifecycle analysis and helps understand user behavior over time. Useful in identifying and addressing issues related to account creation. Provides a basis for measuring the time to value for new users. Essential for monitoring system adoption.
@@ -83,114 +81,111 @@ operation:
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 40c9bc80-97db-448e-b789-a408d6cf17a4
-                stepCounter: 5cfc2af3-046b-4326-83af-70d2ca990345
+              - columnCounter: 94b1f30e-882d-429e-a48c-c633c5ce795d
+                stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 6cdefbb9-a1b6-4d74-9a79-91170475694a
-          stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+          columnCounter: 71c0bfb4-e9d5-4af4-ad79-9698977ae004
+          stepCounter: 2139e00d-8e8c-47a2-95fd-9a96baeb8977
         config: {}
         dataType: NUMBER
-        defaultValue: ""
         description: ""
-        isSystemVersion: true
         name: SYSTEM_VERSION
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
+          - columnReferences:
+              - columnCounter: 6cdefbb9-a1b6-4d74-9a79-91170475694a
+                stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 62239eb8-7983-4caf-98a3-3886e5507857
-          stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+          columnCounter: 3ddaff08-1955-46c6-a9c6-f726c88ca1ec
+          stepCounter: 2139e00d-8e8c-47a2-95fd-9a96baeb8977
         config: {}
         dataType: VARCHAR
-        defaultValue: ""
         description: ""
-        isSystemCurrentFlag: true
         name: SYSTEM_CURRENT_FLAG
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
+          - columnReferences:
+              - columnCounter: 62239eb8-7983-4caf-98a3-3886e5507857
+                stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: f7f80c16-16f8-426f-b26d-0d6bb9be72c2
-          stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+          columnCounter: 2204eb56-b6d6-4ad7-8547-dbd25231e62d
+          stepCounter: 2139e00d-8e8c-47a2-95fd-9a96baeb8977
         config: {}
         dataType: TIMESTAMP
-        defaultValue: ""
         description: ""
-        isSystemStartDate: true
         name: SYSTEM_START_DATE
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - columnReferences:
+              - columnCounter: f7f80c16-16f8-426f-b26d-0d6bb9be72c2
+                stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 8136435c-1a86-4c4c-8bf2-09aaccb92f5b
-          stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+          columnCounter: fa3553e2-43f6-4347-9fcf-c48050d4f95c
+          stepCounter: 2139e00d-8e8c-47a2-95fd-9a96baeb8977
         config: {}
         dataType: TIMESTAMP
-        defaultValue: ""
         description: ""
-        isSystemEndDate: true
         name: SYSTEM_END_DATE
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
+          - columnReferences:
+              - columnCounter: 8136435c-1a86-4c4c-8bf2-09aaccb92f5b
+                stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: ddb3759b-88c7-4cc7-a829-a34dec3d0ada
-          stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+          columnCounter: 472a443a-9f29-429b-a062-68ca8f9d1d74
+          stepCounter: 2139e00d-8e8c-47a2-95fd-9a96baeb8977
         config: {}
         dataType: TIMESTAMP
-        defaultValue: ""
         description: ""
-        isSystemCreateDate: true
         name: SYSTEM_CREATE_DATE
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - columnReferences:
+              - columnCounter: ddb3759b-88c7-4cc7-a829-a34dec3d0ada
+                stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+            transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: dc63d876-05b7-4e36-ad98-2e56c7558d8e
-          stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+          columnCounter: 0a879bcd-75b2-48e3-a706-fd1253ec9798
+          stepCounter: 2139e00d-8e8c-47a2-95fd-9a96baeb8977
         config: {}
         dataType: TIMESTAMP
-        defaultValue: ""
         description: ""
-        isSystemUpdateDate: true
         name: SYSTEM_UPDATE_DATE
         nullable: true
         sourceColumnReferences:
-          - columnReferences: []
-            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+          - columnReferences:
+              - columnCounter: dc63d876-05b7-4e36-ad98-2e56c7558d8e
+                stepCounter: c92caa3e-2df8-4a93-9a10-8935f351017c
+            transform: ""
     cteString: ""
-    description: ""
-    destinationName: ""
     enabledColumnTestIDs: []
-    materializationOption: ""
     sourceMapping:
       - aliases:
-          STG_RAW_USERS: 5cfc2af3-046b-4326-83af-70d2ca990345
+          PSTG_RAW_USERS: c92caa3e-2df8-4a93-9a10-8935f351017c
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: TARGET
-            nodeName: STG_RAW_USERS
+            nodeName: PSTG_RAW_USERS
         join:
-          joinCondition: FROM {{ ref('TARGET', 'STG_RAW_USERS') }} "STG_RAW_USERS"
-        name: PSTG_RAW_USERS
+          joinCondition: FROM {{ ref('TARGET', 'PSTG_RAW_USERS') }} "PSTG_RAW_USERS"
+        name: V_RAW_USERS
         noLinkRefs: []
-  name: PSTG_RAW_USERS
+  name: V_RAW_USERS
   overrideSQL: false
   schema: ""
-  sqlType: persistentStage
+  sqlType: View
   type: sql
   version: 1
 type: Node

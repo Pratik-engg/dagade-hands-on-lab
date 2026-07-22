@@ -28,13 +28,13 @@ operation:
           stepCounter: 5cfc2af3-046b-4326-83af-70d2ca990345
         config: {}
         dataType: VARCHAR(16777216)
-        description: ""
+        description: Unique identifier for each user. Primary key for the Users table. Sourced directly from the source system without transformations. Used for user activity tracking, access control, and linking user data across different systems. Referenced by other tables to establish user relationships. Essential for user-centric reporting and analytics, including user engagement metrics and personalized experiences. Enables identification of individual users in compliance audits.
         name: USER_ID
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: a9bf63b0-1f94-4657-91a6-38e6f4309ba8
-                stepCounter: 5bf667de-dfa9-4858-b703-1104e26bbea0
+              - columnCounter: 019daf1f-e68d-7724-be81-176f4cf122d6
+                stepCounter: d1d80609-095e-4fb6-a586-89f3534192d4
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -42,13 +42,13 @@ operation:
           stepCounter: 5cfc2af3-046b-4326-83af-70d2ca990345
         config: {}
         dataType: VARCHAR(16777216)
-        description: ""
+        description: Name of the user, sourced directly from the source system. Used for display purposes in applications and reports. Provides a human-readable identifier for users, complementing the USER_ID. Supports user search and identification within the system. No transformations applied. Useful in generating user directories and audit logs. Facilitates communication and collaboration features by displaying user-friendly names. Aids in distinguishing users with similar attributes.
         name: USER_NAME
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 7391f036-0c0d-4c4f-8854-f9afa9cd8df4
-                stepCounter: 5bf667de-dfa9-4858-b703-1104e26bbea0
+              - columnCounter: 019daf1f-e68d-7724-be81-18103248c5a4
+                stepCounter: d1d80609-095e-4fb6-a586-89f3534192d4
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -56,13 +56,13 @@ operation:
           stepCounter: 5cfc2af3-046b-4326-83af-70d2ca990345
         config: {}
         dataType: VARCHAR(16777216)
-        description: ""
+        description: Country of residence for the user. Sourced directly from the source system. Used for geographic segmentation and regional analysis. Enables filtering and grouping of users based on their location. Supports compliance with regional regulations and data privacy laws. No transformations applied. Useful in tailoring content and services to specific regions. Informs decisions related to market expansion and localization efforts. Essential for international reporting and global performance monitoring.
         name: COUNTRY
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 999bc157-c0f6-4d98-b38f-67f987f5e48f
-                stepCounter: 5bf667de-dfa9-4858-b703-1104e26bbea0
+              - columnCounter: 019daf1f-e68d-7724-be81-1d43a7d55a8d
+                stepCounter: d1d80609-095e-4fb6-a586-89f3534192d4
             transform: ""
       - appliedColumnTests: {}
         columnReference:
@@ -70,26 +70,28 @@ operation:
           stepCounter: 5cfc2af3-046b-4326-83af-70d2ca990345
         config: {}
         dataType: TIMESTAMP_NTZ(9)
-        description: ""
+        description: Timestamp indicating when the user account was created. Sourced directly from the source system without transformations. Used for tracking user growth and identifying trends in user acquisition. Enables cohort analysis based on signup date. Supports lifecycle analysis and helps understand user behavior over time. Useful in identifying and addressing issues related to account creation. Provides a basis for measuring the time to value for new users. Essential for monitoring system adoption.
         name: CREATED_AT
         nullable: true
         sourceColumnReferences:
           - columnReferences:
-              - columnCounter: 5a714d0e-7dda-44cf-8413-0b06f5a9215d
-                stepCounter: 5bf667de-dfa9-4858-b703-1104e26bbea0
+              - columnCounter: 019daf1f-e68d-7724-be81-22fcec979d72
+                stepCounter: d1d80609-095e-4fb6-a586-89f3534192d4
             transform: ""
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
-      - aliases:
-          RAW_USERS: 5bf667de-dfa9-4858-b703-1104e26bbea0
+      - aliases: {}
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: MY_DB
+          - locationName: My_DB
             nodeName: RAW_USERS
         join:
-          joinCondition: FROM {{ ref('MY_DB', 'RAW_USERS') }} "RAW_USERS"
+          joinCondition: FROM {{ ref('My_DB', 'RAW_USERS') }} ICE_RAW_USERS
         name: STG_RAW_USERS
         noLinkRefs: []
   name: STG_RAW_USERS
