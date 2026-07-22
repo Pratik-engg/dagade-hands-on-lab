@@ -84,14 +84,15 @@ operation:
     enabledColumnTestIDs: []
     materializationOption: ""
     sourceMapping:
-      - aliases: {}
+      - aliases:
+          RAW_USERS: 5bf667de-dfa9-4858-b703-1104e26bbea0
         customSQL:
           customSQL: ""
         dependencies:
-          - locationName: My_DB
+          - locationName: MY_DB
             nodeName: RAW_USERS
         join:
-          joinCondition: FROM {{ ref('My_DB', 'RAW_USERS') }} ICE_RAW_USERS
+          joinCondition: FROM {{ ref('MY_DB', 'RAW_USERS') }} RAW_USERS
         name: STG_RAW_USERS
         noLinkRefs: []
   name: STG_RAW_USERS
