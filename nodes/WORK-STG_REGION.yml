@@ -1,5 +1,5 @@
 fileVersion: 1
-id: 4bddf406-8f72-4cb0-aed9-f9deec4fa43b
+id: c68c70b1-3231-4fcd-acf4-108daa989716
 name: STG_REGION
 operation:
   config:
@@ -13,19 +13,19 @@ operation:
   description: Region data as defined by TPC-H
   isMultisource: false
   locationName: WORK
-  materializationType: table
+  materializationType: view
   metadata:
     appliedNodeTests: []
     columns:
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 2df0f782-6720-442c-83cd-209358c336b6
-          stepCounter: 4bddf406-8f72-4cb0-aed9-f9deec4fa43b
+          columnCounter: 019feadb-f356-75ec-a06a-83d2cfdf5ecd
+          stepCounter: c68c70b1-3231-4fcd-acf4-108daa989716
         config: {}
         dataType: NUMBER(38,0)
-        description: ""
+        description: Region data as defined by TPC-H
         name: R_REGIONKEY
-        nullable: false
+        nullable: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: b26b24dc-db13-4d22-925b-13570334c156
@@ -33,13 +33,13 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 66630474-1785-443d-a56c-84138c21f360
-          stepCounter: 4bddf406-8f72-4cb0-aed9-f9deec4fa43b
+          columnCounter: 019feadb-f356-75ec-a06a-85b3789a0661
+          stepCounter: c68c70b1-3231-4fcd-acf4-108daa989716
         config: {}
         dataType: VARCHAR(25)
         description: ""
         name: R_NAME
-        nullable: false
+        nullable: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 1327617b-c208-426e-9903-48af4f31f29d
@@ -47,8 +47,8 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: 8bd09dbb-aba0-4609-a11f-2e5a06c19ca5
-          stepCounter: 4bddf406-8f72-4cb0-aed9-f9deec4fa43b
+          columnCounter: 019feadb-f356-75ec-a06a-88243e22556f
+          stepCounter: c68c70b1-3231-4fcd-acf4-108daa989716
         config: {}
         dataType: VARCHAR(152)
         description: ""
@@ -60,7 +60,10 @@ operation:
                 stepCounter: ff1ce864-d355-431c-944c-cc7b602bc001
             transform: ""
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           REGION: ff1ce864-d355-431c-944c-cc7b602bc001

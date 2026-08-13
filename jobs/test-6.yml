@@ -1,4 +1,4 @@
-excludeSelector: "{ location: WORK name: DIM_CUSTOMER } OR { location: WORK name: DIM_PART } OR { location: WORK name: DIM_SUPPLIER }"
+excludeSelector: "{nodeType:\"42\"}"
 fileVersion: 1
 id: "6"
 includeSelector: "+{ subgraph: \"Supply_1ststage\" } OR +{ subgraph: \"Supply_subgraph\" }"

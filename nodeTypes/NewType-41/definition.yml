@@ -1,13 +1,14 @@
 fileVersion: 2
-id: "39"
+id: "41"
 isDisabled: true
 metadata:
   defaultStorageLocation: null
   error: null
-  nodeMetadataSpec: |-
+  nodeMetadataSpec: |+
     capitalized: New Type
     short: NEW
     tagColor: gray
     plural: New Types
+
 name: New Type
 type: NodeType

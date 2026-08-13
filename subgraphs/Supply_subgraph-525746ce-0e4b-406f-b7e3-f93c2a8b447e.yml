@@ -3,7 +3,11 @@ id: 525746ce-0e4b-406f-b7e3-f93c2a8b447e
 name: Supply_subgraph
 steps:
   - 19626e04-0fa9-4093-a99b-acd9269bb744
+  - 25483a46-2cee-4f3c-96ea-18dc77533995
+  - 5124da82-70ca-4e41-9663-c5019ff272d0
+  - 99ac48ec-48f8-4587-88fc-9f45108dc57a
   - cae6c7c8-304e-4721-a540-0e24acbee88e
   - cf709dcf-f402-4ca8-9d12-f33567f52da8
+  - e4f6c7e2-fb4c-43c1-add1-3eb7f81ade61
   - fbeef231-52e6-4040-a4c6-5c8c5920cc9e
 type: Subgraph

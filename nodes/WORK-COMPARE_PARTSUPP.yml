@@ -1,0 +1,59 @@
+fileVersion: 1
+id: a4e90953-b516-4d32-8b0f-d787f95533b6
+name: COMPARE_PARTSUPP
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: call PRATIK.WORKDEV.COMPARE_TABLES ('{{ ref('WORK', 'NEW_PARTSUPP') | replace('"', '') }}','{{ ref('WORK', 'NEW_PARTSUPP1') | replace('"', '') }}');
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Utility node that calls a stored procedure in Post-SQL to compare NEW_PARTSUPP and NEW_PARTSUPP1.
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 019ffa57-d197-73ec-ad83-20c547b91727
+          stepCounter: a4e90953-b516-4d32-8b0f-d787f95533b6
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: PS_PARTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 019ffa9f-f1ec-71b8-a880-0bac0e6ef49b
+                stepCounter: 1af28933-9887-47d7-ae58-88fdede7aad9
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          NEW_PARTSUPP: 99ac48ec-48f8-4587-88fc-9f45108dc57a
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: NEW_PARTSUPP
+        join:
+          joinCondition: |-
+            FROM {{ ref('WORK', 'NEW_PARTSUPP') }} NEW_PARTSUPP
+            LIMIT 1
+        name: COMPARE_PARTSUPP
+        noLinkRefs: []
+  name: COMPARE_PARTSUPP
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
