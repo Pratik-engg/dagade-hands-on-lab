@@ -60,7 +60,10 @@ operation:
                 stepCounter: 32ce79f6-e82a-45be-b259-11b790667e8f
             transform: ""
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           REGION: 32ce79f6-e82a-45be-b259-11b790667e8f
@@ -78,6 +81,7 @@ operation:
   overrideSQL: false
   schema: ""
   sqlType: Stage
+  table: STG_REGION1
   type: sql
   version: 1
 type: Node

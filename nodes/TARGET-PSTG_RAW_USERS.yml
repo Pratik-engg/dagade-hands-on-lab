@@ -176,8 +176,7 @@ operation:
     enabledColumnTestIDs: []
     materializationOption: ""
     sourceMapping:
-      - aliases:
-          STG_RAW_USERS: 5cfc2af3-046b-4326-83af-70d2ca990345
+      - aliases: {}
         customSQL:
           customSQL: ""
         dependencies:

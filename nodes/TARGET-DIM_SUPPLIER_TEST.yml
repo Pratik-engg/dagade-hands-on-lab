@@ -15,10 +15,7 @@ operation:
   metadata:
     appliedNodeTests: []
     columns:
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 4d85491e-72b4-47f6-8691-4ee371a6b1e2
           stepCounter: fb5872da-ceb6-4bf1-9f54-9394874e1efe
@@ -39,7 +36,7 @@ operation:
         config: {}
         dataType: NUMBER(38,0)
         description: ""
-        isBusinessKey: false
+        isBusinessKey: true
         name: S_SUPPKEY
         nullable: true
         sourceColumnReferences:
@@ -54,6 +51,7 @@ operation:
         config: {}
         dataType: VARCHAR(25)
         description: ""
+        isChangeTracking: true
         name: S_NAME
         nullable: true
         sourceColumnReferences:
@@ -131,10 +129,7 @@ operation:
               - columnCounter: 06021b1d-c2a6-4645-b565-93e61756078e
                 stepCounter: 0c9dc00c-3c30-423e-a72b-7bb02bfddc1b
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 0c3cee77-1b3e-48e7-b25c-65ccba4b7ba2
           stepCounter: fb5872da-ceb6-4bf1-9f54-9394874e1efe
@@ -148,10 +143,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 1373857c-a2ed-4a75-8bcf-6439bfc4589e
           stepCounter: fb5872da-ceb6-4bf1-9f54-9394874e1efe
@@ -165,10 +157,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 7cf8d85c-c8ea-4d2e-aa50-6f477db48d48
           stepCounter: fb5872da-ceb6-4bf1-9f54-9394874e1efe
@@ -182,10 +171,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: ae0f89cc-8a86-40af-9f43-93de96aca31c
           stepCounter: fb5872da-ceb6-4bf1-9f54-9394874e1efe
@@ -199,10 +185,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: CAST('2999-12-31 00:00:00' AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: e815803d-d4e9-42c7-82f4-9cdc090e4e4b
           stepCounter: fb5872da-ceb6-4bf1-9f54-9394874e1efe
@@ -216,10 +199,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 078fcf0f-c72a-4433-895d-d4dac54d5f6c
           stepCounter: fb5872da-ceb6-4bf1-9f54-9394874e1efe
@@ -233,8 +213,53 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a02466-64f8-768d-8878-e7ead1020187
+          stepCounter: fb5872da-ceb6-4bf1-9f54-9394874e1efe
+        config: {}
+        dataType: VARCHAR
+        description: Hash key generated from the business key S_SUPPKEY.
+        name: HASH_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5cd64e72-8047-4e4c-997f-935a54679042
+                stepCounter: 0c9dc00c-3c30-423e-a72b-7bb02bfddc1b
+            transform: MD5("STG_SUPPLIER_TEST"."S_SUPPKEY")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a02479-4755-71eb-ab0a-5d05c2e0ddd0
+          stepCounter: fb5872da-ceb6-4bf1-9f54-9394874e1efe
+        config: {}
+        dataType: VARCHAR
+        description: Full-row hash of descriptive attributes for change detection.
+        name: HASH_DIFF
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a1c0f9c2-ce05-4db4-b676-fdbee38ca068
+                stepCounter: 0c9dc00c-3c30-423e-a72b-7bb02bfddc1b
+            transform: MD5(CONCAT("STG_SUPPLIER_TEST"."S_NAME", '|', "STG_SUPPLIER_TEST"."S_ADDRESS", '|', "STG_SUPPLIER_TEST"."S_NATIONKEY", '|', "STG_SUPPLIER_TEST"."S_PHONE", '|', "STG_SUPPLIER_TEST"."S_ACCTBAL", '|', "STG_SUPPLIER_TEST"."S_COMMENT"))
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a02483-35eb-75a2-91f9-8216496eda2a
+          stepCounter: fb5872da-ceb6-4bf1-9f54-9394874e1efe
+        config: {}
+        dataType: VARCHAR
+        description: Composite hash key from S_SUPPKEY and S_NATIONKEY.
+        name: HASH_KEY_2
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 5cd64e72-8047-4e4c-997f-935a54679042
+                stepCounter: 0c9dc00c-3c30-423e-a72b-7bb02bfddc1b
+            transform: MD5(CONCAT("STG_SUPPLIER_TEST"."S_SUPPKEY", '|', "STG_SUPPLIER_TEST"."S_NATIONKEY"))
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
           STG_SUPPLIER_TEST: 0c9dc00c-3c30-423e-a72b-7bb02bfddc1b

@@ -78,6 +78,26 @@ operation:
               - columnCounter: 019daf1f-e68d-7724-be81-22fcec979d72
                 stepCounter: d1d80609-095e-4fb6-a586-89f3534192d4
             transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: b91def91-a7ef-45f0-9748-ac4b4b225acc
+          stepCounter: 5cfc2af3-046b-4326-83af-70d2ca990345
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        keyColumnType: None
+        name: Test123
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: "0"
+                stepCounter: "0"
+            transform: ""
+        systemColumnType: None
     cteString: ""
     description: ""
     destinationName: ""

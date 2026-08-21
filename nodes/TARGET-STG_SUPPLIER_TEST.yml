@@ -111,10 +111,8 @@ operation:
         name: S_COMMENT
         nullable: true
         sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 8f8d5ddb-8694-42f8-b673-5b8772a232ad
-                stepCounter: 04f3f7de-398e-447f-88df-425990e617dc
-            transform: ""
+          - columnReferences: []
+            transform: "\"DIM_SUPPLIER_TEST\".\"S_COMMENT\""
     cteString: ""
     enabledColumnTestIDs: []
     sourceMapping:
