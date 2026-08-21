@@ -13,7 +13,7 @@ operation:
     series_value: false
     svalue: ""
   database: ""
-  deployEnabled: true
+  deployEnabled: false
   description: ""
   isMultisource: false
   locationName: TARGET
