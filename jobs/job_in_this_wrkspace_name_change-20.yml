@@ -2,5 +2,5 @@ excludeSelector: "{ location: \"TARGET\" name: \"DIM_SUPPLIER_TEST\" }"
 fileVersion: 1
 id: "20"
 includeSelector: "{ location: \"TARGET\" name: \"DIM_SUPPLIER_TEST\" } OR { location: \"MY_DB\" name: \"SRC_ORDERS\" } OR { location: \"TARGET\" name: \"STG_SRC_ORDERS\" }"
-name: job_in_this_wrkspace
+name: job_in_this_wrkspace_name_change
 type: Job
