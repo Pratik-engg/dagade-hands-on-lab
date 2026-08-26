@@ -1,0 +1,17 @@
+fileVersion: 1
+id: "112"
+mappingDefinitions:
+  MY_DB:
+    database: PRATIK_DB
+    schema: RAW1
+  NEW:
+    database: PRATIK_DB
+    schema: PRESENTATION1
+  SRC:
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF1
+  TARGET:
+    database: PRATIK
+    schema: WORKTEST2
+name: New Environment
+type: Environment
