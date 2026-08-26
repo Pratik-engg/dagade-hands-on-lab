@@ -82,14 +82,14 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          STG_SRC_ORDERS: cdf3afe2-f9ef-42ea-830f-3720b73938fa
+          STG_SRC_ORDER: cdf3afe2-f9ef-42ea-830f-3720b73938fa
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: TARGET
             nodeName: STG_SRC_ORDERS
         join:
-          joinCondition: FROM {{ ref('TARGET', 'STG_SRC_ORDERS') }} "STG_SRC_ORDERS"
+          joinCondition: FROM {{ ref('TARGET', 'STG_SRC_ORDERS') }} "STG_SRC_ORDER"
         name: FCT_SRC_ORDERS
         noLinkRefs: []
   name: FCT_SRC_ORDERS
