@@ -1,0 +1,8 @@
+@id("f530400a-d125-4193-8fdb-1a8f0d0e8b23")
+@nodeType("49")
+SELECT
+     "USER_ID" AS "USER_ID",
+     "USER_NAME" AS "USER_NAME",
+     "COUNTRY" AS "COUNTRY",
+     "CREATED_AT" AS "CREATED_AT"
+FROM {{ ref('MY_DB', 'RAW_USERS') }} "RAW_USERS"

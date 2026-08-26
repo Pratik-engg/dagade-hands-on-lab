@@ -362,20 +362,22 @@ operation:
     enabledColumnTestIDs: []
     sourceMapping:
       - aliases:
-          INC_LINEITEM: 3fa8eafc-7bab-4390-b178-761b120e2a9e
+          LINEITEM: 3f14c8ce-dd74-4e8f-af61-e8f2d8d7cd02
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: MY_DB
             nodeName: INC_LINEITEM
+          - locationName: SRC
+            nodeName: LINEITEM
         join:
           joinCondition: |-
-            FROM {{ ref('MY_DB', 'INC_LINEITEM') }} "INC_LINEITEM"
-            {{incremental_stg("INC_LINEITEM".L_SHIPCreateDATE)}}
+            FROM {{ ref('SRC', 'LINEITEM') }} "LINEITEM"
+              WHERE "LINEITEM"."L_SHIPDATE" >
+              (SELECT COALESCE(MAX("L_SHIPDATE"), '1900-01-01')
+                        FROM {{ ref('MY_DB', 'INC_LINEITEM') }} )
         name: PSTG_LINEITEM
-        noLinkRefs:
-          - locationName: TARGET
-            nodeName: PSTG_LINEITEM
+        noLinkRefs: []
   name: PSTG_LINEITEM
   overrideSQL: false
   schema: ""

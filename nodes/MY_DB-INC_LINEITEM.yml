@@ -253,7 +253,7 @@ operation:
           - locationName: SRC
             nodeName: LINEITEM
         join:
-          joinCondition: |
+          joinCondition: |-
             FROM {{ ref('SRC', 'LINEITEM') }} "LINEITEM"
               WHERE "LINEITEM"."L_SHIPDATE" > 
               (SELECT COALESCE(MAX("L_SHIPDATE"), '1900-01-01') 
