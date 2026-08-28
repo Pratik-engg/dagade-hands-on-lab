@@ -76,7 +76,7 @@ operation:
         config: {}
         dataType: VARCHAR(16777216)
         description: ""
-        name: ORDER_ID
+        name: ORDER_IDs
         nullable: true
         sourceColumnReferences:
           - columnReferences:
