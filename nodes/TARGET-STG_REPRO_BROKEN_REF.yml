@@ -259,8 +259,8 @@ operation:
         join:
           joinCondition: |-
             FROM {{ ref('TARGET', 'STG_SUPPLIER') }} "STG_SUPPLIER"
-            INNER JOIN {{ ref('TARGET', 'STG_CUSTOMER_TYPO') }} "STG_CUSTOMER"
-            ON "STG_SUPPLIER"."S_NATIONKEY" = "STG_CUSTOMER"."C_NATIONKEY"
+            INNER JOIN {{ ref('TARGET', 'STG_CUSTOMER_TYPO') }} "STG_CUSTOMER_TYPO"
+            ON "STG_SUPPLIER"."S_NATIONKEY" = "STG_CUSTOMER_TYPO"."C_NATIONKEY"
         name: STG_REPRO_BROKEN_REF
         noLinkRefs: []
   name: STG_REPRO_BROKEN_REF
