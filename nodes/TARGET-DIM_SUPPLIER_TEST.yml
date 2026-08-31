@@ -108,7 +108,7 @@ operation:
         config: {}
         dataType: BOOLEAN
         description: ""
-        name: S_ACCTBAL
+        name: S_ACCTBALANCE
         nullable: true
         sourceColumnReferences:
           - columnReferences:
