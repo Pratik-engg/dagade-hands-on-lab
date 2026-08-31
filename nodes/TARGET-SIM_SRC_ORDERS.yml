@@ -74,7 +74,7 @@ operation:
           columnCounter: 96832803-cc16-4b9f-b9ab-c16f3c68367e
           stepCounter: 00086b44-ce7f-45e0-9b3a-607a8630e5f9
         config: {}
-        dataType: VARCHAR(16777216)
+        dataType: Boolean
         description: ""
         name: ORDER_ID
         nullable: true
