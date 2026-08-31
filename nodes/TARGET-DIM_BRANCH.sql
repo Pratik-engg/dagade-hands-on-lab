@@ -1,0 +1,11 @@
+@id("e438bcc4-9737-438c-96c2-c9db62736b76")
+@nodeType("50")
+SELECT
+    column1::VARCHAR AS BRANCH_CODE,
+    column2::VARCHAR AS DIVISION_NAME,
+    column3::VARCHAR AS REGION_CODE,
+    column4::VARCHAR AS BRANCH_DESCRIPTION,
+    column5::VARCHAR AS COMPANY_CODE,
+    column6::VARCHAR AS RPT_GEO_CODE
+FROM VALUES
+    ('B001', 'DIV1', 'R1', 'Branch One', 'C1', 'G1')
