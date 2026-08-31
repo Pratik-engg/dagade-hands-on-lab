@@ -1,6 +1,5 @@
 @id("3de178c4-de42-4197-8eae-6482afa0bebb")
 @nodeType("50")
-@materializationType("view")
 with fact_measures AS (
     -- Single scan computing seven measure groups (six Value_Type measures
     -- plus an unfiltered Total_Revenue baseline) for every month/quarter,

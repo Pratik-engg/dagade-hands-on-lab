@@ -106,7 +106,7 @@ operation:
           columnCounter: 28155e98-4b9d-4835-ad3f-bfa597d135c4
           stepCounter: fb5872da-ceb6-4bf1-9f54-9394874e1efe
         config: {}
-        dataType: NUMBER(12,2)
+        dataType: BOOLEAN
         description: ""
         name: S_ACCTBAL
         nullable: true
