@@ -44,10 +44,7 @@ operation:
               - columnCounter: 9ce3fdf2-4290-4152-be5f-2a79a35d005b
                 stepCounter: cdf3afe2-f9ef-42ea-830f-3720b73938fa
             transform: ""
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: b2e12a9e-bca0-445b-81ff-57c3398feb43
           stepCounter: 80669cc6-7477-4a12-affb-3e6a9ba143cc
@@ -61,10 +58,7 @@ operation:
         sourceColumnReferences:
           - columnReferences: []
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
-      - acceptedValues:
-          strictMatch: true
-          values: []
-        appliedColumnTests: {}
+      - appliedColumnTests: {}
         columnReference:
           columnCounter: 47b7f5c8-4ec3-46ed-a696-6d81ae6cd005
           stepCounter: 80669cc6-7477-4a12-affb-3e6a9ba143cc
@@ -79,17 +73,20 @@ operation:
           - columnReferences: []
             transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
     cteString: ""
+    description: ""
+    destinationName: ""
     enabledColumnTestIDs: []
+    materializationOption: ""
     sourceMapping:
       - aliases:
-          STG_SRC_ORDER: cdf3afe2-f9ef-42ea-830f-3720b73938fa
+          STG_SRC_ORDERS: cdf3afe2-f9ef-42ea-830f-3720b73938fa
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: TARGET
             nodeName: STG_SRC_ORDERS
         join:
-          joinCondition: FROM {{ ref('TARGET', 'STG_SRC_ORDERS') }} "STG_SRC_ORDER"
+          joinCondition: FROM {{ ref('TARGET', 'STG_SRC_ORDERS') }} "STG_SRC_ORDERS"
         name: FCT_SRC_ORDERS
         noLinkRefs: []
   name: FCT_SRC_ORDERS
