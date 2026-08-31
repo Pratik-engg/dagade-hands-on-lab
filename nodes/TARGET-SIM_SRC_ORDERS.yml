@@ -88,7 +88,7 @@ operation:
           columnCounter: 9a568c09-f815-42ba-9100-4c0439a98212
           stepCounter: 00086b44-ce7f-45e0-9b3a-607a8630e5f9
         config: {}
-        dataType: NUMBER(10,2)
+        dataType: Boolean
         description: ""
         name: ORDER_DISCOUNT_AMOUNT
         nullable: true
