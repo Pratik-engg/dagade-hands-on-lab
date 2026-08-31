@@ -49,7 +49,7 @@ operation:
           columnCounter: b32bcc02-f1ef-428b-af94-d152e8fccac4
           stepCounter: fb5872da-ceb6-4bf1-9f54-9394874e1efe
         config: {}
-        dataType: VARCHAR(25)
+        dataType: VARCHAR(16777216)
         description: ""
         isChangeTracking: true
         name: S_NAME
