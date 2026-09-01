@@ -1,0 +1,62 @@
+fileVersion: 1
+id: 7b957295-58cb-4607-8872-f5df1713a9ba
+name: EXPORT_NODE
+operation:
+  config:
+    compression: AUTO
+    compression1: AUTO
+    dateformat: AUTO
+    detailedOutput: false
+    fieldDelim: ","
+    fieldEnclosed: \042
+    fileFormatLoc: ""
+    fileFormatName: ""
+    fileFormatType: File Format Name
+    fileLocation: Enter stage name-stage_name/folder_name/
+    fileType: CSV
+    file_ext: ""
+    header: true
+    overwriteFiles: false
+    partitionConfig: false
+    partitionConfigExpressions: false
+    partitionbyConfig:
+      items:
+        - {}
+    partitionbyConfigExpressions:
+      items:
+        - {}
+    queryId: false
+    recDelim: |+
+
+    singleFile: false
+    sizeLimit: "16"
+    stageStorageLocationName: Enter Storage Location name
+    timeformat: AUTO
+    timestampformat: AUTO
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns: []
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies: []
+        join:
+          joinCondition: ""
+        name: EXPORT_NODE
+        noLinkRefs: []
+  name: EXPORT_NODE
+  overrideSQL: false
+  schema: ""
+  sqlType: E-D-P-2-1-3:::302
+  type: sql
+  version: 1
+type: Node

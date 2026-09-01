@@ -1,0 +1,125 @@
+fileVersion: 1
+id: 878eb141-4d58-4a53-a796-5dbc80d05f8f
+name: TEST_COPY_UNLOAD_10236_REPRO
+operation:
+  config:
+    compression: AUTO
+    compression1: AUTO
+    dateformat: AUTO
+    detailedOutput: false
+    fieldDelim: ","
+    fieldEnclosed: \042
+    fileFormatLoc: ""
+    fileFormatName: ""
+    fileFormatType: File Format Name
+    fileLocation: repro_unload_stage/nation/
+    fileType: CSV
+    file_ext: ""
+    header: true
+    overwriteFiles: false
+    partitionConfig: false
+    partitionConfigExpressions: false
+    partitionbyConfig:
+      items:
+        - {}
+    partitionbyConfigExpressions:
+      items:
+        - {}
+    queryId: false
+    recDelim: |+
+
+    singleFile: false
+    sizeLimit: "16"
+    stageStorageLocationName: TARGET
+    timeformat: AUTO
+    timestampformat: AUTO
+  database: ""
+  deployEnabled: true
+  description: Nation data as defined by TPC-H
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 46535307-154c-484c-a6a9-7581cb5e6a1c
+          stepCounter: 878eb141-4d58-4a53-a796-5dbc80d05f8f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: N_NATIONKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a414c319-9f9d-4b93-9e88-075035fec0a1
+                stepCounter: 3ac85ea5-d7b3-4713-82ca-6c8857fbf113
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 2c527d91-c08e-4944-ac24-ef62830b2c08
+          stepCounter: 878eb141-4d58-4a53-a796-5dbc80d05f8f
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: N_NAME
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6e7a77b3-64e3-41e1-879f-c7204e2d6c9d
+                stepCounter: 3ac85ea5-d7b3-4713-82ca-6c8857fbf113
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6c0203ca-43c1-4911-a835-7ec4cc1f4594
+          stepCounter: 878eb141-4d58-4a53-a796-5dbc80d05f8f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: N_REGIONKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 36241817-8c0b-419b-a03f-d4d81ac408bf
+                stepCounter: 3ac85ea5-d7b3-4713-82ca-6c8857fbf113
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: aaff5bef-a44e-4cd0-838d-f5413b093dbe
+          stepCounter: 878eb141-4d58-4a53-a796-5dbc80d05f8f
+        config: {}
+        dataType: VARCHAR(152)
+        description: ""
+        name: N_COMMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8b7064b9-6b85-4150-9a09-5a80aa63e74e
+                stepCounter: 3ac85ea5-d7b3-4713-82ca-6c8857fbf113
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          NATION: 3ac85ea5-d7b3-4713-82ca-6c8857fbf113
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: NATION
+        join:
+          joinCondition: FROM {{ ref('SRC', 'NATION') }} "NATION"
+        name: TEST_COPY_UNLOAD_10236_REPRO
+        noLinkRefs: []
+  name: TEST_COPY_UNLOAD_10236_REPRO
+  overrideSQL: false
+  schema: ""
+  sqlType: E-D-P-2-1-3:::302
+  table: TEST_COPY_UNLOAD_10236_REPRO
+  type: sql
+  version: 1
+type: Node

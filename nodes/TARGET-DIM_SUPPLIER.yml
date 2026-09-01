@@ -50,6 +50,7 @@ operation:
           stepCounter: 500f486c-c0e5-4fd8-8c05-31eb430ff6f5
         config: {}
         dataType: VARCHAR(25)
+        defaultValue: ""
         description: ""
         name: S_NAME
         nullable: false
@@ -57,7 +58,7 @@ operation:
           - columnReferences:
               - columnCounter: e3d1c70e-16d5-415d-81cd-63c936ef0fde
                 stepCounter: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
-            transform: ""
+            transform: COALESCE("STG_SUPPLIER"."S_NAME", 'Unknown')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: d9a4083d-bc35-4515-9e75-d2029abb1daa
@@ -71,13 +72,14 @@ operation:
           - columnReferences:
               - columnCounter: db08bed5-b15c-4a6d-8a71-f70e1e4d59ba
                 stepCounter: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
-            transform: ""
+            transform: COALESCE("STG_SUPPLIER"."S_NATIONKEY", -1)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 6af856e0-406b-459f-be06-56d7ebb25843
           stepCounter: 500f486c-c0e5-4fd8-8c05-31eb430ff6f5
         config: {}
         dataType: VARCHAR(15)
+        defaultValue: ""
         description: ""
         name: S_PHONE
         nullable: false
@@ -85,13 +87,14 @@ operation:
           - columnReferences:
               - columnCounter: 4705407f-00b8-48e7-b347-378637210cb5
                 stepCounter: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
-            transform: ""
+            transform: COALESCE("STG_SUPPLIER"."S_PHONE", 'N/A')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: 89f6e642-caba-42ef-9f03-003b499bdc72
           stepCounter: 500f486c-c0e5-4fd8-8c05-31eb430ff6f5
         config: {}
         dataType: NUMBER(12,2)
+        defaultValue: "9330.1"
         description: ""
         name: S_ACCTBAL
         nullable: false
@@ -99,21 +102,22 @@ operation:
           - columnReferences:
               - columnCounter: b0140437-d9a0-4c2b-a0fb-b263154ddb82
                 stepCounter: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
-            transform: ""
+            transform: COALESCE("STG_SUPPLIER"."S_ACCTBAL", 0)
       - appliedColumnTests: {}
         columnReference:
           columnCounter: c8a3d211-1ff2-4745-b92c-8c9ed78645c2
           stepCounter: 500f486c-c0e5-4fd8-8c05-31eb430ff6f5
         config: {}
         dataType: VARCHAR(101)
+        defaultValue: ""
         description: ""
         name: S_COMMENT
-        nullable: true
+        nullable: false
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: f8305447-74a2-4443-877b-ecfd8ed0ed27
                 stepCounter: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
-            transform: ""
+            transform: COALESCE("STG_SUPPLIER"."S_COMMENT", 'N/A')
       - appliedColumnTests: {}
         columnReference:
           columnCounter: eaae4e8a-0cff-495c-aab3-d290ddc10f68
@@ -218,14 +222,15 @@ operation:
           stepCounter: 500f486c-c0e5-4fd8-8c05-31eb430ff6f5
         config: {}
         dataType: VARCHAR(100)
-        description: ""
+        defaultValue: "'N/A'"
+        description: Repro for ticket 10233 - default on nullable column
         name: S_ADDRESS
         nullable: true
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: 019db480-bc98-729c-a39f-8663d87432bd
                 stepCounter: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
-            transform: ""
+            transform: COALESCE("STG_SUPPLIER"."S_ADDRESS", 'N/A')
     cteString: ""
     description: ""
     destinationName: ""
@@ -240,13 +245,21 @@ operation:
           - locationName: TARGET
             nodeName: STG_SUPPLIER
         join:
-          joinCondition: FROM {{ ref('TARGET', 'STG_SUPPLIER') }} "STG_SUPPLIER"
+          joinCondition: |-
+            FROM {{ ref('TARGET', 'STG_SUPPLIER') }} "STG_SUPPLIER"
+            WHERE "STG_SUPPLIER"."S_NAME" IS NULL
+               OR "STG_SUPPLIER"."S_NATIONKEY" IS NULL
+               OR "STG_SUPPLIER"."S_PHONE" IS NULL
+               OR "STG_SUPPLIER"."S_ACCTBAL" IS NULL
+               OR "STG_SUPPLIER"."S_COMMENT" IS NULL
+               OR "STG_SUPPLIER"."S_ADDRESS" IS NULL
         name: DIM_SUPPLIER
         noLinkRefs: []
   name: DIM_SUPPLIER
   overrideSQL: false
   schema: ""
   sqlType: "25"
+  table: DIM_SUPPLIER
   type: sql
   version: 1
 type: Node
