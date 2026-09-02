@@ -1,3 +1,7 @@
-defaultStorageMapping: null
+defaultStorageMapping: MY_DB
 fileVersion: 1
-locations: []
+locations:
+  - MY_DB
+  - NEW
+  - SRC
+  - TARGET

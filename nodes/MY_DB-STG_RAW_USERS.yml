@@ -1,0 +1,96 @@
+fileVersion: 1
+id: 8370c396-649e-471c-9353-b66fde2bfb5b
+name: STG_RAW_USERS
+operation:
+  config:
+    insertStrategy: INSERT
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: MY_DB
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: cd0ca2e6-e4dc-4cea-bf75-c9d92702fa19
+          stepCounter: 8370c396-649e-471c-9353-b66fde2bfb5b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: USER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 67265d2e-dcc5-4695-b15f-82078717116d
+                stepCounter: 0ec2cefd-7a83-461d-8e35-fb8d185b907d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4f5a81aa-2baf-4a27-ba30-599c032c199d
+          stepCounter: 8370c396-649e-471c-9353-b66fde2bfb5b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: USER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2f0f3261-8f89-4726-bf77-8d66da41dfea
+                stepCounter: 0ec2cefd-7a83-461d-8e35-fb8d185b907d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a64b4381-edf6-4ab9-9f0a-87970fef911f
+          stepCounter: 8370c396-649e-471c-9353-b66fde2bfb5b
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fd8c415b-5fa2-41b4-890b-561d6ccba718
+                stepCounter: 0ec2cefd-7a83-461d-8e35-fb8d185b907d
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ebe9f27e-f875-46e9-bf3b-6a9ed4e2051e
+          stepCounter: 8370c396-649e-471c-9353-b66fde2bfb5b
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 2e8d536e-25ee-4e19-a316-26bf7c4c2d7e
+                stepCounter: 0ec2cefd-7a83-461d-8e35-fb8d185b907d
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          RAW_USERS: 0ec2cefd-7a83-461d-8e35-fb8d185b907d
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: MY_DB
+            nodeName: RAW_USERS
+        join:
+          joinCondition: FROM {{ ref('MY_DB', 'RAW_USERS') }} "RAW_USERS"
+        name: STG_RAW_USERS
+        noLinkRefs: []
+  name: STG_RAW_USERS
+  overrideSQL: false
+  schema: ""
+  sqlType: Stage
+  type: sql
+  version: 1
+type: Node
