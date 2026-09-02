@@ -71,7 +71,7 @@ operation:
     userName: ""
     whName: <WAREHOUSE_NAME>
   database: ""
-  deployEnabled: true
+  deployEnabled: false
   description: Region data as defined by TPC-H
   isMultisource: false
   locationName: WORK
