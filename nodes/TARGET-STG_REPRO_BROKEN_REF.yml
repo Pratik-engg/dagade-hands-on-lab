@@ -248,21 +248,24 @@ operation:
     materializationOption: ""
     sourceMapping:
       - aliases:
-          STG_SUPPLIER: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
+          SUPPLIER_S1: c8495395-f5cf-49a0-8fd5-a29609c1cdf8
         customSQL:
           customSQL: ""
         dependencies:
           - locationName: TARGET
-            nodeName: STG_CUSTOMER_TYPO
-          - locationName: TARGET
             nodeName: STG_SUPPLIER
         join:
           joinCondition: |-
-            FROM {{ ref('TARGET', 'STG_SUPPLIER') }} "STG_SUPPLIER"
-            INNER JOIN {{ ref('TARGET', 'STG_CUSTOMER_TYPO') }} "STG_CUSTOMER_TYPO"
+            FROM {{ ref('TARGET', 'STG_SUPPLIER') }} "SUPPLIER_S1"
+            --Inner JOIN {{ ref_no_link ('TARGET', 'STG_CUSTOMER') }} "STG_CUSTOMER"
+            INNER JOIN {{ ref_no_link('TARGET', 'STG_CUSTOMER_TYPO') }} "CUSTOMER_TYPO"
             ON "STG_SUPPLIER"."S_NATIONKEY" = "STG_CUSTOMER_TYPO"."C_NATIONKEY"
         name: STG_REPRO_BROKEN_REF
-        noLinkRefs: []
+        noLinkRefs:
+          - locationName: TARGET
+            nodeName: STG_CUSTOMER
+          - locationName: TARGET
+            nodeName: STG_CUSTOMER_TYPO
   name: STG_REPRO_BROKEN_REF
   overrideSQL: false
   schema: ""
