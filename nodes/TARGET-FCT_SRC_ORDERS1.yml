@@ -1,0 +1,138 @@
+fileVersion: 1
+id: 4aedbe21-dee2-4dee-8b80-00855459225e
+name: FCT_SRC_ORDERS1
+operation:
+  config:
+    clusterKey: false
+    clusterKeyConfig:
+      items:
+        - {}
+    clusterKeyConfigExpressions:
+      items:
+        - {}
+    clusterKeyExpressions: false
+    deleteStrategy: NO DELETE
+    excludeMergeList:
+      items:
+        - {}
+    excludeMergeToggle: false
+    groupByAll: false
+    insertStrategy: UNION ALL
+    lastModifiedComparison: false
+    orderby: false
+    orderbycolumn:
+      items:
+        - {}
+    postSQL: ""
+    preSQL: |-
+      UPDATE {{ ref('SILVER_DIM', 'STG_COMMISSION_CONTRACT') }} "CONTRACT"
+            SET MONTHLY_SERVICE_TOTAL = SERVICE_TOTAL/"SUBS".TOTAL_BILLING , MONTHLY_PRODUCT_TOTAL = PRODUCT_TOTAL/"SUBS".TOTAL_BILLING ,MONTHLY_EQUIPMENT_TOTAL = EQUIPMENT_TOTAL /"SUBS".TOTAL_BILLING
+            , MONTHLY_DISCOUNT_TOTAL = DISCOUNT_TOTAL,    DISCOUNT_TOTAL = DISCOUNT_TOTAL*"SUBS".TOTAL_BILLING , MONTHLY_NON_COMM_AMT = NON_COMM_AMT/"SUBS".TOTAL_BILLING
+            FROM (
+            SELECT ORDER_ID,  TOTAL_BILLING 
+            FROM 
+             {{ ref('SILVER_DIM', 'STG_COMMISSION_CONTRACT_INVOICE_CYCLE') }}   "CYCLE"
+            ) "SUBS"
+            WHERE "CONTRACT".ORDER_ID = "SUBS".ORDER_ID
+    primary: false
+    primaryKeyCol:
+      items:
+        - {}
+    primaryKeyName: ""
+    selectDistinct: false
+    testsEnabled: false
+    treatNullAsCurrentTimestamp: false
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bebf1c57-fcc3-40b6-b08d-927623580984
+          stepCounter: 4aedbe21-dee2-4dee-8b80-00855459225e
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        isBusinessKey: true
+        name: ORDER_ID
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 999583db-d59f-4a8b-b45c-36a0aaffc0fa
+                stepCounter: cdf3afe2-f9ef-42ea-830f-3720b73938fa
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 559fc7e4-620e-49f2-885e-5d1a7ad15164
+          stepCounter: 4aedbe21-dee2-4dee-8b80-00855459225e
+        config: {}
+        dataType: NUMBER(10,2)
+        description: ""
+        name: ORDER_DISCOUNT_AMOUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 9ce3fdf2-4290-4152-be5f-2a79a35d005b
+                stepCounter: cdf3afe2-f9ef-42ea-830f-3720b73938fa
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 017a6a2b-7f32-4978-b6d5-652191a355af
+          stepCounter: 4aedbe21-dee2-4dee-8b80-00855459225e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 93f11a36-6053-49da-9915-27b50844eddb
+          stepCounter: 4aedbe21-dee2-4dee-8b80-00855459225e
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_SRC_ORDERS: cdf3afe2-f9ef-42ea-830f-3720b73938fa
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: STG_SRC_ORDERS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'STG_SRC_ORDERS') }} "STG_SRC_ORDERS"
+        name: FCT_SRC_ORDERS1
+        noLinkRefs: []
+  name: FCT_SRC_ORDERS1
+  overrideSQL: false
+  schema: ""
+  sqlType: Adv-BNT:::389
+  type: sql
+  version: 1
+type: Node
