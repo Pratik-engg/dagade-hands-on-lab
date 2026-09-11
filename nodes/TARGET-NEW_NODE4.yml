@@ -1,0 +1,132 @@
+fileVersion: 1
+id: b1421f7c-903b-4560-9430-73321b04be61
+name: NEW_NODE4
+operation:
+  config:
+    SQL_Deploy: |2-
+
+       
+    SQL_Run: |-
+      {% if parameters.COALESCE_API_ENABLED == true %}
+                SELECT 'COALESCE_API Enabled';
+                {{ stage('USE ROLE') }}     
+                USE ROLE {{ parameters.OPERATIONAL_ROLE }};   
+                {{ stage('USE DATABASE') }}
+                USE DATABASE {{ parameters.COALESCE_API_DB }};    
+                {{ stage('CALL PROCEDURE') }}
+                CALL {{ parameters.COALESCE_API_DB }}.{{ parameters.COALESCE_API_SCHEMA }}.{{ parameters.COALESCE_API_RUN_JOB_PROCEDURE }} (
+                    JobID => {{ parameters.COALESCE_API_DAILY_MAINTENANCE_JOB_ID }},
+                    EnvironmentID => {{ parameters.COALESCE_API_ENVIRONMENT_ID }} );
+            {% else %}        
+                SELECT 'COALESCE_API Disabled';
+            {% endif %}   
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08ba1-16f3-72fb-95e5-f0e7484d3988
+          stepCounter: b1421f7c-903b-4560-9430-73321b04be61
+        config: {}
+        dataType: NUMBER
+        description: ""
+        name: PLACEHOLDER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "1"
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases: {}
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_ECONOMIC_CASE
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_ECONOMIC_DETAIL
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_ECONOMIC_ENTITY
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_ECONOMIC_INDICATOR
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_ECONOMIC_RESULT
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_ENTITY_RESERVE
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_ENTITY_UDL
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_PRICE_DECK
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_RECON_REPORTING_GROUP
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_RECON_X_GROUP_CODE
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_RECONCILIATION
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_RECONCILIATION_CHANGE
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_RECONCILIATION_CODE_GROUP
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_RECONCILIATION_CODES
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_RESERVE_CATEGORY
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_UDL_ELEMENT
+          - locationName: MY_DB
+            nodeName: ODS_MOSAIC_RES_VINTAGE
+        join:
+          joinCondition: |-
+            -- Reference List for Prerequisite Nodes
+            FROM {{ ref('MY_DB','ODS_MOSAIC_RES_ECONOMIC_CASE') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_ECONOMIC_DETAIL') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_ECONOMIC_ENTITY') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_ECONOMIC_INDICATOR') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_ECONOMIC_RESULT') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_ENTITY_RESERVE') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_ENTITY_UDL') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_PRICE_DECK') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_RECONCILIATION') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_RECONCILIATION_CHANGE') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_RECONCILIATION_CODE_GROUP') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_RECONCILIATION_CODES') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_RECON_REPORTING_GROUP') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_RECON_X_GROUP_CODE') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_RESERVE_CATEGORY') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_UDL_ELEMENT') }}
+            JOIN
+                {{ ref('MY_DB','ODS_MOSAIC_RES_VINTAGE') }}
+        name: NEW_NODE4
+        noLinkRefs: []
+  name: NEW_NODE4
+  overrideSQL: false
+  schema: ""
+  sqlType: "52"
+  type: sql
+  version: 1
+type: Node

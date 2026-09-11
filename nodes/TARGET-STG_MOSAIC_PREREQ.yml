@@ -1,0 +1,162 @@
+fileVersion: 1
+id: c81f1888-3be2-4b9c-afed-9409daba34fc
+name: STG_MOSAIC_PREREQ
+operation:
+  config:
+    SQL_Deploy: |2-
+
+       
+    SQL_Run: |-
+      {% if parameters.COALESCE_API_ENABLED == true %}
+                SELECT 'COALESCE_API Enabled';
+                {{ stage('USE ROLE') }}     
+                USE ROLE {{ parameters.OPERATIONAL_ROLE }};   
+                {{ stage('USE DATABASE') }}
+                USE DATABASE {{ parameters.COALESCE_API_DB }};    
+                {{ stage('CALL PROCEDURE') }}
+                CALL {{ parameters.COALESCE_API_DB }}.{{ parameters.COALESCE_API_SCHEMA }}.{{ parameters.COALESCE_API_RUN_JOB_PROCEDURE }} (
+                    JobID => {{ parameters.COALESCE_API_DAILY_MAINTENANCE_JOB_ID }},
+                    EnvironmentID => {{ parameters.COALESCE_API_ENVIRONMENT_ID }} );
+            {% else %}        
+                SELECT 'COALESCE_API Disabled';
+            {% endif %} 
+       
+    insertStrategy: INSERT
+    postSQL: |-
+      {% if parameters.COALESCE_API_ENABLED == true %}
+                SELECT 'COALESCE_API Enabled';
+                {{ stage('USE ROLE') }}     
+                USE ROLE {{ parameters.OPERATIONAL_ROLE }};   
+                {{ stage('USE DATABASE') }}
+                USE DATABASE {{ parameters.COALESCE_API_DB }};    
+                {{ stage('CALL PROCEDURE') }}
+                CALL {{ parameters.COALESCE_API_DB }}.{{ parameters.COALESCE_API_SCHEMA }}.{{ parameters.COALESCE_API_RUN_JOB_PROCEDURE }} (
+                    JobID => {{ parameters.COALESCE_API_DAILY_MAINTENANCE_JOB_ID }},
+                    EnvironmentID => {{ parameters.COALESCE_API_ENVIRONMENT_ID }} );
+            {% else %}        
+                SELECT 'COALESCE_API Disabled';
+            {% endif %} 
+    preSQL: ""
+    testsEnabled: true
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Joins TPCH sample tables from region down to supplier for prerequisite reference.
+  isMultisource: false
+  locationName: TARGET
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08bac-3a22-7248-984c-f45c9fd556ab
+          stepCounter: c81f1888-3be2-4b9c-afed-9409daba34fc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: R_REGIONKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: R.R_REGIONKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08bac-600a-71b9-94ec-9e91d7fbb5a5
+          stepCounter: c81f1888-3be2-4b9c-afed-9409daba34fc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: N_NATIONKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: N.N_NATIONKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08bac-600a-71b9-94ec-a347d87265f3
+          stepCounter: c81f1888-3be2-4b9c-afed-9409daba34fc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: C_CUSTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: C.C_CUSTKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08bac-600a-71b9-94ec-a60254daaa90
+          stepCounter: c81f1888-3be2-4b9c-afed-9409daba34fc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: O_ORDERKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: O.O_ORDERKEY
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08bac-600a-71b9-94ec-ab847f260aba
+          stepCounter: c81f1888-3be2-4b9c-afed-9409daba34fc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: L_LINENUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: L.L_LINENUMBER
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a08bac-600a-71b9-94ec-ad0125e8ec3b
+          stepCounter: c81f1888-3be2-4b9c-afed-9409daba34fc
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: S_SUPPKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: S.S_SUPPKEY
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          R: 32ce79f6-e82a-45be-b259-11b790667e8f
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: SRC
+            nodeName: CUSTOMER
+          - locationName: SRC
+            nodeName: LINEITEM
+          - locationName: SRC
+            nodeName: NATION
+          - locationName: SRC
+            nodeName: ORDERS
+          - locationName: SRC
+            nodeName: REGION
+          - locationName: SRC
+            nodeName: SUPPLIER
+        join:
+          joinCondition: |-
+            FROM {{ ref('SRC','REGION') }} R
+            JOIN {{ ref('SRC','NATION') }} N ON N.N_REGIONKEY = R.R_REGIONKEY
+            JOIN {{ ref('SRC','CUSTOMER') }} C ON C.C_NATIONKEY = N.N_NATIONKEY
+            JOIN {{ ref('SRC','ORDERS') }} O ON O.O_CUSTKEY = C.C_CUSTKEY
+            JOIN {{ ref('SRC','LINEITEM') }} L ON L.L_ORDERKEY = O.O_ORDERKEY
+            JOIN {{ ref('SRC','SUPPLIER') }} S ON S.S_SUPPKEY = L.L_SUPPKEY
+        name: STG_MOSAIC_PREREQ
+        noLinkRefs: []
+  name: STG_MOSAIC_PREREQ
+  overrideSQL: false
+  schema: ""
+  sqlType: "52"
+  type: sql
+  version: 1
+type: Node
