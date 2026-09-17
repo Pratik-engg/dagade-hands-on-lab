@@ -4,7 +4,7 @@ name: NEW_PARTSUPP
 operation:
   config:
     insertStrategy: INSERT
-    postSQL: ""
+    postSQL: call PRATIK.WORKDEV.COMPARE_TABLES ('{{ ref('WORK', 'NEW_PARTSUPP') | replace('"', '') }}','{{ ref('WORK', 'NEW_PARTSUPP') | replace('"', '') }}');
     preSQL: ""
     testsEnabled: true
     truncateBefore: true

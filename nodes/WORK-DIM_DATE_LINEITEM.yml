@@ -1,0 +1,526 @@
+fileVersion: 1
+id: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+name: DIM_DATE_LINEITEM
+operation:
+  config:
+    dateColumnName: "\"DATE_COL\""
+    daysToGenerate: "2000"
+    insertZeroKey: false
+    insertZeroKeyDate: ""
+    insertZeroKeyStr: ""
+    insertZeroKeySurrogateKey: ""
+    pdeploy: false
+    postSQL: ""
+    preSQL: ""
+    startingDate: DATEADD(DAY, -730, CURRENT_DATE)
+    testsEnabled: false
+    truncateBefore: true
+  database: ""
+  deployEnabled: true
+  description: Lineitem data as defined by TPC-H
+  isMultisource: false
+  locationName: WORK
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3366783c-224f-4a9b-a54c-97b4a89803f8
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: DATE
+        defaultValue: ""
+        description: Date in the format YYYY-MM-DD
+        isBusinessKey: true
+        name: DATE_KEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: "{{ config.dateColumnName }}"
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8964c061-a15f-456b-8fcf-47ec217ebddc
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: SMALLINT
+        defaultValue: ""
+        description: Year in the format YYYY
+        isYear: true
+        name: YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: YEAR({{ config.dateColumnName }})
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d9b752ba-0877-47e7-b8b1-8872f209b428
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: SMALLINT
+        defaultValue: ""
+        description: Month in the format MM
+        isMonth: true
+        name: MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MONTH({{ config.dateColumnName }})
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 751c41fa-f2a6-44b8-9b80-e3f37a5ef1de
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: CHAR(3)
+        defaultValue: ""
+        description: Month in the format MMM
+        isMonthName: true
+        name: MONTH_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: MONTHNAME({{ config.dateColumnName }})
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 61a9dfdd-f369-48ef-a79e-618473412dd8
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: SMALLINT
+        defaultValue: ""
+        description: Day in the format DD
+        isDayOfMonth: true
+        name: DAY_OF_MONTH
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: DAY({{ config.dateColumnName }})
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf52c16d-8328-4687-8721-fa45cb9be7e7
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: VARCHAR(9)
+        defaultValue: ""
+        description: Day of the Week in format DD
+        isDayOfWeek: true
+        name: DAY_OF_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: DAYOFWEEK({{ config.dateColumnName }})
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: d8e71d2e-8d7d-4142-9549-aa8ee886262e
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: VARCHAR(9)
+        defaultValue: ""
+        description: Day of the Week in format DDD
+        isDayNameOfWeek: true
+        name: DAY_NAME_OF_WEEK
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_CHAR({{ config.dateColumnName }}, 'Dy')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 83b4d544-728e-4c16-87bc-0f5e2e12bd74
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: SMALLINT
+        defaultValue: ""
+        description: Week of the Year
+        isWeekOfYear: true
+        name: WEEK_OF_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: WEEKOFYEAR({{ config.dateColumnName }})
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 8b2b3542-315d-47a7-844b-6549b048fae7
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: SMALLINT
+        defaultValue: ""
+        description: Day of the year
+        isYearColumn: true
+        name: DAY_OF_YEAR
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: DAYOFYEAR({{ config.dateColumnName }})
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 04e7deef-8ab6-4249-a4ae-0d6de4d57999
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: SMALLINT
+        defaultValue: ""
+        description: Quarter Number of the year (1-4)
+        isQuarterNumber: true
+        name: QUARTER_NUMBER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_NUMBER(TO_CHAR(DATE_PART('Q',{{config.dateColumnName}})), '9')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 16dcce60-894c-400c-b290-dbc773eb8976
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: SMALLINT
+        defaultValue: ""
+        description: Year and the Quarter number in the format YYYYQQ
+        isQuarter: true
+        name: QUARTER
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: TO_NUMBER(TO_CHAR({{config.dateColumnName}}, 'YYYY') || '0' || TO_CHAR(DATE_PART('Q',{{config.dateColumnName}})), '999999')
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: addf7a43-7274-42b6-a8a9-465f7018416d
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: VARCHAR(9)
+        defaultValue: ""
+        description: Flag to check week day
+        isFlagWeekDay: true
+        name: FLAG_WEEK_DAY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN TO_CHAR({{config.dateColumnName }}, 'Dy') IN ('Sat','Sun') THEN 'N' ELSE 'Y' END
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 5395f353-7c1c-4a0e-b32a-beb7abdd0ef1
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: VARCHAR(9)
+        defaultValue: ""
+        description: Flag to check weekend
+        isFlagWeekEnd: true
+        name: FLAG_WEEK_END
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CASE WHEN TO_CHAR({{config.dateColumnName }}, 'Dy') IN ('Sat','Sun') THEN 'Y' ELSE 'N' END
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bf32e265-b96e-41c2-85ce-4c1759a1a4a0
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: L_ORDERKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d14f1253-f08a-40d3-bed7-e1e2b9db9740
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: fecdcc15-f8ba-4569-bd3d-10ae23b3f84b
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: L_PARTKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: a4f17270-9c20-4df9-8c5e-27387644c887
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 58a30313-15ee-45ba-9fab-edf69ef6456e
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: L_SUPPKEY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 68ca2897-9db5-4ca5-a6ea-201e6e65e643
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 49519602-8f5f-4861-bc89-0d9d396ea3b9
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: L_LINENUMBER
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 72242d48-19df-43fe-8277-176a36efb0d6
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 387ed02b-8524-443e-8432-461af8655d96
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: L_QUANTITY
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: bae78cd1-ac34-4848-b357-95be1073ee21
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b36a3ff-79e7-4b6b-983d-9d9aee2818f1
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: L_EXTENDEDPRICE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6058a4ec-f1d0-4fab-ba03-e8a8215fc2b5
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a97da08b-43a9-469f-91c1-e680558d82aa
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: L_DISCOUNT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fbd37a87-284e-4ad7-a513-32aab2ab6633
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 14989ef6-3fca-4022-8e7e-b8ae797ba0d5
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: L_TAX
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: c210e4e1-6299-4f01-93f1-24e1705cb52e
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 23f78ccf-839c-43b2-876a-5e5e1f31d3e8
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: L_RETURNFLAG
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 219ef929-9f67-4f89-8d8f-d9aa3f2f179c
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: c1e39ee1-8207-4459-ba9e-0167c1d536ed
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: VARCHAR(1)
+        description: ""
+        name: L_LINESTATUS
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 09bbc514-6f2e-45eb-bbe2-9b9bcce8d6ab
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 53a44a95-b46e-4c26-8964-7e8358bcb2ca
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: DATE
+        description: ""
+        name: L_SHIPDATE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 7c67e249-a8f4-481c-b856-23c4ba6a86bb
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 4c581824-ddb7-41e8-b427-b4b43498bfdb
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: DATE
+        description: ""
+        name: L_COMMITDATE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 8286cbb4-e7c1-46fa-bf88-73a4a004a526
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 15780ea3-4a76-4f4f-8efa-c5fdf5aafd4d
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: DATE
+        description: ""
+        name: L_RECEIPTDATE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: da90e036-58d9-4af5-91ca-e3fef395a375
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: faec9358-6202-4725-9cf7-039240d93173
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: L_SHIPINSTRUCT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 0e059d60-cd75-4f51-8a42-a11d24e01a22
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 998f8ac5-4e50-4ad2-9b33-3f0378083614
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        name: L_SHIPMODE
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 919b2537-8f35-4409-bfd2-b110d583e8e3
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 61a04e25-ce93-4e43-92bf-cf35b570ee34
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: VARCHAR(44)
+        description: ""
+        name: L_COMMENT
+        nullable: false
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 913f5db8-a252-44eb-bef8-dca076b74c75
+                stepCounter: 8094c606-49e4-400e-8252-c68f8d33990b
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 6a1a22f4-c617-4725-a79c-25615d2c6d2e
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 921ad391-d3d3-4912-90e6-7afad2e95553
+          stepCounter: 37a3fcdd-0237-4d9c-b54a-381c24c27298
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_LINEITEM: 8094c606-49e4-400e-8252-c68f8d33990b
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: WORK
+            nodeName: STG_LINEITEM
+        join:
+          joinCondition: FROM {{ ref('WORK', 'STG_LINEITEM') }} "STG_LINEITEM"
+        name: DIM_DATE_LINEITEM
+        noLinkRefs: []
+  name: DIM_DATE_LINEITEM
+  overrideSQL: false
+  schema: ""
+  sqlType: snowflake-functional-node-types-4-3-3:::404
+  type: sql
+  version: 1
+type: Node
