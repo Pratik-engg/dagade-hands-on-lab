@@ -1,6 +1,6 @@
 fileVersion: 1
 id: 00ad6f51-bf86-4af0-b18c-5eee0bdd2bde
-name: DT_DIM_SRC_CPY
+name: DT_DIM_SRC_CPY_1
 operation:
   config:
     advanceWarehouse: false
@@ -366,9 +366,9 @@ operation:
             nodeName: PSTG_SRC_CPY
         join:
           joinCondition: FROM {{ ref('T1', 'PSTG_SRC_CPY') }} "PSTG_SRC_CPY"
-        name: DT_DIM_SRC_CPY
+        name: DT_DIM_SRC_CPY_1
         noLinkRefs: []
-  name: DT_DIM_SRC_CPY
+  name: DT_DIM_SRC_CPY_1
   overrideSQL: false
   schema: ""
   sqlType: Dt:::350
