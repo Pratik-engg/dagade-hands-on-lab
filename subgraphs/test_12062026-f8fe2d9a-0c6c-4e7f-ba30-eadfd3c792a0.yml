@@ -1,0 +1,7 @@
+fileVersion: 1
+id: f8fe2d9a-0c6c-4e7f-ba30-eadfd3c792a0
+name: test_12062026
+steps:
+  - 1600f02a-ed6b-41fe-b012-b92f97b7b6cf
+  - a6c6357b-9ce0-45b8-bc15-c608a1a8f45f
+type: Subgraph
