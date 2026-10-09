@@ -1,0 +1,82 @@
+fileVersion: 1
+id: dec3d68b-cba9-43d0-8afa-6552c0775b06
+name: VW_CUSTOMER
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: View over persisted customers.
+  isMultisource: false
+  locationName: T1
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-c2a7-75be-bedd-3a1461ed3bef
+          stepCounter: dec3d68b-cba9-43d0-8afa-6552c0775b06
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: C_CUSTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-4865-778c-8be1-c1c8aa0d66db
+                stepCounter: bb760d4a-1f84-4126-bc77-3aab842c32b4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-c2a7-75be-bedd-3e1038f96639
+          stepCounter: dec3d68b-cba9-43d0-8afa-6552c0775b06
+        config: {}
+        dataType: VARCHAR(25)
+        description: ""
+        name: C_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-4865-778c-8be1-c78f09b6e6c8
+                stepCounter: bb760d4a-1f84-4126-bc77-3aab842c32b4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-c2a7-75be-bedd-410598c17843
+          stepCounter: dec3d68b-cba9-43d0-8afa-6552c0775b06
+        config: {}
+        dataType: VARCHAR(15)
+        description: ""
+        name: C_PHONE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-4865-778c-8be1-d35c2d6d4042
+                stepCounter: bb760d4a-1f84-4126-bc77-3aab842c32b4
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          PSTG_CUSTOMER: bb760d4a-1f84-4126-bc77-3aab842c32b4
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: T1
+            nodeName: PSTG_CUSTOMER
+        join:
+          joinCondition: FROM {{ ref('T1', 'PSTG_CUSTOMER') }} "PSTG_CUSTOMER"
+        name: V_NODE
+        noLinkRefs: []
+  name: VW_CUSTOMER
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

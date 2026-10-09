@@ -1,0 +1,70 @@
+fileVersion: 1
+id: 248325c1-0c78-45ee-b91a-530beb89d0fb
+name: VW_ORDERS_HIGH_VALUE
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: Orders with total price over 100,000.
+  isMultisource: false
+  locationName: T1
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-9a0f-70c8-9416-954428248a62
+          stepCounter: 248325c1-0c78-45ee-b91a-530beb89d0fb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: O_ORDERKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-31dc-741b-923b-453fad47f28f
+                stepCounter: e2db8822-675d-459d-b1a4-80000d4c0027
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-9a0f-70c8-9416-9a7d743837b4
+          stepCounter: 248325c1-0c78-45ee-b91a-530beb89d0fb
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: O_TOTALPRICE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-31dc-741b-923b-5217bda4153e
+                stepCounter: e2db8822-675d-459d-b1a4-80000d4c0027
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          PSTG_ORDERS: e2db8822-675d-459d-b1a4-80000d4c0027
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: T1
+            nodeName: PSTG_ORDERS
+        join:
+          joinCondition: |-
+            FROM {{ ref('T1', 'PSTG_ORDERS') }} "PSTG_ORDERS"
+            WHERE "PSTG_ORDERS"."O_TOTALPRICE" > 100000
+        name: V_NODE
+        noLinkRefs: []
+  name: VW_ORDERS_HIGH_VALUE
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node

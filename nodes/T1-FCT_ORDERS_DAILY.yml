@@ -1,0 +1,113 @@
+fileVersion: 1
+id: 89eec3f5-69d1-4448-9767-2d66bf8c41fb
+name: FCT_ORDERS_DAILY
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Daily order revenue aggregate.
+  isMultisource: false
+  locationName: T1
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-a7df-70d9-92a9-42bb6964bc4d
+          stepCounter: 89eec3f5-69d1-4448-9767-2d66bf8c41fb
+        config: {}
+        dataType: DATE
+        description: ""
+        name: O_ORDERDATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-31dc-741b-923b-57dbfc63865d
+                stepCounter: e2db8822-675d-459d-b1a4-80000d4c0027
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-a7df-70d9-92a9-468276f753df
+          stepCounter: 89eec3f5-69d1-4448-9767-2d66bf8c41fb
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: ORDER_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-31dc-741b-923b-453fad47f28f
+                stepCounter: e2db8822-675d-459d-b1a4-80000d4c0027
+            transform: COUNT("PSTG_ORDERS"."O_ORDERKEY")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-a7df-70d9-92a9-485cb6055607
+          stepCounter: 89eec3f5-69d1-4448-9767-2d66bf8c41fb
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: TOTAL_REVENUE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-31dc-741b-923b-5217bda4153e
+                stepCounter: e2db8822-675d-459d-b1a4-80000d4c0027
+            transform: SUM("PSTG_ORDERS"."O_TOTALPRICE")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ebb5b646-1ada-48a8-8bd8-02ec55dba0ae
+          stepCounter: 89eec3f5-69d1-4448-9767-2d66bf8c41fb
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9178edf7-2098-433a-9998-d610e814f27d
+          stepCounter: 89eec3f5-69d1-4448-9767-2d66bf8c41fb
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          PSTG_ORDERS: e2db8822-675d-459d-b1a4-80000d4c0027
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: T1
+            nodeName: PSTG_ORDERS
+        join:
+          joinCondition: |-
+            FROM {{ ref('T1', 'PSTG_ORDERS') }} "PSTG_ORDERS"
+            GROUP BY "PSTG_ORDERS"."O_ORDERDATE"
+        name: FCT_NODE
+        noLinkRefs: []
+  name: FCT_ORDERS_DAILY
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

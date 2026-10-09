@@ -1,0 +1,113 @@
+fileVersion: 1
+id: 0c9f02b1-2afd-49ba-9683-85154e3d7629
+name: FCT_CUSTOMER_ACCT
+operation:
+  config:
+    postSQL: ""
+    preSQL: ""
+    testsEnabled: true
+  database: ""
+  deployEnabled: true
+  description: Account balance totals by market segment.
+  isMultisource: false
+  locationName: T1
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-ec72-76b8-8e8a-7d8e1c2a9c80
+          stepCounter: 0c9f02b1-2afd-49ba-9683-85154e3d7629
+        config: {}
+        dataType: VARCHAR(10)
+        description: ""
+        name: C_MKTSEGMENT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-4865-778c-8be1-d8f3bf0738e9
+                stepCounter: bb760d4a-1f84-4126-bc77-3aab842c32b4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-ec72-76b8-8e8a-8136dcb6a7e3
+          stepCounter: 0c9f02b1-2afd-49ba-9683-85154e3d7629
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: CUSTOMER_COUNT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-4865-778c-8be1-c1c8aa0d66db
+                stepCounter: bb760d4a-1f84-4126-bc77-3aab842c32b4
+            transform: COUNT("PSTG_CUSTOMER"."C_CUSTKEY")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-ec72-76b8-8e8a-86bacfaf09bf
+          stepCounter: 0c9f02b1-2afd-49ba-9683-85154e3d7629
+        config: {}
+        dataType: NUMBER(38,2)
+        description: ""
+        name: TOTAL_ACCTBAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-4865-778c-8be1-d48dd471adeb
+                stepCounter: bb760d4a-1f84-4126-bc77-3aab842c32b4
+            transform: SUM("PSTG_CUSTOMER"."C_ACCTBAL")
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: ee09108e-75dc-46af-bfc3-8fd49442a4de
+          stepCounter: 0c9f02b1-2afd-49ba-9683-85154e3d7629
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: bd74c2d0-577f-4b0a-abc2-afc24a2adf5f
+          stepCounter: 0c9f02b1-2afd-49ba-9683-85154e3d7629
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          PSTG_CUSTOMER: bb760d4a-1f84-4126-bc77-3aab842c32b4
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: T1
+            nodeName: PSTG_CUSTOMER
+        join:
+          joinCondition: |-
+            FROM {{ ref('T1', 'PSTG_CUSTOMER') }} "PSTG_CUSTOMER"
+            GROUP BY "PSTG_CUSTOMER"."C_MKTSEGMENT"
+        name: FCT_NODE
+        noLinkRefs: []
+  name: FCT_CUSTOMER_ACCT
+  overrideSQL: false
+  schema: ""
+  sqlType: Fact
+  type: sql
+  version: 1
+type: Node

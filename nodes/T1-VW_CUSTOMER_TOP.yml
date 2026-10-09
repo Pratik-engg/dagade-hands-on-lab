@@ -1,0 +1,70 @@
+fileVersion: 1
+id: fca1943e-0932-4f67-9ea9-54c8ac00f03f
+name: VW_CUSTOMER_TOP
+operation:
+  config:
+    insertStrategy: UNION
+    selectDistinct: false
+  database: ""
+  deployEnabled: true
+  description: Customers with account balance over 5,000.
+  isMultisource: false
+  locationName: T1
+  materializationType: view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-d92f-768c-81db-c1c8996d3c07
+          stepCounter: fca1943e-0932-4f67-9ea9-54c8ac00f03f
+        config: {}
+        dataType: NUMBER(38,0)
+        description: ""
+        name: C_CUSTKEY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-4865-778c-8be1-c1c8aa0d66db
+                stepCounter: bb760d4a-1f84-4126-bc77-3aab842c32b4
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 01a11fdf-d92f-768c-81db-c59799c24cdd
+          stepCounter: fca1943e-0932-4f67-9ea9-54c8ac00f03f
+        config: {}
+        dataType: NUMBER(12,2)
+        description: ""
+        name: C_ACCTBAL
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 01a11fdf-4865-778c-8be1-d48dd471adeb
+                stepCounter: bb760d4a-1f84-4126-bc77-3aab842c32b4
+            transform: ""
+    cteString: ""
+    description: ""
+    destinationName: ""
+    enabledColumnTestIDs: []
+    materializationOption: ""
+    sourceMapping:
+      - aliases:
+          PSTG_CUSTOMER: bb760d4a-1f84-4126-bc77-3aab842c32b4
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: T1
+            nodeName: PSTG_CUSTOMER
+        join:
+          joinCondition: |-
+            FROM {{ ref('T1', 'PSTG_CUSTOMER') }} "PSTG_CUSTOMER"
+            WHERE "PSTG_CUSTOMER"."C_ACCTBAL" > 5000
+        name: V_NODE
+        noLinkRefs: []
+  name: VW_CUSTOMER_TOP
+  overrideSQL: false
+  schema: ""
+  sqlType: View
+  type: sql
+  version: 1
+type: Node
