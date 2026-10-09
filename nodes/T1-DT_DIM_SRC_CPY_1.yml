@@ -92,20 +92,6 @@ operation:
             transform: ""
       - appliedColumnTests: {}
         columnReference:
-          columnCounter: cd2b82ed-39d8-4b59-965d-23f24ef8699a
-          stepCounter: 00ad6f51-bf86-4af0-b18c-5eee0bdd2bde
-        config: {}
-        dataType: NUMBER(38,0)
-        description: ""
-        name: C_CUSTKEY
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: f122c85d-32fb-4895-a0a1-f6ca1a468cf2
-                stepCounter: 70982a3b-f228-4928-ab82-a44a0cb48da2
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
           columnCounter: b7967250-7930-405d-a81e-b266a8657d8a
           stepCounter: 00ad6f51-bf86-4af0-b18c-5eee0bdd2bde
         config: {}
@@ -130,20 +116,6 @@ operation:
         sourceColumnReferences:
           - columnReferences:
               - columnCounter: beb4b005-3aef-40ad-83c0-b6b930b6514f
-                stepCounter: 70982a3b-f228-4928-ab82-a44a0cb48da2
-            transform: ""
-      - appliedColumnTests: {}
-        columnReference:
-          columnCounter: 10478543-08c4-4d87-b22e-d989ac2fc8ba
-          stepCounter: 00ad6f51-bf86-4af0-b18c-5eee0bdd2bde
-        config: {}
-        dataType: NUMBER(38,0)
-        description: ""
-        name: C_NATIONKEY
-        nullable: false
-        sourceColumnReferences:
-          - columnReferences:
-              - columnCounter: 968bda2a-05ea-4f3c-91e2-2452afa81307
                 stepCounter: 70982a3b-f228-4928-ab82-a44a0cb48da2
             transform: ""
       - appliedColumnTests: {}
