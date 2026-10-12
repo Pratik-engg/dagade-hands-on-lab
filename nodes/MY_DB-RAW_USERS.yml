@@ -1,0 +1,92 @@
+fileVersion: 1
+id: ed7d42d8-c454-4150-9f83-266102271c28
+name: RAW_USERS
+operation:
+  database: ""
+  deployEnabled: true
+  description: ""
+  locationName: MY_DB
+  metadata:
+    columns:
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3feacc52-177d-4f57-8695-a6cc6377988a
+          stepCounter: ed7d42d8-c454-4150-9f83-266102271c28
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: USER_ID
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: eb651c2b-4dde-44d1-8dde-c74c9c596ee0
+          stepCounter: ed7d42d8-c454-4150-9f83-266102271c28
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: USER_NAME
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a502c43f-6a37-4c20-91d6-3b9456fa0fc0
+          stepCounter: ed7d42d8-c454-4150-9f83-266102271c28
+        config: {}
+        dataType: VARCHAR(16777216)
+        defaultValue: ""
+        description: ""
+        name: COUNTRY
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: 3295798c-ac83-40e6-be49-676eb7cf2639
+          stepCounter: ed7d42d8-c454-4150-9f83-266102271c28
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        defaultValue: ""
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        primaryKey: false
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: ""
+        transform: ""
+        uniqueKey: false
+  name: RAW_USERS
+  schema: ""
+  sqlType: Source
+  type: sourceInput
+  version: 1
+type: Node

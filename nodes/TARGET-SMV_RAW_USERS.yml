@@ -1,0 +1,121 @@
+fileVersion: 1
+id: 4ac61ab1-3221-48b2-8ed6-5455cdffd272
+name: SMV_RAW_USERS
+operation:
+  config:
+    DimConfig:
+      items:
+        - {}
+    aiQuestionCategorization: ""
+    aiSqlGeneration: ""
+    deriveCol: false
+    dimToggle: false
+    factDetConfig:
+      items:
+        - {}
+    factToggle: false
+    foreignKeyConfig:
+      items:
+        - {}
+    foreignToggle: false
+    metricConfig:
+      items:
+        - {}
+    metricToggle: false
+    primaryKeyConfig:
+      items:
+        - primAlias: UserId
+          primComment: ""
+          primSynonym: ""
+          primaryKey:
+            columnCounter: e18e9cd1-2f63-47b6-b14f-980c81eec6d8
+            name: USER_ID
+            stepCounter: 4ac61ab1-3221-48b2-8ed6-5455cdffd272
+    semanticMaterialization: semantic view
+    tableOnlyToggle: true
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: TARGET
+  materializationType: semantic view
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: e18e9cd1-2f63-47b6-b14f-980c81eec6d8
+          stepCounter: 4ac61ab1-3221-48b2-8ed6-5455cdffd272
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: UserId
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6d61cb37-2509-4f9f-bc7d-2496fa234e99
+                stepCounter: 6e37d0f1-a958-409e-ac3b-28079947f935
+            transform: "\"STG_RAW_USERS\".\"UserId\""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d6b9ff54-2887-4c84-9c4e-a2a2ad284f27
+          stepCounter: 4ac61ab1-3221-48b2-8ed6-5455cdffd272
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: USER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: fd8db667-307c-4bfd-acd3-4490c8ba5cbc
+                stepCounter: 6e37d0f1-a958-409e-ac3b-28079947f935
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 82178f96-734c-4f21-9775-13d3aac3626d
+          stepCounter: 4ac61ab1-3221-48b2-8ed6-5455cdffd272
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: f66cbfb6-e3a4-4b70-854e-bfb5e73a4cb2
+                stepCounter: 6e37d0f1-a958-409e-ac3b-28079947f935
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: d3c3b754-d0ec-42ac-9479-c92e4aba263b
+          stepCounter: 4ac61ab1-3221-48b2-8ed6-5455cdffd272
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 6f9daeef-32ef-4180-bce8-3e5abaf120c4
+                stepCounter: 6e37d0f1-a958-409e-ac3b-28079947f935
+            transform: ""
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          STG_RAW_USERS: 6e37d0f1-a958-409e-ac3b-28079947f935
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: STG_RAW_USERS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'STG_RAW_USERS') }} "STG_RAW_USERS"
+        name: SMV_RAW_USERS
+        noLinkRefs: []
+  name: SMV_RAW_USERS
+  overrideSQL: false
+  schema: ""
+  sqlType: semantic-view-1-0-1:::632
+  type: sql
+  version: 1
+type: Node
