@@ -1,0 +1,157 @@
+fileVersion: 1
+id: ece28f4b-693d-4145-9c95-75c57264e5b8
+name: FCT_RAW_USERS
+operation:
+  config:
+    clusterKey: false
+    clusterKeyConfig:
+      items:
+        - {}
+    clusterKeyConfigExpressions:
+      items:
+        - {}
+    clusterKeyExpressions: false
+    excludeMergeList:
+      items:
+        - {}
+    excludeMergeToggle: false
+    groupByAll: false
+    insertStrategy: UNION ALL
+    lastModifiedComparison: false
+    lookbackdays: 0
+    mergeDeleteStrategy: NO DELETES
+    orderby: false
+    orderbycolumn:
+      items:
+        - {}
+    postSQL: ""
+    preSQL: ""
+    primary: false
+    primaryKeyCol:
+      items:
+        - {}
+    primaryKeyName: ""
+    selectDistinct: false
+    softDeleteStrategy: false
+    testsEnabled: false
+    truncateBefore: false
+  database: ""
+  deployEnabled: true
+  description: ""
+  isMultisource: false
+  locationName: MY_DB
+  materializationType: table
+  metadata:
+    appliedNodeTests: []
+    columns:
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 9b2d12a2-60fc-4ecf-bcd5-e1e86700a284
+          stepCounter: ece28f4b-693d-4145-9c95-75c57264e5b8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: UserId
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: e18e9cd1-2f63-47b6-b14f-980c81eec6d8
+                stepCounter: 4ac61ab1-3221-48b2-8ed6-5455cdffd272
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: a18447d1-ecfd-4309-ad78-d5e0fd7cc12e
+          stepCounter: ece28f4b-693d-4145-9c95-75c57264e5b8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: USER_NAME
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d6b9ff54-2887-4c84-9c4e-a2a2ad284f27
+                stepCounter: 4ac61ab1-3221-48b2-8ed6-5455cdffd272
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 67473833-e177-415d-bd84-19366072601f
+          stepCounter: ece28f4b-693d-4145-9c95-75c57264e5b8
+        config: {}
+        dataType: VARCHAR(16777216)
+        description: ""
+        name: COUNTRY
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: 82178f96-734c-4f21-9775-13d3aac3626d
+                stepCounter: 4ac61ab1-3221-48b2-8ed6-5455cdffd272
+            transform: ""
+      - appliedColumnTests: {}
+        columnReference:
+          columnCounter: 897fbeb4-55a0-4e1f-bb88-f5a8c6d9fef5
+          stepCounter: ece28f4b-693d-4145-9c95-75c57264e5b8
+        config: {}
+        dataType: TIMESTAMP_NTZ(9)
+        description: ""
+        name: CREATED_AT
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences:
+              - columnCounter: d3c3b754-d0ec-42ac-9479-c92e4aba263b
+                stepCounter: 4ac61ab1-3221-48b2-8ed6-5455cdffd272
+            transform: ""
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: a384132d-5d39-453c-9258-d7c71c57f88e
+          stepCounter: ece28f4b-693d-4145-9c95-75c57264e5b8
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemCreateDate: true
+        name: SYSTEM_CREATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+      - acceptedValues:
+          strictMatch: true
+          values: []
+        appliedColumnTests: {}
+        columnReference:
+          columnCounter: ce535496-2275-4a53-b2b7-2c994bcfd2b6
+          stepCounter: ece28f4b-693d-4145-9c95-75c57264e5b8
+        config: {}
+        dataType: TIMESTAMP
+        defaultValue: ""
+        description: ""
+        isSystemUpdateDate: true
+        name: SYSTEM_UPDATE_DATE
+        nullable: true
+        sourceColumnReferences:
+          - columnReferences: []
+            transform: CAST(CURRENT_TIMESTAMP AS TIMESTAMP)
+    cteString: ""
+    enabledColumnTestIDs: []
+    sourceMapping:
+      - aliases:
+          SMV_RAW_USERS: 4ac61ab1-3221-48b2-8ed6-5455cdffd272
+        customSQL:
+          customSQL: ""
+        dependencies:
+          - locationName: TARGET
+            nodeName: SMV_RAW_USERS
+        join:
+          joinCondition: FROM {{ ref('TARGET', 'SMV_RAW_USERS') }} "SMV_RAW_USERS"
+        name: FCT_RAW_USERS
+        noLinkRefs: []
+  name: FCT_RAW_USERS
+  overrideSQL: false
+  schema: ""
+  sqlType: BNT-Ad-3-0-0:::389
+  type: sql
+  version: 1
+type: Node

@@ -1,0 +1,17 @@
+fileVersion: 1
+id: "41"
+mappingDefinitions:
+  MY_DB:
+    database: PRATIK_DB
+    schema: RAW
+  NEW:
+    database: PRATIK
+    schema: WORKDEV
+  SRC:
+    database: SNOWFLAKE_SAMPLE_DATA
+    schema: TPCH_SF1
+  TARGET:
+    database: DB_PRATIK
+    schema: WORKTEST
+name: Deploy_Test
+type: Environment
